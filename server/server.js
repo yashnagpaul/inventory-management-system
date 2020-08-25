@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
-const inventoryRoute = require('./route/inventoryRoute');
+const inventoryRoute = require('./routes/inventoryRoute');
 
 const cors = require('cors');
 
@@ -19,5 +19,5 @@ app.get('/', (req, res) => {
 // Api route
 app.use("/api", inventoryRoute);
 
-// Listening on port 5000
-app.listen(PORT, () => { console.log('Listening at: http://localhost:5000')});
+// Listening on PORT
+app.listen(PORT, () => { console.log(`Listening at: http://localhost:${PORT}`)});
