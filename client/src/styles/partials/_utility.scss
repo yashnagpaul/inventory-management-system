@@ -1,0 +1,34 @@
+// UTILITY CLASSES
+@mixin primary-CTA {
+  background-color: $instock-indigo;
+  color: $white;
+  font-family: "instock-semibold";
+  border: 0px;
+  border-radius: 20px;
+  padding: 16px;
+  &:hover {
+    background-color: $instock-black;
+  }
+}
+
+@mixin delete-btn {
+  @include primary-CTA;
+  background-color: $red;
+}
+
+@mixin cancel-btn {
+  @include primary-CTA;
+  background-color: $white;
+  color: $slate;
+  &:active {
+    color: $instock-indigo;
+  }
+}
+
+.selected-input {
+  font-family: "instock-regular";
+  background-color: $white;
+  border-radius: 20px;
+  outline-color: $instock-indigo;
+  border: 1px solid $cloud;
+}
