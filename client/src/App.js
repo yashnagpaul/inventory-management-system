@@ -3,8 +3,6 @@ import "./styles/App.css";
 import axios from "axios";
 
 import Header from "./components/Header";
-// import AddWarehouse from "./components/AddWarehouse";
-// import EditWarehouse from "./components/EditWarehouse";
 import ListWarehouses from "./components/ListWarehouses";
 
 class App extends Component {
