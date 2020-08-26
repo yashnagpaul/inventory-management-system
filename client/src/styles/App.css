@@ -218,11 +218,15 @@ a:hover {
 }
 
 .list-warehouse__container {
-  width: 90%;
+  width: 86%;
   margin: 0 auto;
   border-radius: 3px;
   -webkit-box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
           box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  position: absolute;
+  top: 135px;
+  background-color: white;
+  left: 7%;
 }
 
 .list-warehouse__header-section {
@@ -285,11 +289,16 @@ a:hover {
 }
 
 .list-warehouse__content-container {
-  width: 86%;
+  width: 100%;
   margin: 0 auto;
 }
 
+.list-warehouse__warehouse-card-container {
+  border-bottom: 1px solid #bdc5d5;
+}
+
 .list-warehouse__warehouse-card {
+  width: 86%;
   padding: 16px 0;
 }
 
