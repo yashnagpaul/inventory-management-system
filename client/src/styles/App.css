@@ -1,11 +1,33 @@
 @font-face {
   font-family: "instock-regular";
-  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf");
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf");
 }
 
 @font-face {
   font-family: "instock-semibold";
   src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf");
+}
+
+h1 {
+  font-family: "instock-semibold";
+  font-size: 28px;
+}
+
+h4 {
+  font-family: "instock-semibold";
+  font-size: 11px;
+  color: #5c667e;
+}
+
+h3 {
+  font-family: "instock-semibold";
+  font-size: 13px;
+}
+
+p {
+  font-family: "instock-regular";
+  font-size: 13px;
+  color: #13182c;
 }
 
 [type="text"] {
@@ -193,5 +215,188 @@ a:hover {
 
 .add-warehouse__save-add-btn:hover {
   background-color: #13182c;
+}
+
+.list-warehouse__container {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+          box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+}
+
+.list-warehouse__header-section {
+  border-bottom: 1px solid #bdc5d5;
+}
+
+.list-warehouse__header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  width: 86%;
+}
+
+.list-warehouse__title {
+  text-align: left;
+  margin: 0;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.list-warehouse__search {
+  width: 100%;
+  position: relative;
+}
+
+.list-warehouse__search-input {
+  width: 100%;
+}
+
+.list-warehouse__search-icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.list-warehouse__add-button {
+  background-color: #2e66e5;
+  color: #ffffff;
+  font-family: "instock-semibold";
+  border: 0px;
+  border-radius: 20px;
+  padding: 6px;
+  width: 125px;
+  outline-color: transparent;
+  width: 100%;
+  font-family: "instock-regular";
+  font-size: 13px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.list-warehouse__add-button:hover {
+  background-color: #13182c;
+}
+
+.list-warehouse__content-container {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.list-warehouse__warehouse-card {
+  padding: 16px 0;
+}
+
+.list-warehouse__warehouse-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0;
+}
+
+.list-warehouse__warehouse-name-section {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.list-warehouse__warehouse-name-title {
+  margin: 0;
+}
+
+.list-warehouse__warehouse-name {
+  margin: 0;
+  color: #2e66e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.list-warehouse__contact-name-section {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.list-warehouse__contact-name-title {
+  margin: 0;
+}
+
+.list-warehouse__contact-name {
+  margin: 0;
+}
+
+.list-warehouse__address-section {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.list-warehouse__address-title {
+  margin: 0;
+}
+
+.list-warehouse__address {
+  margin: 0;
+}
+
+.list-warehouse__contact-section {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.list-warehouse__contact-title {
+  margin: 0;
+}
+
+.list-warehouse__contact {
+  margin: 0;
+}
+
+.list-warehouse__warehouse-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list-warehouse__warehouse-delete {
+  margin: 0;
+}
+
+.list-warehouse__warehouse-edit {
+  margin: 0;
 }
 /*# sourceMappingURL=App.css.map */

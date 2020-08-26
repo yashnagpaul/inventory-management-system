@@ -1,0 +1,152 @@
+.list-warehouse {
+
+    &__container {
+        width: $mobile-container-width;
+        margin: 0 auto;
+        border-radius: 3px;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+    }
+
+    &__header-section {
+        border-bottom: 1px solid $cloud;
+    }
+
+    &__header-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 86%;
+    }
+
+    &__title {
+        text-align: left;
+        margin: 0;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+
+    &__search {
+        width: 100%;
+        position: relative;
+
+        &-input {
+            width: 100%;
+        }
+
+        &-icon {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+    }
+
+    &__add-button {
+        @include primary-CTA;
+        width: 100%;
+        font-family: "instock-regular";
+        font-size: 13px;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__content-section {
+        // background-color: lightblue;
+    }
+
+    &__content-container {
+        width: 86%;
+        margin: 0 auto;
+        // background-color: lightcoral;
+    }
+
+&__warehouse-card{
+    padding: 16px 0;
+}
+
+    &__warehouse-top {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin:0;
+    }
+
+    &__warehouse-name-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom:16px;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+    }
+
+    &__warehouse-name-title{
+        margin: 0;
+    }
+
+    &__warehouse-name{
+        margin: 0;
+        color: $instock-indigo;
+        display: flex;
+        align-items: center;
+    }
+
+    &__contact-name-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom:16px;
+    }
+
+    &__contact-name-title {
+        margin: 0;
+    }
+
+    &__contact-name {
+        margin: 0;
+    }
+
+    &__address-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom:16px;
+    }
+
+    &__address-title {
+        margin: 0;
+    }
+
+    &__address {
+        margin: 0;
+    }
+
+    &__contact-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom:16px;
+    }
+
+    &__contact-title {
+        margin: 0;
+    }
+
+    &__contact {
+        margin: 0;
+    }
+
+    &__warehouse-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__warehouse-delete{
+        margin: 0;
+    }
+
+    &__warehouse-edit{
+        margin: 0;
+    }
+
+}
