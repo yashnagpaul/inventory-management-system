@@ -2,7 +2,7 @@ import React from "react";
 export default function AddWarehouse() {
   return (
     <form className="add-warehouse">
-      <h1>Add New Warehouse</h1>
+      <h1>Edit Warehouse</h1>
       <div className="add-warehouse__warehouse-details">
         <h3>Warehouse Details</h3>
         <label for="name">Warehouse Name</label>
@@ -76,7 +76,7 @@ export default function AddWarehouse() {
       </div>
       <div className="add-warehouse__btn-container">
         <button className="add-warehouse__cancel-btn">Cancel</button>
-        <button className="add-warehouse__save-add-btn">+ Add Warehouse</button>
+        <button className="add-warehouse__save-add-btn">Save</button>
       </div>
     </form>
   );

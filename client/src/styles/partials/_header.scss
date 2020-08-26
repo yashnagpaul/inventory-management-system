@@ -2,9 +2,17 @@
   background-color: $instock-black;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-around;
+  }
   &__logo {
     padding: 25px;
+    @include tablet {
+      margin-top: -50px;
+    }
   }
+
   &__nav {
     padding-bottom: 75px;
     min-width: 100vw;
@@ -12,5 +20,26 @@
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
+    @include tablet {
+      min-width: auto;
+      padding-top: 25px;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: space-between;
+    }
   }
+
+  &__warehouses-btn {
+    border-radius: 20px;
+    width: 125px;
+    text-align: center;
+    padding: 5px;
+    &:hover {
+      background-color: $graphite;
+      cursor: pointer;
+    }
+  }
+  // a:hover{
+  //   backg:1;
+  // }
 }
