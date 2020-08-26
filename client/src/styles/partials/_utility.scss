@@ -5,7 +5,9 @@
   font-family: "instock-semibold";
   border: 0px;
   border-radius: 20px;
-  padding: 16px;
+  padding: 6px;
+  width: 125px;
+  outline-color: transparent;
   &:hover {
     background-color: $instock-black;
   }
@@ -20,15 +22,25 @@
   @include primary-CTA;
   background-color: $white;
   color: $slate;
-  &:active {
+  border: lightgray 1px solid;
+  &:hover {
     color: $instock-indigo;
+    background-color: $white;
+    border: $instock-indigo solid 1px;
   }
 }
 
-.selected-input {
+[type="text"] {
   font-family: "instock-regular";
   background-color: $white;
   border-radius: 20px;
+  width: 200px;
   outline-color: $instock-indigo;
   border: 1px solid $cloud;
+  padding: 5px;
+  text-indent: 5px;
+}
+
+label {
+  font-size: 14px;
 }

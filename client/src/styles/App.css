@@ -8,6 +8,21 @@
   src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf");
 }
 
+[type="text"] {
+  font-family: "instock-regular";
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 200px;
+  outline-color: #2e66e5;
+  border: 1px solid #bdc5d5;
+  padding: 5px;
+  text-indent: 5px;
+}
+
+label {
+  font-size: 14px;
+}
+
 html,
 head,
 body {
@@ -53,8 +68,25 @@ a:hover {
           flex-direction: column;
 }
 
+@media screen and (min-width: 768px) {
+  .header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 .header__logo {
   padding: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .header__logo {
+    margin-top: -50px;
+  }
 }
 
 .header__nav {
@@ -67,5 +99,99 @@ a:hover {
       justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .header__nav {
+    min-width: auto;
+    padding-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.header__warehouses-btn {
+  border-radius: 20px;
+  width: 125px;
+  text-align: center;
+  padding: 5px;
+}
+
+.header__warehouses-btn:hover {
+  background-color: #232940;
+  cursor: pointer;
+}
+
+.add-warehouse {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 135px;
+  left: 7%;
+  width: 86%;
+  margin-bottom: 1.5%;
+}
+
+.add-warehouse__warehouse-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.add-warehouse__contact-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.add-warehouse__cancel-btn {
+  background-color: #2e66e5;
+  color: #ffffff;
+  font-family: "instock-semibold";
+  border: 0px;
+  border-radius: 20px;
+  padding: 6px;
+  width: 125px;
+  outline-color: transparent;
+  background-color: #ffffff;
+  color: #5c667e;
+  border: lightgray 1px solid;
+}
+
+.add-warehouse__cancel-btn:hover {
+  background-color: #13182c;
+}
+
+.add-warehouse__cancel-btn:hover {
+  color: #2e66e5;
+  background-color: #ffffff;
+  border: #2e66e5 solid 1px;
+}
+
+.add-warehouse__save-add-btn {
+  background-color: #2e66e5;
+  color: #ffffff;
+  font-family: "instock-semibold";
+  border: 0px;
+  border-radius: 20px;
+  padding: 6px;
+  width: 125px;
+  outline-color: transparent;
+}
+
+.add-warehouse__save-add-btn:hover {
+  background-color: #13182c;
 }
 /*# sourceMappingURL=App.css.map */

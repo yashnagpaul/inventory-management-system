@@ -1,0 +1,26 @@
+.add-warehouse {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: $white;
+  position: absolute;
+  top: 135px;
+  left: 7%;
+  width: 86%;
+  margin-bottom: 1.5%;
+  &__warehouse-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__contact-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__cancel-btn {
+    @include cancel-btn;
+  }
+  &__save-add-btn {
+    @include primary-CTA;
+  }
+}
