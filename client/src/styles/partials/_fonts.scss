@@ -1,9 +1,35 @@
 @font-face {
   font-family: "instock-regular";
-  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf");
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf");
+
 }
 
 @font-face {
   font-family: "instock-semibold";
   src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf");
+
+}
+
+
+
+h1 {
+  font-family: "instock-semibold";
+  font-size:28px;
+}
+
+h4{
+  font-family: "instock-semibold";
+  font-size:11px;
+  color: $slate;
+}
+
+h3{
+  font-family: "instock-semibold";
+  font-size:13px;
+}
+
+p{
+  font-family: "instock-regular";
+  font-size:13px;
+  color: $instock-black;
 }
