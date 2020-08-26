@@ -7,10 +7,10 @@ export default function Header() {
       <img alt="logo" src={logo} className="header__logo" />
       <nav className="header__nav">
         <div className="header__warehouses-btn">
-          <a>Warehouses</a>
+          <a href="http://localhost:3000"> Warehouses </a>
         </div>
         <div className="header__warehouses-btn">
-          <a>Inventory</a>
+          <a href="http://localhost:3000"> Inventory </a>
         </div>
       </nav>
     </div>
