@@ -8,10 +8,9 @@ import DeleteConfirm from "./components/DeleteConfirm";
 function App() {
   return (
     <div className="App">
-      {/* <Header />
+      <Header />
       <AddWarehouse />
-      <EditWarehouse /> */}
-      <DeleteConfirm/>
+      <EditWarehouse />
     </div>
   );
 }
