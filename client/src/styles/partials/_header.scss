@@ -2,9 +2,13 @@
   background-color: $instock-black;
   display: flex;
   flex-direction: column;
+  min-height: 145px;
+
   @include tablet {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding-left: 6%;
+    padding-right: 6%;
   }
   &__logo {
     padding: 25px;

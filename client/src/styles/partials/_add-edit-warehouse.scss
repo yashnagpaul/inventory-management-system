@@ -1,5 +1,5 @@
 .add-warehouse {
-  padding: 15px;
+  padding: 15px 0 0 0;
   border-radius: 3px;
   background-color: $white;
   position: absolute;
@@ -7,20 +7,98 @@
   left: 7%;
   width: 86%;
   margin-bottom: 1.5%;
+  border: 1px solid lightgray;
+
+  @include tablet {
+    position: absolute;
+    top: 85px;
+  }
+  &__heading {
+    border-bottom: 1px lightgray solid;
+    text-indent: 40px;
+    position: relative;
+    &::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 10px;
+      bottom: -1px;
+      background-image: url("../assets/Icons/arrow_back-24px.svg");
+      background-repeat: no-repeat;
+      @include tablet {
+        left: 15px;
+        bottom: -5px;
+      }
+      @include desktop {
+        bottom: -13px;
+      }
+    }
+  }
+
+  &__subheading {
+    margin-bottom: 25px;
+  }
+
+  &__details-availability-container {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
   &__warehouse-details {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px lightgray solid;
+    padding-left: 12px;
+
+    @include tablet {
+      width: 50%;
+      border-right: 1px solid $cloud;
+      border-bottom: none;
+      border-top: 1px none;
+    }
   }
 
   &__contact-details {
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__btn-container {
+    background-color: $light-grey;
+    margin-bottom: 0;
+    padding: 20px 10px 10px 10px;
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+    @include tablet {
+      width: 100%;
+      float: right;
+      padding-left: 57.3%;
+    }
+    @include desktop {
+      padding-left: 75%;
+    }
   }
 
   &__cancel-btn {
     @include cancel-btn;
+    @include tablet {
+      margin-right: 20px;
+    }
   }
   &__save-add-btn {
     @include primary-CTA;
   }
+}
+
+//RADIO-BUTTONS
+.radio-label {
+  margin-right: 20px;
 }
