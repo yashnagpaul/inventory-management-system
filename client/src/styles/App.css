@@ -318,7 +318,219 @@ a:hover {
   background-color: #13182c;
 }
 
+
+.delete__card {
+  width: 375px;
+  height: 667px;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__card {
+    background-color: rgba(19, 24, 44, 0.7);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+            box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .delete__card-within {
+    width: 672px;
+    height: 262px;
+    position: relative;
+    background-color: #fff;
+    margin-top: 50px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 50px;
+    margin-top: 185px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .delete__confirmation {
+    margin: 0;
+  }
+}
+
+.delete__header {
+  position: absolute;
+  width: 343px;
+  height: 72px;
+  left: 16px;
+  top: 60px;
+  font-family: instock-regular;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #13182C;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__header {
+    position: static;
+    width: 407px;
+    height: 40px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.delete__details {
+  position: absolute;
+  width: 343px;
+  height: 78px;
+  left: 16px;
+  top: 148px;
+  font-family: instock-regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: #13182C;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__details {
+    position: static;
+    font-weight: 100;
+    width: 544px;
+    height: 56px;
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 20px;
+  }
+}
+
+.delete__cancel--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 8px 63px;
+  position: absolute;
+  width: 163px;
+  height: 36px;
+  left: 16px;
+  top: 607px;
+  background-color: #ffffff;
+  border: 1px solid #BDC5D5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  font-family: instock regular;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #5c667e;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__cancel--btn {
+    position: static;
+    padding: 8px 16px;
+    width: 72px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    margin: 10px 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .delete__btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+.delete__delete--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 8px 63px;
+  position: absolute;
+  width: 163px;
+  height: 36px;
+  left: 196px;
+  top: 607px;
+  background-color: #c94515;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  font-family: instock regular;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__delete--btn {
+    position: static;
+    padding: 8px 16px;
+    width: 71px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+.delete__exit--btn {
+  position: absolute;
+  right: 5px;
+  top: 2%;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__exit--btn {
+    top: -170px;
+    right: 10px;
+  }
+=======
 .radio-label {
   margin-right: 20px;
+
 }
 /*# sourceMappingURL=App.css.map */
