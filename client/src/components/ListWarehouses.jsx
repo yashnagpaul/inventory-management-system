@@ -12,6 +12,7 @@ class ListWarehouses extends Component {
   state = {
     warehouses: [],
     activeWarehouse: {},
+    showPopUp: false,
   };
 
   componentDidMount() {
@@ -20,6 +21,12 @@ class ListWarehouses extends Component {
       this.setState({
         warehouses: response.data,
       });
+    });
+  }
+
+  popUpHandler = () => {
+    this.setState({
+      showPopUp: !this.state.showPopUp
     });
   }
 
@@ -52,6 +59,7 @@ sortContactInformation() {
 
     return (
       <>
+      
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
@@ -110,25 +118,13 @@ sortContactInformation() {
                   city={warehouse.city}
                   contact={warehouse.contact}
                   country={warehouse.country}
+                  popUp = {this.popUpHandler}
                 />
               ))}
-
-            {warehouseArray && warehouseArray.map((warehouse) => (
-              <WarehouseCard 
-              key={warehouse.id}
-              id={warehouse.id}
-              name={warehouse.name}
-              address={warehouse.address}
-              city={warehouse.city}
-              contact={warehouse.contact}
-              country={warehouse.country}
-              activeWarehouse={this.state.activeWarehouse}
-              />
-            ))}
-
           </div>
         </div>
       </div>
+      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler}/>) : console.log('no popup')}
       </>
     );
   }

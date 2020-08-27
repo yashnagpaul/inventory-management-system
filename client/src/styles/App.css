@@ -548,6 +548,14 @@ a:hover {
   cursor: pointer;
 }
 
+.list-warehouse__click {
+  margin: 0px;
+}
+
+.list-warehouse__warehouse-delete {
+  margin: 0;
+}
+
 .list-warehouse__warehouse-card-container {
   border-bottom: 1px solid #bdc5d5;
 }
@@ -749,7 +757,6 @@ a:hover {
           justify-content: space-between;
 }
 
-
 .list-warehouse__warehouse-bottom > a {
   margin: 0;
 }
@@ -767,11 +774,6 @@ a:hover {
   }
 }
 
-.list-warehouse__click {
-  margin: 0px;
-
-}
-
 .list-warehouse__warehouse-delete {
   margin: 0;
 }
@@ -781,14 +783,15 @@ a:hover {
 }
 
 .delete__card {
-  width: 375px;
-  height: 667px;
+  position: fixed;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .delete__card {
     background-color: rgba(19, 24, 44, 0.7);
-    position: relative;
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -835,7 +838,6 @@ a:hover {
   width: auto;
   position: absolute;
   top: 0;
-  z-index: 1;
   background-color: white;
 }
 
