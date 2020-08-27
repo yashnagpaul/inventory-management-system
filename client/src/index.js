@@ -5,6 +5,7 @@ import App from "./App";
 import Header from './components/Header';
 import ListWarehouse from './components/ListWarehouses';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import DeleteConfirm from './components/DeleteConfirm';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,8 +14,9 @@ ReactDOM.render(
     <Header />
       <Switch>
         <Route path='/warehouses' component={ListWarehouse} exact/>
-        {/* <Route path='/inventory' component={} exact/>
-        <Route path='/warehouses/:id' component={} />
+        <Route path='/inventory' component={DeleteConfirm} exact/>
+        {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
+        {/* <Route path='/warehouses/:id' component={} />
         <Route path='/inventory/:id' component={} />
         <Route path='/warehouses/:id/edit' component={} />
         <Route path='/inventory/:id/edit' component={} />

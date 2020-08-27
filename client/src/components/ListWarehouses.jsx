@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import WarehouseCard from "./WarehouseCard";
 import axios from 'axios';
 import Search from "../assets/Icons/search-24px.svg";
+import DeleteConfirm from './DeleteConfirm'
 
 class ListWarehouses extends Component {
   state = {
@@ -21,6 +22,8 @@ class ListWarehouses extends Component {
     const warehouseArray = this.state.warehouses;
 
     return (
+      <>
+      {/* <DeleteConfirm/> */}
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
@@ -54,6 +57,7 @@ class ListWarehouses extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

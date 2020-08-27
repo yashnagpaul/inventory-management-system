@@ -34,7 +34,19 @@
             margin: 0;
         }
     }
-
+    &__page--mobile-only {
+        height: 100%;
+        width: auto;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        background-color: white;
+        @include tablet {
+            height: 100vh;
+            position: static;
+            top: 18.07%;
+        }
+    }
     &__header {
         position: absolute;
         width: 343px;
