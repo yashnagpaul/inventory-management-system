@@ -10,7 +10,7 @@ import {NavLink} from 'react-router-dom';
 
 const deleteWarehouse = () => alert("Delete Warehouse");
 
-const WareHouseCard = ({ id, name, address, city, contact, country }) => {
+// const WareHouseCard = ({ id, name, address, city, contact, country }) => {
 
 const WareHouseCard = ({ id, name, address, city, contact, country}) => {
 
