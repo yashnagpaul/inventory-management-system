@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import WarehouseCard from "./WarehouseCard";
-
+import axios from 'axios';
 import Search from "../assets/Icons/search-24px.svg";
 
 class ListWarehouses extends Component {
+  state = {
+    warehouses: [],
+  };
 
-
-
-
+  componentDidMount() {
+    axios.get("http://localhost:8080/api/warehouses").then((response) => {
+      console.log("Warehouse List",  response.data);
+      this.setState({
+        warehouses: response.data
+      })
+    });
+  }
 
   render() {
+    const warehouseArray = this.state.warehouses;
 
-    const warehouseArray = this.props.warehouses[0];
-    
     return (
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
@@ -34,7 +41,6 @@ class ListWarehouses extends Component {
         <div className="list-warehouse__content-section">
           <div className="list-warehouse__content-container">
             {warehouseArray && warehouseArray.map((warehouse) => (
-              
               <WarehouseCard 
               key={warehouse.id}
               id={warehouse.id}
@@ -44,7 +50,6 @@ class ListWarehouses extends Component {
               contact={warehouse.contact}
               country={warehouse.country}
               />
-              
             ))}
           </div>
         </div>
