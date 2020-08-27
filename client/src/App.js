@@ -25,7 +25,7 @@ class App extends Component {
         <Header />
         {/* <AddWarehouse />
       <EditWarehouse /> */}
-        <ListWarehouses 
+        <ListWarehouses
         // warehouses={this.state.warehouses}
         />
       </div>
@@ -33,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;
