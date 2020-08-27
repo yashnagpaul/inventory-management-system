@@ -7,6 +7,7 @@ import DeleteConfirm from './DeleteConfirm'
 class ListWarehouses extends Component {
   state = {
     warehouses: [],
+    activeWarehouse: {},
   };
 
   componentDidMount() {
@@ -23,7 +24,6 @@ class ListWarehouses extends Component {
 
     return (
       <>
-      {/* <DeleteConfirm/> */}
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
@@ -52,6 +52,7 @@ class ListWarehouses extends Component {
               city={warehouse.city}
               contact={warehouse.contact}
               country={warehouse.country}
+              activeWarehouse={this.state.activeWarehouse}
               />
             ))}
           </div>
