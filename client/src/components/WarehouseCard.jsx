@@ -4,11 +4,19 @@ import { Link } from "react-router-dom";
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
+import DeleteConfirm from './DeleteConfirm';
 
 const deleteWarehouse = () => alert("Delete Warehouse");
 
 const WareHouseCard = ({ id, name, address, city, contact, country }) => {
   const fullAddress = `${address}, ${city}, ${country}`;
+
+  const deleteHandler = (event) => {
+    event.preventDefault();
+    return (
+      <DeleteConfirm/>
+    )
+  }
 
   return (
     <div className="list-warehouse__warehouse-card-container">
@@ -43,6 +51,7 @@ const WareHouseCard = ({ id, name, address, city, contact, country }) => {
           </div>
         </div>
         <div className="list-warehouse__warehouse-bottom">
+
           <img
             className="list-warehouse__warehouse-delete"
             src={Trash}
@@ -56,6 +65,11 @@ const WareHouseCard = ({ id, name, address, city, contact, country }) => {
             alt="Edit"
           />
           </Link>
+
+          <a className="list-warehouse__click" onClick={deleteHandler}><img className="list-warehouse__warehouse-delete" src={Trash}/></a>
+
+          <img className="list-warehouse__warehouse-edit" src={Edit} />
+
         </div>
       </div>
     </div>

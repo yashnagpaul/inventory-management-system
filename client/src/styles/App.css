@@ -749,6 +749,7 @@ a:hover {
           justify-content: space-between;
 }
 
+
 .list-warehouse__warehouse-bottom > a {
   margin: 0;
 }
@@ -764,6 +765,10 @@ a:hover {
             align-items: baseline;
     padding-top: 15px;
   }
+
+.list-warehouse__click {
+  margin: 0px;
+
 }
 
 .list-warehouse__warehouse-delete {
@@ -821,6 +826,23 @@ a:hover {
 @media screen and (min-width: 768px) {
   .delete__confirmation {
     margin: 0;
+  }
+}
+
+.delete__page--mobile-only {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .delete__page--mobile-only {
+    height: 100vh;
+    position: static;
+    top: 18.07%;
   }
 }
 

@@ -5,6 +5,8 @@ import WarehouseCard from "./WarehouseCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
+import DeleteConfirm from './DeleteConfirm'
+
 
 class ListWarehouses extends Component {
   state = {
@@ -48,6 +50,8 @@ sortContactInformation() {
     const warehouseArray = this.state.warehouses;
 
     return (
+      <>
+      {/* <DeleteConfirm/> */}
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
@@ -111,6 +115,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }
