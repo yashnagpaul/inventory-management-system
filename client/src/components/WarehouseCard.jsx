@@ -1,11 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
 import DeleteConfirm from './DeleteConfirm';
 import {NavLink} from 'react-router-dom';
 
+
+const deleteWarehouse = () => alert("Delete Warehouse");
+
+const WareHouseCard = ({ id, name, address, city, contact, country }) => {
+
 const WareHouseCard = ({ id, name, address, city, contact, country}) => {
+
   const fullAddress = `${address}, ${city}, ${country}`;
 
   const deleteHandler = (event) => {
@@ -21,10 +29,19 @@ const WareHouseCard = ({ id, name, address, city, contact, country}) => {
         <div className="list-warehouse__warehouse-top">
           <div className="list-warehouse__warehouse-name-section">
             <h4 className="list-warehouse__warehouse-name-title">WAREHOUSE</h4>
+
+            <h3 className="list-warehouse__warehouse-name">
+              <Link to={`/warehouse/add`}>
+                {name}
+                <img src={Arrow} alt="arrow" />
+              </Link>
+            </h3>
+
             <NavLink to={`/warehouses/${id}`}><h3 className="list-warehouse__warehouse-name">
               {name}
               <img src={Arrow}></img>
             </h3></NavLink>
+
           </div>
           <div className="list-warehouse__contact-name-section">
             <h4 className="list-warehouse__contact-name-title">CONTACT NAME</h4>
@@ -46,9 +63,25 @@ const WareHouseCard = ({ id, name, address, city, contact, country}) => {
           </div>
         </div>
         <div className="list-warehouse__warehouse-bottom">
+
+          <img
+            className="list-warehouse__warehouse-delete"
+            src={Trash}
+            alt="Delete"
+            onClick={deleteWarehouse}
+          />
+          <Link to={`/warehouses/:id/edit`}>
+          <img
+            className="list-warehouse__warehouse-edit"
+            src={Edit}
+            alt="Edit"
+          />
+          </Link>
+
           <a className="list-warehouse__click" onClick={deleteHandler}><img className="list-warehouse__warehouse-delete" src={Trash}/></a>
 
           <img className="list-warehouse__warehouse-edit" src={Edit} />
+
         </div>
       </div>
     </div>

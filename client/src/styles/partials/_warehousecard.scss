@@ -1,0 +1,166 @@
+.list-warehouse {
+
+    &__warehouse-card-container {
+
+        border-bottom: 1px solid $cloud;
+
+
+    }
+
+    &__warehouse-card {
+        width: 86%;
+        padding: 16px 0;
+
+        @include tablet {
+            width:90.90%;
+            display: flex;
+            padding: 0;
+            padding-top: 16px;
+        }
+
+    }
+
+    &__warehouse-top {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0;
+
+        @include tablet {
+            flex-wrap: nowrap;
+            width: 80%;
+            align-items: center;
+        }
+    }
+
+    &__warehouse-name-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        @include tablet {
+            width: 25%;
+            order: 0;
+            
+        }
+    }
+
+    &__warehouse-name-title {
+        margin: 0;
+
+        @include tablet {
+            display:none;
+        }
+    }
+
+    &__warehouse-name {
+        margin: 0;
+        color: $instock-indigo;
+        display: flex;
+        align-items: center;
+
+        &>a{
+            color: $instock-indigo;
+            display: flex;
+            align-items: center; 
+        }
+    }
+
+    &__contact-name-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom: 16px;
+
+        @include tablet {
+            width:25%;
+            order: 2;
+        }
+    }
+
+    &__contact-name-title {
+        margin: 0;
+
+        @include tablet {
+            display:none;
+        }
+    }
+
+    &__contact-name {
+        margin: 0;
+    }
+
+    &__address-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom: 16px;
+
+        @include tablet {
+            width: 25%;
+            order: 1;
+            padding-right: 30px;
+        }
+    }
+
+    &__address-title {
+        margin: 0;
+        @include tablet {
+            display:none;
+        }
+    }
+
+    &__address {
+        margin: 0;
+    }
+
+    &__contact-section {
+        width: 50%;
+        margin: 0;
+        margin-bottom: 16px;
+
+        @include tablet {
+            width: 25%;
+            order: 10;
+        }
+    }
+
+    &__contact-title {
+        margin: 0;
+
+        @include tablet {
+            display:none;
+        }
+    }
+
+    &__contact {
+        margin: 0;
+    }
+
+    &__warehouse-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &>a{
+            margin: 0;
+        }
+
+        @include tablet {
+            width: 20%;
+            justify-content: flex-end;
+            align-items: baseline;
+            padding-top: 15px;
+        }
+    }
+
+    &__warehouse-delete {
+        margin: 0;
+    }
+
+    &__warehouse-edit {
+        margin: 0;
+    }
+
+}
