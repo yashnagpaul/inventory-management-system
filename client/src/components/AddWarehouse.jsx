@@ -1,19 +1,54 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 class AddWarehouse extends React.Component {
   constructor(props) {
     super(props);
     this.submitHandler = this.submitHandler.bind(this);
+    this.form = React.createRef();
   }
 
   submitHandler(event) {
     event.preventDefault();
-    window.alert("Success!");
+
+    // RETRIEVE THE VALUES FROM THE FORM
+    let id = uuidv4();
+    let name = this.form.current.name.value;
+    let address = this.form.current.address.value;
+    let city = this.form.current.city.value;
+    let country = this.form.current.country.value;
+    let contactName = this.form.current.contactName.value;
+    let position = this.form.current.position.value;
+    let number = this.form.current.number.value;
+    let email = this.form.current.email.value;
+
+    // POST THE NEW WAREHOUSE DETAILS TO OUR DATABASE
+    axios.post("http://localhost:8080/api/warehouses", {
+      id: id,
+      name: name,
+      address: address,
+      city: city,
+      country: country,
+      contact: {
+        contactName: contactName,
+        position: position,
+        number: number,
+        email: email,
+      },
+    });
+
+    //RESET THE FORM
+    event.target.reset();
   }
 
   render() {
     return (
-      <form className="add-warehouse" onSubmit={this.submitHandler}>
+      <form
+        ref={this.form}
+        className="add-warehouse"
+        onSubmit={this.submitHandler}
+      >
         <h1 className="add-warehouse__heading">Add New Warehouse</h1>
         <div className="add-warehouse__details-availability-container">
           <div className="add-warehouse__warehouse-details">
@@ -26,10 +61,10 @@ class AddWarehouse extends React.Component {
               placeholder="Warehouse Name"
             />
 
-            <label htmlFor="street-address">Street Address</label>
+            <label htmlFor="address">Street Address</label>
             <input
               type="text"
-              name="street-address"
+              name="address"
               className="add-warehouse__street-address"
               placeholder="Street Address"
             />
@@ -55,10 +90,10 @@ class AddWarehouse extends React.Component {
 
           <div className="add-warehouse__contact-details">
             <h3 className="add-warehouse__subheading">Contact Details</h3>
-            <label htmlFor="contact-name">Contact Name</label>
+            <label htmlFor="contactName">Contact Name</label>
             <input
               type="text"
-              name="contact-name"
+              name="contactName"
               className="add-warehouse__contact"
               placeholder="Contact Name"
             />
