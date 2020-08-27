@@ -3,13 +3,16 @@ import closeBtn from '../assets/Icons/close-24px.svg'
 import {NavLink} from 'react-router-dom';
 
 function DeleteConfirm(props) {
+    console.log(props)
+    const name = props.location.deleteProps.name
+    console.log(name)
     return (
         <div className='delete__page--mobile-only'>
             <div className='delete__card'>
                 <div className='delete__card-within'>
                     <a href='#'><img src={closeBtn} className='delete__exit--btn'/></a>
                     <div className='delete__confirmation'>
-                        <h1 className='delete__header'>Delete King West warehouse?</h1>
+                        <h1 className='delete__header'>Delete {name} warehouse?</h1>
                         <p className='delete__details'>Please confirm that you'd like to delete the King West from the list of warehouses.
                             You won't be able to undo this action.
                         </p>
@@ -25,5 +28,3 @@ function DeleteConfirm(props) {
 }
 
 export default DeleteConfirm
-
-//props
