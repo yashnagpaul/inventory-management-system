@@ -6,18 +6,18 @@ import Header from "./components/Header";
 import ListWarehouses from "./components/ListWarehouses";
 
 class App extends Component {
-  state = {
-    warehouses: [],
-  };
+  // state = {
+  //   warehouses: [],
+  // };
 
-  componentDidMount() {
-    axios.get("http://localhost:8080/api/warehouses").then((response) => {
-      console.log("Warehouse List", response.data);
-      this.setState({
-        warehouses: [...this.state.warehouses, response.data],
-      });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get("http://localhost:8080/api/warehouses").then((response) => {
+  //     console.log("Warehouse List",  response.data);
+  //     this.setState({
+  //       warehouses: [...this.state.warehouses, response.data]
+  //     })
+  //   });
+  // }
 
   render() {
     return (
@@ -25,7 +25,9 @@ class App extends Component {
         <Header />
         {/* <AddWarehouse />
       <EditWarehouse /> */}
-        <ListWarehouses warehouses={this.state.warehouses} />
+        <ListWarehouses
+        // warehouses={this.state.warehouses}
+        />
       </div>
     );
   }
