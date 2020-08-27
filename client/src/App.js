@@ -12,35 +12,23 @@ class App extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8080/api/warehouses").then((response) => {
-      console.log("Warehouse List",  response.data);
+      console.log("Warehouse List", response.data);
       this.setState({
-        warehouses: [...this.state.warehouses, response.data]
-      })
+        warehouses: [...this.state.warehouses, response.data],
+      });
     });
   }
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <AddWarehouse />
-    </div>
-  );
-=======
   render() {
     return (
       <div className="App">
         <Header />
         {/* <AddWarehouse />
       <EditWarehouse /> */}
-        <ListWarehouses 
-        warehouses={this.state.warehouses}
-        />
+        <ListWarehouses warehouses={this.state.warehouses} />
       </div>
     );
   }
->>>>>>> master
 }
 
 export default App;
