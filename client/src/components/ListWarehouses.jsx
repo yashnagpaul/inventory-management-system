@@ -19,27 +19,6 @@ class ListWarehouses extends Component {
     });
   }
 
-  componentDidUpdate(_prevProps, prevState) {
-    const {params} = this.props.match;
-    if (
-      params.id !== undefined && 
-      prevState.activeWarehouse.id !== params.id
-    ) {
-      this.getWarehouseData(params.id);
-    }
-  }
-
-  getWarehouseData(id) {
-    axios
-      .get(`http://localhost:8080/warehouses/${id}`)
-      .then((res) => {
-        this.setState({
-          activeWarehouse: res.data,
-        });
-      })
-      .catch(err => console.log(err));
-  }
-
   render() {
     const warehouseArray = this.state.warehouses;
 

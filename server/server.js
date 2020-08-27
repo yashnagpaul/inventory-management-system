@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 const inventoryRoute = require('./routes/inventoryRoute');
+const warehouseRoute = require('./routes/warehouseRoute');
 
 const cors = require('cors');
 
@@ -16,8 +17,9 @@ app.get('/', (req, res) => {
     res.json(`Hello World!`);
 });
 
-// Api route
+// Api routes
 app.use("/api", inventoryRoute);
+app.use("/api", warehouseRoute);
 
 // Listening on PORT
 app.listen(PORT, () => { console.log(`Listening at: http://localhost:${PORT}`)});
