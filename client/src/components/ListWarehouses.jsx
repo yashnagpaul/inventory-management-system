@@ -11,6 +11,7 @@ import DeleteConfirm from './DeleteConfirm'
 class ListWarehouses extends Component {
   state = {
     warehouses: [],
+    activeWarehouse: {},
   };
 
   componentDidMount() {
@@ -51,7 +52,6 @@ sortContactInformation() {
 
     return (
       <>
-      {/* <DeleteConfirm/> */}
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
@@ -112,6 +112,20 @@ sortContactInformation() {
                   country={warehouse.country}
                 />
               ))}
+
+            {warehouseArray && warehouseArray.map((warehouse) => (
+              <WarehouseCard 
+              key={warehouse.id}
+              id={warehouse.id}
+              name={warehouse.name}
+              address={warehouse.address}
+              city={warehouse.city}
+              contact={warehouse.contact}
+              country={warehouse.country}
+              activeWarehouse={this.state.activeWarehouse}
+              />
+            ))}
+
           </div>
         </div>
       </div>
