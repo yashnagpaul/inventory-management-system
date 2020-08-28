@@ -17,7 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/warehouses/" />
+    <Redirect from="/" to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0" />
       <Header />
       <Switch>
 
@@ -26,21 +26,14 @@ ReactDOM.render(
         <Route path="/warehouses/:id" component={ListWarehouseItems} exact />
         <Route path='/warehouse/:id/delete' component={ListWarehouse} />
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
-        
-
         {/* // <Route path="/warehouses" component={ListWarehouse} exact /> */}
         {/* <Route path='/inventory' component={} exact/>
         <Route path='/warehouses/:id' component={} />
-
-
         {/* {/* <Route path='/warehouses/:id' component={} /> */}
         {/* <Route path='/inventory' component={} exact/>
         <Route path='/warehouses/:id' component={} />
-
-        <Route path='/inventory/:id' component={} />
-        
-        <Route path='/inventory/:id/edit' component={} />
-        
+        <Route path='/inventory/:id' component={} />       
+        <Route path='/inventory/:id/edit' component={} />      
         <Route path='/inventory/:id/add' component={} />
         <Route path='/*' component={NotFound} /> */}
         <Route path='/warehouses/:id/add' component={AddWarehouse} />
