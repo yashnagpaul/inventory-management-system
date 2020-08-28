@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/Logo/InStock-Logo.svg";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -7,10 +8,10 @@ export default function Header() {
       <img alt="logo" src={logo} className="header__logo" />
       <nav className="header__nav">
         <div className="header__warehouses-btn">
-          <a href="http://localhost:3000"> Warehouses </a>
+          <NavLink to="/Warehouses">Warehouses </NavLink>
         </div>
         <div className="header__warehouses-btn">
-          <a href="http://localhost:3000"> Inventory </a>
+          <NavLink to="/inventory">Inventory </NavLink>
         </div>
       </nav>
     </div>

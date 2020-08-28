@@ -116,8 +116,8 @@ a:hover {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
   }
 }
 
@@ -163,8 +163,14 @@ a:hover {
 }
 
 .header__warehouses-btn:hover {
-  background-color: #232940;
   cursor: pointer;
+}
+
+.active {
+  background-color: #232940;
+  padding: 7px 14px 7px;
+  width: 150px;
+  border-radius: 20px;
 }
 
 .add-warehouse {
@@ -339,6 +345,11 @@ a:hover {
 
 .add-warehouse__save-add-btn:hover {
   background-color: #13182c;
+}
+
+.add-warehouse__error-validation {
+  font-size: 12px;
+  color: orangered;
 }
 
 .radio-label {
