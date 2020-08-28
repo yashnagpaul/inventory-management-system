@@ -32,8 +32,8 @@ class ListWarehouses extends Component {
 
   deleteHandler = (id) => {
     axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      
-    })).catch(err => console.log(err))
+      console.log(`warehouse with the ${id} id has been deleted`)
+    })).catch(err => console.log('cannot find url'))
   }
 
 handleSearch() {
@@ -62,7 +62,6 @@ sortContactInformation() {
 
   render() {
     const warehouseArray = this.state.warehouses;
-    console.log(this.state.activeWarehouse)
 
     return (
       <>
@@ -132,7 +131,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match} deleteHandler={this.deleteHandler}/>) : console.log('no popup')}
       </>
     );
   }

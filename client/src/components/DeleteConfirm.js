@@ -6,6 +6,9 @@ function DeleteConfirm(props) {
     const urlId = props.url.params.id;
     const warehouses = props.warehouses;
     const foundWarehouse = warehouses.find(warehouse => urlId === warehouse.id);
+    const handleDelete = () => {
+        props.deleteHandler(props.url.params.id);
+    }
 
     return (
         <div className='delete__page--mobile-only'>
@@ -20,7 +23,7 @@ function DeleteConfirm(props) {
                     </div>
                     <div className='delete__btns'>
                         <Link to={`/warehouses`}><button className='delete__cancel--btn' onClick={props.popUpHandler}>Cancel</button></Link>
-                        <button className='delete__delete--btn'>Delete</button>
+                        <button className='delete__delete--btn' onClick={handleDelete}>Delete</button>
                     </div>
                 </div>
             </div>
