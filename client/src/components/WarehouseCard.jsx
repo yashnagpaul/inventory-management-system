@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
-import DeleteConfirm from './DeleteConfirm';
+import DeleteConfirm from "./DeleteConfirm";
 
-const WareHouseCard = ({ id, name, address, city, contact, country, popUp}) => {
-
+const WareHouseCard = ({
+  id,
+  name,
+  address,
+  city,
+  contact,
+  country,
+  popUp,
+}) => {
   const fullAddress = `${address}, ${city}, ${country}`;
 
   return (
@@ -16,11 +23,12 @@ const WareHouseCard = ({ id, name, address, city, contact, country, popUp}) => {
           <div className="list-warehouse__warehouse-name-section">
             <h4 className="list-warehouse__warehouse-name-title">WAREHOUSE</h4>
 
-            <Link to={`/warehouses/${id}`}><h3 className="list-warehouse__warehouse-name">
-              {name}
-              <img src={Arrow}></img>
-            </h3></Link>
-
+            <Link to={`/warehouses/${id}`}>
+              <h3 className="list-warehouse__warehouse-name">
+                {name}
+                <img src={Arrow}></img>
+              </h3>
+            </Link>
           </div>
           <div className="list-warehouse__contact-name-section">
             <h4 className="list-warehouse__contact-name-title">CONTACT NAME</h4>
@@ -48,17 +56,16 @@ const WareHouseCard = ({ id, name, address, city, contact, country, popUp}) => {
                 <img className="list-warehouse__warehouse-delete" src={Trash}/>
             </a></Link>
           <Link to={`/warehouses/:id/edit`}>
-          <img
-            className="list-warehouse__warehouse-edit"
-            src={Edit}
-            alt="Edit"
-          />
+            <img
+              className="list-warehouse__warehouse-edit"
+              src={Edit}
+              alt="Edit"
+            />
           </Link>
-
         </div>
       </div>
     </div>
   );
 };
 
-export default WareHouseCard
+export default WareHouseCard;
