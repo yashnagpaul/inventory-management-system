@@ -25,15 +25,9 @@ function patchInventory(req, res) {
     warehouse: req.body.warehouse,
   };
 
-  // LOGIC: trying to get an array of all the items except for the one we're trying to change.
-  // so that we can add this one as a new object- DELETE old details, then ADD new ones.
-  // but when I filter, the result I get seems to exclude all items where warehouseID matches the req.body.id
-  // Maybe a question for Barry: what is the url when the user clicks on the item?
-
-  let newListOfItems = data.filter(
-    (item) =>
-      item.warehouseID !== itemToEdit.id && item.itemName !== itemToEdit.name
-  );
+  let newListOfItems = data.filter((item) => item.id !== itemToEdit.id);
+  newListOfItems.push(itemToEdit);
+  fs.writeFileSync(inventoryFile, JSON.stringify(newListOfItems));
   console.log(data);
   res.send(newListOfItems);
 }
