@@ -29,5 +29,5 @@ module.exports = {
   addWarehouse,
   getWarehouseById,
   deleteWarehouse,
-  getWarehouseInventorybyId
-};
+  getWarehouseInventorybyId,
+}

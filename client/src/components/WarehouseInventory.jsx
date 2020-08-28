@@ -12,7 +12,7 @@ import DeleteConfirm from "./DeleteConfirm";
 
 // const id = this.props.match.params.id;
 
-class ListWarehouses extends Component {
+class WarehouseInventory extends Component {
   state = {
     warehouseDetail: {},
     inventoryList: [],
@@ -106,28 +106,7 @@ class ListWarehouses extends Component {
       <>
         <div className="items-warehouse__container">
           <div className="items-warehouse__header-section">
-            {/* <div className="items-warehouse__header-container">
-            <h1 className="items-warehouse__title">Warehouses</h1>
-          </div> */}
-
             <div className="items-warehouse__header-top">
-              {/* <div className="items-warehouse__header-top-container">
-                <Link to={`/warehouses`} className="items-warehouse__backlink">
-                  <img
-                    src={LeftIcon}
-                    alt="back icon"
-                    className="items-warehouse__backlink-icon"
-                  />
-                </Link>
-                <h1 className="items-warehouse__header-name">
-                  {this.state.warehouseDetail.name}
-                </h1>
-                <Link to={`/warehouses`} className="items-warehouse__edit-link">
-                  <div className="items-warehouse__edit-circle">
-                    <img src={Edit} alt="Edit" />
-                  </div>
-                </Link>
-              </div> */}
               <div className="items-warehouse__header-top-container">
                 <Link to={`/warehouses`} className="items-warehouse__backlink">
                   <img
@@ -252,4 +231,4 @@ class ListWarehouses extends Component {
   }
 }
 
-export default ListWarehouses;
+export default WarehouseInventory;
