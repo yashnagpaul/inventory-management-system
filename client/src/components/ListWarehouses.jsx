@@ -5,7 +5,7 @@ import WarehouseCard from "./WarehouseCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteConfirm'
+import DeleteConfirm from './DeleteConfirm';
 
 
 class ListWarehouses extends Component {
@@ -66,6 +66,7 @@ sortContactInformation() {
     return (
       <>
       <div className="list-warehouse__container">
+
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
             <h1 className="list-warehouse__title">Warehouses</h1>
@@ -90,6 +91,7 @@ sortContactInformation() {
             </Link>
           </div>
         </div>
+        
         <div className="list-warehouse__content-section">
           <div className="list-warehouse__content-container">
             <div className="list-warehouse__content-header">
