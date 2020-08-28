@@ -6,7 +6,7 @@ import axios from "axios";
 import LeftIcon from "../assets/Icons/arrow_back-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
 import Edit from "../assets/Icons/edit-25px.svg";
-import DeleteConfirm from "./DeleteConfirm";
+import DeleteConfirm from "./DeleteWarehouse";
 
 //Phatfarm
 

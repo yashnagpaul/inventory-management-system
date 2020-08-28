@@ -2,7 +2,7 @@ import React from 'react'
 import closeBtn from '../assets/Icons/close-24px.svg'
 import {Link} from 'react-router-dom';
 
-function DeleteConfirm(props) {
+function DeleteWarehouse(props) {
     const urlId = props.url.params.id;
     const warehouses = props.warehouses;
     const foundWarehouse = warehouses.find(warehouse => urlId === warehouse.id);
@@ -12,7 +12,7 @@ function DeleteConfirm(props) {
 
     return (
         <div className='delete__page--mobile-only'>
-            <div className='delete__card'>
+            {foundWarehouse && <div className='delete__card'>
                 <div className='delete__card-within'>
                 <Link to={`/warehouses`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
                     <div className='delete__confirmation'>
@@ -23,12 +23,12 @@ function DeleteConfirm(props) {
                     </div>
                     <div className='delete__btns'>
                         <Link to={`/warehouses`}><button className='delete__cancel--btn' onClick={props.popUpHandler}>Cancel</button></Link>
-                        <button className='delete__delete--btn' onClick={handleDelete}>Delete</button>
+                        <Link to={`/warehouses`}><button className='delete__delete--btn' onClick={handleDelete}>Delete</button></Link>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
 
-export default DeleteConfirm
+export default DeleteWarehouse

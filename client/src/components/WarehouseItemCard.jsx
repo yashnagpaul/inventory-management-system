@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
-import DeleteConfirm from './DeleteConfirm';
+import DeleteConfirm from './DeleteWarehouse';
 
 const WarehouseItemCard = ({ warehouseID, warehouseName, itemName, 
   description, category, status, quantity,  popUp}) => {
