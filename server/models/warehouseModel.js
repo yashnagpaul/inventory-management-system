@@ -20,7 +20,7 @@ function warehouse_create_post(req, res) {
   const newObject = req.body;
   warehouseList.push(newObject);
   fs.writeFileSync(warehouseFile, JSON.stringify(warehouseList));
-  //OPTIONAL RESPONSE
+//OPTIONAL RESPONSE
   res.send(newObject);
 }
 
