@@ -121,6 +121,13 @@ a:hover {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .header {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+
 .header__logo {
   padding: 25px;
 }
