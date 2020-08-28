@@ -9,7 +9,6 @@ const WareHouseCard = ({ id, name, address, city, contact, country, popUp}) => {
 
   const fullAddress = `${address}, ${city}, ${country}`;
 
-
   return (
     <div className="list-warehouse__warehouse-card-container">
       <div className="list-warehouse__warehouse-card">
@@ -43,20 +42,11 @@ const WareHouseCard = ({ id, name, address, city, contact, country, popUp}) => {
           </div>
         </div>
         <div className="list-warehouse__warehouse-bottom">
-
-          {/* <Link 
-          to={{
-          pathname:`/warehouse/${id}/delete`, 
-          deleteProps:{
-            name: name
-          }
-          }}> */}
-            <a 
+            <Link to={`/warehouses/${id}/delete`}><a 
               className="list-warehouse__click"
               onClick={popUp}>
                 <img className="list-warehouse__warehouse-delete" src={Trash}/>
-            </a>
-          {/* </Link> */}
+            </a></Link>
           <Link to={`/warehouses/:id/edit`}>
           <img
             className="list-warehouse__warehouse-edit"

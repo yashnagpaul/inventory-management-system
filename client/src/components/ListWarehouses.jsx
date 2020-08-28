@@ -24,10 +24,35 @@ class ListWarehouses extends Component {
     });
   }
 
+  // componentDidUpdate(_prevProps, prevState) {
+  //   const {params} = this.props.match;
+  //   if (
+  //     params.id !== undefined && 
+  //     prevState.activeSideBarVideo.id !== params.id
+  //   ) {
+  //     this.getActiveSideVideoData(params.id);
+  //   }
+  // }
+
+  // getActiveSideVideoData(id) {
+  //   axios
+  //     .get(`http://localhost:5000/videos/${id}`)
+  //     .then((res) => {
+  //       this.setState({
+  //         activeSideBarVideo: res.data,
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // }
+
   popUpHandler = () => {
     this.setState({
       showPopUp: !this.state.showPopUp
     });
+  }
+
+  deleteHandler = () => {
+
   }
 
 handleSearch() {
@@ -56,6 +81,7 @@ sortContactInformation() {
 
   render() {
     const warehouseArray = this.state.warehouses;
+    console.log(this.props.match)
 
     return (
       <>
@@ -124,7 +150,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match}/>) : console.log('no popup')}
       </>
     );
   }
