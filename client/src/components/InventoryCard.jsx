@@ -5,7 +5,7 @@ import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
 import DeleteConfirm from "./DeleteConfirm";
 
-const WareHouseCard = ({
+const InventoryCard = ({
   warehouseID,
   warehouseName,
   itemName,
@@ -74,4 +74,4 @@ const WareHouseCard = ({
   );
 };
 
-export default WareHouseCard;
+export default InventoryCard;

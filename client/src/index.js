@@ -8,7 +8,7 @@ import ListWarehouse from './components/ListWarehouses';
 import DeleteConfirm from './components/DeleteConfirm';
 import AddWarehouse from "./components/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse";
-import ListWarehouseItems from "./components/ListWarehouseItems";
+import WarehouseInventory from "./components/WarehouseInventory";
 import ListInventories from "./components/ListInventories";
 
 
@@ -24,7 +24,7 @@ ReactDOM.render(
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
         {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
-        <Route path="/warehouses/:id" component={ListWarehouseItems} exact />
+        <Route path="/warehouses/:id" component={WarehouseInventory} exact />
         <Route path='/warehouses/:id/delete' component={ListWarehouse} />
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         {/* // <Route path="/warehouses" component={ListWarehouse} exact /> */}
