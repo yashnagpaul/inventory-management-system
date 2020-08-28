@@ -3,112 +3,250 @@ import { Link } from "react-router-dom";
 
 import WarehouseItemCard from "./WarehouseItemCard";
 import axios from "axios";
-import Search from "../assets/Icons/search-24px.svg";
+import LeftIcon from "../assets/Icons/arrow_back-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteConfirm'
-
+import Edit from "../assets/Icons/edit-25px.svg";
+import DeleteConfirm from "./DeleteConfirm";
 
 //Phatfarm
 
+// const id = this.props.match.params.id;
+
 class ListWarehouses extends Component {
   state = {
-    warehouses: [],
+    warehouseDetail: {},
+    inventoryList: [],
     activeWarehouse: {},
     showPopUp: false,
   };
 
   componentDidMount() {
-    axios.get("http://localhost:8080/api/warehouses").then((response) => {
-      console.log("Warehouse List", response.data);
-      this.setState({
-        warehouses: response.data,
+    axios
+      .get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`)
+      .then((response) => {
+        console.log("My response", response.data);
+        this.setState(
+          {
+            warehouseDetail: response.data,
+          },
+
+          () =>
+            this.state.warehouseDetail.id !== undefined &&
+            this.getInventoryById(this.state.warehouseDetail.id)
+        );
       });
-    });
+  }
+
+  getInventoryById(id) {
+    axios
+    .get(`http://localhost:8080/api/warehouses/${id}/inventory`)
+    .then((response)=> {
+      console.log(response.data);
+      this.setState({
+        inventoryList: response.data,
+      })
+    }
+    )
   }
 
   popUpHandler = () => {
     this.setState({
-      showPopUp: !this.state.showPopUp
+      showPopUp: !this.state.showPopUp,
     });
+  };
+
+  handleSearch() {
+    console.log("handle search");
   }
 
-handleSearch() {
-  console.log("handle search");
-}
+  addWarehouse() {
+    console.log("Add Warehouse");
+  }
 
-addWarehouse() {
-  console.log("Add Warehouse");
-}
+  sortWarehouse() {
+    console.log("Sort Warehouse");
+  }
 
-sortWarehouse() {
-  console.log("Sort Warehouse");
-}
+  sortAddress() {
+    console.log("Sort Address");
+  }
 
-sortAddress() {
-  console.log("Sort Address");
-}
+  sortContactName() {
+    console.log("Sort Contact Name");
+  }
 
-sortContactName() {
-  console.log("Sort Contact Name");
-}
-
-sortContactInformation() {
-  console.log("Sort Contact Information");
-}
+  sortContactInformation() {
+    console.log("Sort Contact Information");
+  }
 
   render() {
-    const warehouseArray = this.state.warehouses;
+    const inventoryArray = this.state.inventoryList;
+
+    const contact_name =
+      this.state.warehouseDetail && this.state.warehouseDetail.contact
+        ? this.state.warehouseDetail.contact.name
+        : null;
+
+    const contact_position =
+      this.state.warehouseDetail && this.state.warehouseDetail.contact
+        ? this.state.warehouseDetail.contact.position
+        : null;
+
+    const contact_phone =
+      this.state.warehouseDetail && this.state.warehouseDetail.contact
+        ? this.state.warehouseDetail.contact.phone
+        : null;
+
+    const contact_email =
+      this.state.warehouseDetail && this.state.warehouseDetail.contact
+        ? this.state.warehouseDetail.contact.email
+        : null;
 
     return (
       <>
-      
-      <div className="items-warehouse__container">
-        <div className="items-warehouse__header-section">
-          <div className="items-warehouse__header-container">
-<div className="items-warehouse__header-top"></div>
-<div className="items-warehouse__header-bottom"></div>
-          </div>
-        </div>
-        <div className="items-warehouse__content-section">
-          <div className="items-warehouse__content-container">
-            <div className="items-warehouse__content-header">
-              <div className="items-warehouse__content-header-container">
-                <h4>
-                  INVENTORY ITEM
-                  <img alt="Sort Icon" src={Sort} onClick={(e) => this.sortWarehouse(e)}/>
-                </h4>
-                <h4>
-                  CATEGORY
-                  <img alt="Sort Icon" src={Sort} onClick={this.sortAddress}/>
-                </h4>
-                <h4>
-                  STATUS
-                  <img alt="Sort Icon" src={Sort} onClick={this.sortContactName}/>
-                </h4>
-                <h4>
-                  QUANTITY
-                  <img alt="Sort Icon" src={Sort} onClick={this.sortContactInformation}/>
-                </h4>
-                <h4>ACTIONS</h4>
+        <div className="items-warehouse__container">
+          <div className="items-warehouse__header-section">
+            {/* <div className="items-warehouse__header-container">
+            <h1 className="items-warehouse__title">Warehouses</h1>
+          </div> */}
+
+            <div className="items-warehouse__header-top">
+              {/* <div className="items-warehouse__header-top-container">
+                <Link to={`/warehouses`} className="items-warehouse__backlink">
+                  <img
+                    src={LeftIcon}
+                    alt="back icon"
+                    className="items-warehouse__backlink-icon"
+                  />
+                </Link>
+                <h1 className="items-warehouse__header-name">
+                  {this.state.warehouseDetail.name}
+                </h1>
+                <Link to={`/warehouses`} className="items-warehouse__edit-link">
+                  <div className="items-warehouse__edit-circle">
+                    <img src={Edit} alt="Edit" />
+                  </div>
+                </Link>
+              </div> */}
+              <div className="items-warehouse__header-top-container">
+                <Link to={`/warehouses`} className="items-warehouse__backlink">
+                  <img
+                    src={LeftIcon}
+                    alt="back icon"
+                    className="items-warehouse__backlink-icon"
+                  />
+                </Link>
+                <h1 className="items-warehouse__header-name">
+                  {this.state.warehouseDetail.name}
+                </h1>
+                <Link to={`/warehouses`} className="items-warehouse__edit-link">
+                  <div className="items-warehouse__edit-circle">
+                    <img src={Edit} alt="Edit" />
+                  </div>
+                </Link>
               </div>
             </div>
-            {warehouseArray &&
-              warehouseArray.map((warehouse) => (
-                <WarehouseItemCard
-                  key={warehouse.id}
-                  id={warehouse.id}
-                  name={warehouse.name}
-                  address={warehouse.address}
-                  city={warehouse.city}
-                  contact={warehouse.contact}
-                  country={warehouse.country}
-                  popUp = {this.popUpHandler}
-                />
-              ))}
+            <div className="items-warehouse__header-bottom">
+              <div className="items-warehouse__header-bottom-container">
+
+                <div className="items-warehouse__header-bottom-top">
+                  <h4 className="items-warehouse__address-title">
+                    WAREHOUSE ADDRESS:
+                  </h4>
+                  <p>
+                    {this.state.warehouseDetail.address}
+                    {","}
+                    <br />
+                    {this.state.warehouseDetail.city}
+                    {","}
+                    {this.state.warehouseDetail.country}
+                  </p>
+                </div>
+
+                <div className="items-warehouse__header-bottom-bottom">
+                  <div className="items-warehouse__header-bottom-left">
+                    <h4>CONTACT NAME:</h4>
+                    <p>
+                      {contact_name}
+                      <br />
+                      {contact_position}
+                    </p>
+                  </div>
+                  <div className="items-warehouse__header-bottom-right">
+                    <h4>CONTACT INFORMATION:</h4>
+                    <p>
+                      {contact_phone}
+                      <br />
+                      {contact_email}
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div className="items-warehouse__content-section">
+            <div className="items-warehouse__content-container">
+              <div className="items-warehouse__content-header">
+                <div className="items-warehouse__content-header-container">
+                  <h4>
+                    INVENTORY ITEM
+                    <img
+                      alt="Sort Icon"
+                      src={Sort}
+                      onClick={(e) => this.sortWarehouse(e)}
+                    />
+                  </h4>
+                  <h4>
+                    CATEGORY
+                    <img
+                      alt="Sort Icon"
+                      src={Sort}
+                      onClick={this.sortAddress}
+                    />
+                  </h4>
+                  <h4>
+                    STATUS
+                    <img
+                      alt="Sort Icon"
+                      src={Sort}
+                      onClick={this.sortContactName}
+                    />
+                  </h4>
+                  <h4>
+                    QUANTITY
+                    <img
+                      alt="Sort Icon"
+                      src={Sort}
+                      onClick={this.sortContactInformation}
+                    />
+                  </h4>
+                  <h4>ACTIONS</h4>
+                </div>
+              </div>
+              {inventoryArray &&
+                inventoryArray.map((inventory) => (
+                  <WarehouseItemCard
+                    key={inventory.itemName}
+                    warehouseID={inventory.warehouseID}
+                    warehouseName={inventory.warehouseName}
+                    itemName={inventory.itemName}
+                    description={inventory.description}
+                    category={inventory.category}
+                    status={inventory.status}
+                    quantity={inventory.quantity}
+                    popUp={this.popUpHandler}
+                  />
+                ))}
+            </div>
           </div>
         </div>
-      </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler}/>) : console.log('no popup')}
+        {this.state.showPopUp === true ? (
+          <DeleteConfirm popUpHandler={this.popUpHandler} />
+        ) : (
+          console.log("no popup")
+        )}
       </>
     );
   }

@@ -5,9 +5,10 @@ const warehouseController = require("../controllers/warehouseController");
 // Warehouse Routes
 router.get("/warehouses/", warehouseController.listWarehouses);
 router.get('/warehouses/:id', warehouseController.getWarehouseById);
+router.get('/warehouses/:id/inventory', warehouseController.getWarehouseInventorybyId);
 //  router.put('/warehouses/:id', warehouseController.editWarehouse);
 //  router.delete('/warehouses/:id', warehouseController.deleteWarehouse);
-
+router.delete(`/warehouses/:id`, warehouseController.deleteWarehouse);
 //ADDED BY YASH
 router.post("/warehouses", warehouseController.addWarehouse);
 

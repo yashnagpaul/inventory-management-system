@@ -3,6 +3,7 @@ const path = require("path");
 // const { v4: uuidv4 } = require("uuid");
 
 const warehouseFile = path.join(__dirname, "../db/warehouses.json");
+const inventoryFile = path.join(__dirname, "../db/inventories.json");
 
 function getWarehousesFromFile() {
   const data = fs.readFileSync(warehouseFile);
@@ -31,4 +32,11 @@ function getWarehouseById(id) {
   return thisWarehouse;
 }
 
-module.exports = { list, warehouse_create_post, getWarehouseById };
+function getWarehouseInventorybyId(id){
+  const data = fs.readFileSync(inventoryFile);
+  const inventoryList = JSON.parse(data);
+  const warehouseInventory = inventoryList.filter(warehouse => warehouse.warehouseID === id);
+  return warehouseInventory;
+}
+
+module.exports = { list, warehouse_create_post, getWarehouseById, getWarehouseInventorybyId };

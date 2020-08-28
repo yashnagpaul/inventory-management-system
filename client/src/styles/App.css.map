@@ -14,7 +14,9 @@
         "partials/_warehousecard.scss",
         "partials/_delete-confirmation.scss",
         "partials/_list-warehouse-items.scss",
-        "partials/_warehouse-item-card.scss"
+        "partials/_warehouse-item-card.scss",
+        "partials/_list-inventories.scss",
+        "partials/_inventory-card.scss"
     ],
     "names": [],
     "file": "App.css"

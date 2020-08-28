@@ -5,7 +5,7 @@ import WarehouseCard from "./WarehouseCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteConfirm'
+import DeleteConfirm from './DeleteConfirm';
 
 
 class ListWarehouses extends Component {
@@ -32,8 +32,8 @@ class ListWarehouses extends Component {
 
   deleteHandler = (id) => {
     axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      
-    })).catch(err => console.log(err))
+      console.log(`warehouse with the ${id} id has been deleted`)
+    })).catch(err => console.log('cannot find url'))
   }
 
 handleSearch() {
@@ -62,11 +62,11 @@ sortContactInformation() {
 
   render() {
     const warehouseArray = this.state.warehouses;
-    console.log(this.state.activeWarehouse)
 
     return (
       <>
       <div className="list-warehouse__container">
+
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
             <h1 className="list-warehouse__title">Warehouses</h1>
@@ -91,6 +91,7 @@ sortContactInformation() {
             </Link>
           </div>
         </div>
+        
         <div className="list-warehouse__content-section">
           <div className="list-warehouse__content-container">
             <div className="list-warehouse__content-header">
@@ -130,7 +131,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match} deleteHandler={this.deleteHandler}/>) : console.log('no popup')}
       </>
     );
   }
