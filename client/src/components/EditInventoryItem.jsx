@@ -17,7 +17,9 @@ class EditInventoryItem extends React.Component {
       status: this.form.current.name.value,
       warehouse: this.form.current.name.value,
     };
+
     console.log(itemToEdit);
+    //axios request
   }
 
   render() {
