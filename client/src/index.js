@@ -19,9 +19,8 @@ ReactDOM.render(
       <Switch>
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
-        <Route path='/inventory' component={DeleteConfirm} exact/>
-        <Route path="/warehouses/:id" component={ListWarehouse} exact />
-        <Route path='/warehouse/:id/delete' component={DeleteConfirm} />
+        <Route path="/warehouses/:id/delete" component={ListWarehouse} exact />
+        {/* <Route path='/warehouse/:id/delete' component={DeleteConfirm} /> */}
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         
 
