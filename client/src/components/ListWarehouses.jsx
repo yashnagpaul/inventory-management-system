@@ -24,35 +24,16 @@ class ListWarehouses extends Component {
     });
   }
 
-  // componentDidUpdate(_prevProps, prevState) {
-  //   const {params} = this.props.match;
-  //   if (
-  //     params.id !== undefined && 
-  //     prevState.activeSideBarVideo.id !== params.id
-  //   ) {
-  //     this.getActiveSideVideoData(params.id);
-  //   }
-  // }
-
-  // getActiveSideVideoData(id) {
-  //   axios
-  //     .get(`http://localhost:5000/videos/${id}`)
-  //     .then((res) => {
-  //       this.setState({
-  //         activeSideBarVideo: res.data,
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // }
-
   popUpHandler = () => {
     this.setState({
       showPopUp: !this.state.showPopUp
     });
   }
 
-  deleteHandler = () => {
-
+  deleteHandler = (id) => {
+    axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
+      
+    })).catch(err => console.log(err))
   }
 
 handleSearch() {
@@ -81,11 +62,10 @@ sortContactInformation() {
 
   render() {
     const warehouseArray = this.state.warehouses;
-    console.log(this.props.match)
+    console.log(this.state.activeWarehouse)
 
     return (
       <>
-      
       <div className="list-warehouse__container">
         <div className="list-warehouse__header-section">
           <div className="list-warehouse__header-container">
