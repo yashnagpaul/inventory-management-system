@@ -8,7 +8,7 @@ export default function Header() {
       <img alt="logo" src={logo} className="header__logo" />
       <nav className="header__nav">
         <div className="header__warehouses-btn">
-          <NavLink to="/Warehouses">Warehouses </NavLink>
+          <NavLink to="/warehouses">Warehouses </NavLink>
         </div>
         <div className="header__warehouses-btn">
           <NavLink to="/inventory">Inventory </NavLink>

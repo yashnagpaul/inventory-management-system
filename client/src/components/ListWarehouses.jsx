@@ -5,7 +5,7 @@ import WarehouseCard from "./WarehouseCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteConfirm';
+import DeleteWarehouse from './DeleteWarehouse';
 
 
 class ListWarehouses extends Component {
@@ -32,8 +32,14 @@ class ListWarehouses extends Component {
 
   deleteHandler = (id) => {
     axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      console.log(`warehouse with the ${id} id has been deleted`)
-    })).catch(err => console.log('cannot find url'))
+      axios.get("http://localhost:8080/api/warehouses").then((response) => {
+        console.log("Warehouse List", response.data);
+        this.setState({
+          warehouses: response.data,
+          showPopUp: false,
+        });
+      });
+    })).catch(err => console.log(err))
   }
 
 handleSearch() {
@@ -131,7 +137,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match} deleteHandler={this.deleteHandler}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteWarehouse popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match} deleteHandler={this.deleteHandler}/>) : console.log('no popup')}
       </>
     );
   }

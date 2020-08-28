@@ -5,7 +5,7 @@ import InventoryCard from "./InventoryCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteConfirm';
+import DeleteConfirm from './DeleteWarehouse';
 
 
 // Jaguar

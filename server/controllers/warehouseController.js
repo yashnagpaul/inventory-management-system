@@ -11,8 +11,15 @@ function getWarehouseById(req, res) {
 
 
 function deleteWarehouse(req, res) {
-  const clickedWarehouse = warehouse.list().filter(warehouse => warehouse.id !== req.params.id)
-  fs.writeFileSync('./db/warehouses.json', JSON.stringify(clickedWarehouse))
+  // const clickedWarehouse = warehouse.list().filter(warehouse => warehouse.id !== req.params.id)
+  // fs.writeFileSync('./db/warehouses.json', JSON.stringify(clickedWarehouse))
+  // res.json(`warehouse deleted`);
+  // const clickedWarehouse = warehouse.list().find(warehouse => warehouse.id === req.params.id)
+  const warehouses = warehouse.list();
+  const warehouseIndex = warehouses.findIndex(warehouse => warehouse.id === req.params.id)
+  const clickedWarehouse = warehouses.splice(warehouseIndex, 1);
+  fs.writeFileSync('./db/warehouses.json', JSON.stringify(warehouses))
+  res.json(clickedWarehouse)
 }
 
 function getWarehouseInventorybyId(req, res) {
