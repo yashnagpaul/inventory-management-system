@@ -96,6 +96,12 @@
   &__save-add-btn {
     @include primary-CTA;
   }
+
+  &__error-validation {
+    font-size: 12px;
+    // margin: -16px 0px 16px 6px;
+    color: orangered;
+  }
 }
 
 //RADIO-BUTTONS

@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import errorIcon from "../assets/Icons/error-24px.svg";
 
 class AddWarehouse extends React.Component {
   constructor(props) {
@@ -8,6 +9,17 @@ class AddWarehouse extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.form = React.createRef();
   }
+
+  state = {
+    nameError: false,
+    addressError: false,
+    cityError: false,
+    countryError: false,
+    contactNameError: false,
+    positionError: false,
+    numberError: false,
+    emailError: false,
+  };
 
   submitHandler(event) {
     event.preventDefault();
@@ -23,23 +35,46 @@ class AddWarehouse extends React.Component {
     let number = this.form.current.number.value;
     let email = this.form.current.email.value;
 
-    // POST THE NEW WAREHOUSE DETAILS TO OUR DATABASE
-    axios.post("http://localhost:8080/api/warehouses", {
-      id: id,
-      name: name,
-      address: address,
-      city: city,
-      country: country,
-      contact: {
-        contactName: contactName,
-        position: position,
-        number: number,
-        email: email,
-      },
-    });
+    //VALIDATE THAT WE HAVE ALL THE DATA THAT WE NEED
+    if (
+      id &&
+      name &&
+      address &&
+      city &&
+      country &&
+      contactName &&
+      position &&
+      number &&
+      email
+    ) {
+      console.log("if message");
+      // POST THE NEW WAREHOUSE DETAILS TO OUR DATABASE
+      axios.post("http://localhost:8080/api/warehouses", {
+        id: id,
+        name: name,
+        address: address,
+        city: city,
+        country: country,
+        contact: {
+          contactName: contactName,
+          position: position,
+          number: number,
+          email: email,
+        },
+      });
 
-    //RESET THE FORM
-    event.target.reset();
+      //RESET THE FORM
+      event.target.reset();
+    } else {
+      if (!name) this.setState({ nameError: true });
+      if (!address) this.setState({ addressError: true });
+      if (!city) this.setState({ cityError: true });
+      if (!country) this.setState({ countryError: true });
+      if (!contactName) this.setState({ contactNameError: true });
+      if (!position) this.setState({ positionError: true });
+      if (!number) this.setState({ numberError: true });
+      if (!email) this.setState({ emailError: true });
+    }
   }
 
   render() {
@@ -61,6 +96,16 @@ class AddWarehouse extends React.Component {
               placeholder="Warehouse Name"
             />
 
+            <div
+              className="add-warehouse__error-validation"
+              style={{
+                display: this.state.nameError ? "inline-block" : "none",
+              }}
+            >
+              <img src={errorIcon} alt="" />
+              This field is required!
+            </div>
+
             <label htmlFor="address">Street Address</label>
             <input
               type="text"
@@ -68,6 +113,14 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__street-address"
               placeholder="Street Address"
             />
+
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.addressError ? "flex" : "none" }}
+            >
+              <img src={errorIcon} alt="" />
+              This field is required!
+            </div>
 
             <label htmlFor="city">City</label>
             <input
@@ -77,6 +130,14 @@ class AddWarehouse extends React.Component {
               placeholder="City"
             />
 
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.cityError ? "flex" : "none" }}
+            >
+              <img src={errorIcon} alt="" />
+              This field is required!
+            </div>
+
             <label htmlFor="country">Country</label>
             <input
               type="text"
@@ -84,6 +145,13 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__country"
               placeholder="Country"
             />
+
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.countryError ? "flex" : "none" }}
+            >
+              This field is required!
+            </div>
           </div>
 
           {/* CONTACT DETAILS */}
@@ -98,6 +166,13 @@ class AddWarehouse extends React.Component {
               placeholder="Contact Name"
             />
 
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.contactNameError ? "flex" : "none" }}
+            >
+              This field is required!
+            </div>
+
             <label htmlFor="position">Position</label>
             <input
               type="text"
@@ -105,6 +180,13 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__position"
               placeholder="Position"
             />
+
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.positionError ? "flex" : "none" }}
+            >
+              This field is required!
+            </div>
 
             <label htmlFor="number">Number</label>
             <input
@@ -114,6 +196,13 @@ class AddWarehouse extends React.Component {
               placeholder="Number"
             />
 
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.numberError ? "flex" : "none" }}
+            >
+              This field is required!
+            </div>
+
             <label htmlFor="email">Email</label>
             <input
               type="text"
@@ -121,6 +210,13 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__email"
               placeholder="Email"
             />
+
+            <div
+              className="add-warehouse__error-validation"
+              style={{ display: this.state.emailError ? "flex" : "none" }}
+            >
+              This field is required!
+            </div>
           </div>
         </div>
 

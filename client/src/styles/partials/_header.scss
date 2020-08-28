@@ -7,8 +7,9 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 6%;
-    padding-right: 6%;
+    // width: 88%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
   }
   &__logo {
     padding: 25px;
@@ -39,11 +40,17 @@
     text-align: center;
     padding: 5px;
     &:hover {
-      background-color: $graphite;
       cursor: pointer;
     }
   }
   // a:hover{
   //   backg:1;
   // }
+}
+
+.active {
+  background-color: $graphite;
+  padding: 7px 14px 7px;
+  width: 150px;
+  border-radius: 20px;
 }
