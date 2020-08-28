@@ -11,6 +11,12 @@
     padding-left: 2.5%;
     padding-right: 2.5%;
   }
+
+  @include desktop {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
   &__logo {
     padding: 25px;
     @include tablet {

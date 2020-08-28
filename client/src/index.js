@@ -9,6 +9,7 @@ import DeleteConfirm from './components/DeleteConfirm';
 import AddWarehouse from "./components/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse";
 import ListWarehouseItems from "./components/ListWarehouseItems";
+import ListInventories from "./components/ListInventories";
 
 
 
@@ -17,7 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0" />
+    <Redirect from="/" to="/inventory" />
       <Header />
       <Switch>
 
@@ -27,9 +28,9 @@ ReactDOM.render(
         <Route path='/warehouses/:id/delete' component={ListWarehouse} />
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         {/* // <Route path="/warehouses" component={ListWarehouse} exact /> */}
-        {/* <Route path='/inventory' component={} exact/>
-        <Route path='/warehouses/:id' component={} />
-        {/* {/* <Route path='/warehouses/:id' component={} /> */}
+        <Route path='/inventory' component={ListInventories} exact/>
+        {/* <Route path='/warehouses/:id' component={} /> */}
+        {/* {/* <Route path='/warehouses/:id' component={} />
         {/* <Route path='/inventory' component={} exact/>
         <Route path='/warehouses/:id' component={} />
         <Route path='/inventory/:id' component={} />       

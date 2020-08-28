@@ -1,11 +1,32 @@
 import React from "react";
+import Axios from "axios";
 
 class EditInventoryItem extends React.Component {
-  saveHandler() {}
+  constructor(props) {
+    super(props);
+    this.form = React.createRef();
+    this.saveHandler = this.saveHandler.bind(this);
+  }
+  saveHandler(event) {
+    event.preventDefault();
+    const itemToEdit = {
+      id: this.props.match.url,
+      name: this.form.current.name.value,
+      description: this.form.current.name.value,
+      category: this.form.current.name.value,
+      status: this.form.current.name.value,
+      warehouse: this.form.current.name.value,
+    };
+    console.log(itemToEdit);
+  }
 
   render() {
     return (
-      <form className="add-warehouse">
+      <form
+        onSubmit={this.saveHandler}
+        ref={this.form}
+        className="add-warehouse"
+      >
         <h1 className="add-warehouse__heading">Edit Inventory Item</h1>
         <div className="add-warehouse__details-availability-container">
           <div className="add-warehouse__warehouse-details">
