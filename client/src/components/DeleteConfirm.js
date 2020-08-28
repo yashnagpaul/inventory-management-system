@@ -6,7 +6,7 @@ function DeleteConfirm(props) {
     const urlId = props.url.params.id;
     const warehouses = props.warehouses;
     const foundWarehouse = warehouses.find(warehouse => urlId === warehouse.id);
-    
+
     return (
         <div className='delete__page--mobile-only'>
             <div className='delete__card'>
@@ -14,7 +14,7 @@ function DeleteConfirm(props) {
                 <Link to={`/warehouses`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
                     <div className='delete__confirmation'>
                         <h1 className='delete__header'>{`Delete ${foundWarehouse.name} warehouse?`}</h1>
-                        <p className='delete__details'>Please confirm that you'd like to delete the King West from the list of warehouses.
+                        <p className='delete__details'>Please confirm that you'd like to delete the {foundWarehouse.name} from the list of warehouses.
                             You won't be able to undo this action.
                         </p>
                     </div>

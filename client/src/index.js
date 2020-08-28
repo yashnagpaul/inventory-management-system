@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import App from "./App";
 import Header from './components/Header';
+
 import ListWarehouse from './components/ListWarehouses';
 import DeleteConfirm from './components/DeleteConfirm';
 import AddWarehouse from "./components/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import ListWarehouseItems from "./components/ListWarehouseItems";
+
 
 
 
@@ -14,13 +17,14 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/warehouses" />
+    <Redirect from="/" to="/warehouses/" />
       <Header />
       <Switch>
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
-        <Route path="/warehouses/:id/delete" component={ListWarehouse} exact />
-        {/* <Route path='/warehouse/:id/delete' component={DeleteConfirm} /> */}
+        {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
+        <Route path="/warehouses/:id" component={ListWarehouseItems} exact />
+        <Route path='/warehouse/:id/delete' component={ListWarehouse} />
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         
 

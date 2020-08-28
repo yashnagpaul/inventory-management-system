@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import WarehouseCard from "./WarehouseCard";
+import WarehouseItemCard from "./WarehouseItemCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
 import DeleteConfirm from './DeleteConfirm'
 
+
+//Phatfarm
 
 class ListWarehouses extends Component {
   state = {
@@ -28,12 +30,6 @@ class ListWarehouses extends Component {
     this.setState({
       showPopUp: !this.state.showPopUp
     });
-  }
-
-  deleteHandler = (id) => {
-    axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      
-    })).catch(err => console.log(err))
   }
 
 handleSearch() {
@@ -62,53 +58,35 @@ sortContactInformation() {
 
   render() {
     const warehouseArray = this.state.warehouses;
-    console.log(this.state.activeWarehouse)
 
     return (
       <>
-      <div className="list-warehouse__container">
-        <div className="list-warehouse__header-section">
-          <div className="list-warehouse__header-container">
-            <h1 className="list-warehouse__title">Warehouses</h1>
-            {/* <form className="list-warehouse__search"> */}
-            <input
-              type="text"
-              placeholder="Search..."
-              className="list-warehouse__search-input"
-              name="searchItem"
-              onSubmit={this.handleSearch}
-            ></input>
-            <img
-              className="list-warehouse__search-icon"
-              alt="Search"
-              src={Search}
-            />
-            {/* </form> */}
-            <Link to={'/warehouses/:id/add'} className="list-warehouse__add-button-link">
-            <button className="list-warehouse__add-button">
-              + Add New Warehouse
-            </button>
-            </Link>
+      
+      <div className="items-warehouse__container">
+        <div className="items-warehouse__header-section">
+          <div className="items-warehouse__header-container">
+<div className="items-warehouse__header-top"></div>
+<div className="items-warehouse__header-bottom"></div>
           </div>
         </div>
-        <div className="list-warehouse__content-section">
-          <div className="list-warehouse__content-container">
-            <div className="list-warehouse__content-header">
-              <div className="list-warehouse__content-header-container">
+        <div className="items-warehouse__content-section">
+          <div className="items-warehouse__content-container">
+            <div className="items-warehouse__content-header">
+              <div className="items-warehouse__content-header-container">
                 <h4>
-                  WAREHOUSE
+                  INVENTORY ITEM
                   <img alt="Sort Icon" src={Sort} onClick={(e) => this.sortWarehouse(e)}/>
                 </h4>
                 <h4>
-                  ADDRESS
+                  CATEGORY
                   <img alt="Sort Icon" src={Sort} onClick={this.sortAddress}/>
                 </h4>
                 <h4>
-                  CONTACT NAME
+                  STATUS
                   <img alt="Sort Icon" src={Sort} onClick={this.sortContactName}/>
                 </h4>
                 <h4>
-                  CONTACT INFORMATION
+                  QUANTITY
                   <img alt="Sort Icon" src={Sort} onClick={this.sortContactInformation}/>
                 </h4>
                 <h4>ACTIONS</h4>
@@ -116,7 +94,7 @@ sortContactInformation() {
             </div>
             {warehouseArray &&
               warehouseArray.map((warehouse) => (
-                <WarehouseCard
+                <WarehouseItemCard
                   key={warehouse.id}
                   id={warehouse.id}
                   name={warehouse.name}
@@ -130,7 +108,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={warehouseArray} url={this.props.match}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler}/>) : console.log('no popup')}
       </>
     );
   }

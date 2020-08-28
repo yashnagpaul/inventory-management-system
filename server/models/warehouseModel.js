@@ -20,8 +20,15 @@ function warehouse_create_post(req, res) {
   const newObject = req.body;
   warehouseList.push(newObject);
   fs.writeFileSync(warehouseFile, JSON.stringify(warehouseList));
-  //OPTIONAL RESPONSE
+//OPTIONAL RESPONSE
   res.send(newObject);
 }
 
-module.exports = { list, warehouse_create_post };
+function getWarehouseById(id) {
+
+  const warehouseList = list();
+  const thisWarehouse = warehouseList.find(warehouse => warehouse.id === id);
+  return thisWarehouse;
+}
+
+module.exports = { list, warehouse_create_post, getWarehouseById };
