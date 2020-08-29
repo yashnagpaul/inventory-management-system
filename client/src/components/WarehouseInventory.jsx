@@ -8,10 +8,6 @@ import Sort from "../assets/Icons/sort-24px.svg";
 import Edit from "../assets/Icons/edit-25px.svg";
 import DeleteConfirm from "./DeleteWarehouse";
 
-//Phatfarm
-
-// const id = this.props.match.params.id;
-
 class WarehouseInventory extends Component {
   state = {
     warehouseDetail: {},
@@ -39,14 +35,13 @@ class WarehouseInventory extends Component {
 
   getInventoryById(id) {
     axios
-    .get(`http://localhost:8080/api/warehouses/${id}/inventory`)
-    .then((response)=> {
-      console.log(response.data);
-      this.setState({
-        inventoryList: response.data,
-      })
-    }
-    )
+      .get(`http://localhost:8080/api/warehouses/${id}/inventory`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          inventoryList: response.data,
+        });
+      });
   }
 
   popUpHandler = () => {
@@ -123,11 +118,17 @@ class WarehouseInventory extends Component {
                     <img src={Edit} alt="Edit" />
                   </div>
                 </Link>
+
+                <Link to={`/warehouses`} className="items-warehouse__edit-link2">
+                  <div className="items-warehouse__edit-circle2">
+                    <img src={Edit} alt="Edit" />
+                    <h3>Edit</h3>
+                  </div>
+                </Link>
               </div>
             </div>
             <div className="items-warehouse__header-bottom">
               <div className="items-warehouse__header-bottom-container">
-
                 <div className="items-warehouse__header-bottom-top">
                   <h4 className="items-warehouse__address-title">
                     WAREHOUSE ADDRESS:
@@ -160,7 +161,6 @@ class WarehouseInventory extends Component {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>

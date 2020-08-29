@@ -122,7 +122,7 @@ sortContactInformation() {
             {inventoryArray &&
               inventoryArray.map((inventory) => (
                 <InventoryCard
-                  key={inventory.description}
+                  key={inventory.id}
                   warehouseID={inventory.warehouseID}
                   warehouseName={inventory.warehouseName}
                   itemName={inventory.itemName}

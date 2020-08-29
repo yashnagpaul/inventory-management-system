@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
-import DeleteWarehouse from "./DeleteWarehouse";
+// import DeleteWarehouse from "./DeleteWarehouse";
 
 const WareHouseCard = ({
   id,
@@ -50,11 +50,13 @@ const WareHouseCard = ({
           </div>
         </div>
         <div className="list-warehouse__warehouse-bottom">
-            <Link to={`/warehouses/${id}/delete`}><a 
-              className="list-warehouse__click"
-              onClick={popUp}>
-                <img className="list-warehouse__warehouse-delete" src={Trash}/>
-            </a></Link>
+          <Link
+            to={`/warehouses/${id}/delete`}
+            className="list-warehouse__click"
+            onClick={popUp}
+          >
+            <img className="list-warehouse__warehouse-delete" src={Trash} />
+          </Link>
           <Link to={`/warehouses/:id/edit`}>
             <img
               className="list-warehouse__warehouse-edit"

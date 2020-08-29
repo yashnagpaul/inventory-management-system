@@ -1072,7 +1072,6 @@ a:hover {
 
 .items-warehouse__header-section {
   border-bottom: 1px solid #bdc5d5;
-  margin: 16px 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -1098,6 +1097,12 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   height: 92px;
+}
+
+@media screen and (min-width: 768px) {
+  .items-warehouse__header-top-container {
+    width: 90.90%;
+  }
 }
 
 .items-warehouse__backlink {
@@ -1129,6 +1134,47 @@ a:hover {
   right: 5px;
 }
 
+@media screen and (min-width: 768px) {
+  .items-warehouse__edit-circle {
+    display: none;
+  }
+}
+
+.items-warehouse__edit-link2 {
+  margin: 0;
+}
+
+.items-warehouse__edit-circle2 {
+  height: 38px;
+  width: 81px;
+  border-radius: 20px;
+  background: #2E66E6;
+  position: relative;
+  display: none;
+}
+
+.items-warehouse__edit-circle2 > img {
+  position: absolute;
+  top: 7px;
+  right: 45px;
+}
+
+.items-warehouse__edit-circle2 > h3 {
+  position: absolute;
+  top: 8px;
+  right: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .items-warehouse__edit-circle2 {
+    display: block;
+  }
+}
+
+.items-warehouse__header-bottom {
+  margin: 24px 0;
+}
+
 .items-warehouse__header-bottom-container {
   margin: 0 auto;
   width: 86%;
@@ -1145,6 +1191,7 @@ a:hover {
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
+    width: 90.90%;
   }
 }
 
@@ -1165,7 +1212,7 @@ a:hover {
 @media screen and (min-width: 768px) {
   .items-warehouse__header-bottom-bottom {
     margin: 0;
-    width: 50%;
+    width: 60%;
   }
 }
 
@@ -1175,7 +1222,7 @@ a:hover {
 
 @media screen and (min-width: 768px) {
   .items-warehouse__header-bottom-left {
-    padding-left: 30px;
+    padding-left: 40px;
     border-left: 2px solid #D1D1D1;
   }
 }

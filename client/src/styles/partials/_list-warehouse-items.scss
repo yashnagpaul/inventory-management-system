@@ -27,7 +27,7 @@
 
     &__header-section {
         border-bottom: 1px solid $cloud;
-        margin: 16px 0;
+        // margin: 16px 0;
 
 
         @include tablet {
@@ -45,6 +45,10 @@
             justify-content: flex-start;
             align-items: center;
             height: 92px;
+
+            @include tablet {
+                width: 90.90%;
+            }
         }
     }
 
@@ -79,11 +83,46 @@
             right: 5px;
         }
 
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__edit-link2 {
+        margin: 0;
+
+    }
+
+    &__edit-circle2 {
+        height: 38px;
+        width: 81px;
+        border-radius: 20px;
+        background: #2E66E6;
+        position: relative;
+        display: none;
+
+        &>img {
+            position: absolute;
+            top: 7px;
+            right: 45px;
+        }
+
+        &>h3 {
+            position: absolute;
+            top: 8px;
+            right: 18px;
+        }
+
+        @include tablet {
+            display: block;
+        }
+
     }
 
     &__header-bottom {
         // border-top: 10px solid green;
-
+        margin: 24px 0;
 
         &-container {
             margin: 0 auto;
@@ -94,6 +133,7 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: baseline;
+                width: 90.90%;
             }
 
         }
@@ -112,7 +152,7 @@
 
         @include tablet {
             margin: 0;
-            width: 50%;
+            width: 60%;
         }
     }
 
@@ -120,7 +160,7 @@
         width: 50%;
 
         @include tablet {
-            padding-left: 30px;
+            padding-left: 40px;
             border-left: 2px solid #D1D1D1;
         }
     }
