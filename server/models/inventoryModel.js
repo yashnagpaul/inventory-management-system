@@ -32,4 +32,21 @@ function patchInventory(req, res) {
   res.send(newListOfItems);
 }
 
-module.exports = { list, patchInventory };
+//ADD NEW INVENTORY
+function postInventory(req, res) {
+  const inventoryData = JSON.parse(fs.readFileSync(inventoryFile));
+  const itemToPost = {
+    id: req.body.id,
+    name: req.body.name,
+    description: req.body.description,
+    category: req.body.category,
+    status: req.body.status,
+    quantity: req.body.quantity,
+    warehouse: req.body.warehouse,
+  };
+  inventoryData.push(itemToPost);
+  fs.writeFileSync(inventoryFile, JSON.stringify(inventoryData));
+  res.send(inventoryData);
+}
+
+module.exports = { list, patchInventory, postInventory };

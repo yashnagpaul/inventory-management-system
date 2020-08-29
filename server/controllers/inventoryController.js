@@ -8,7 +8,12 @@ function editInventory(req, res) {
   inventory.patchInventory(req, res);
 }
 
+function addInventory(req, res) {
+  inventory.postInventory(req, res);
+}
+
 module.exports = {
   listInventory,
   editInventory,
+  addInventory,
 };
