@@ -10,5 +10,6 @@ router.get("/inventory", inventoryController.listInventory);
 
 // ADDED BY YASH
 router.patch("/inventory/", inventoryController.editInventory);
+router.post("/inventory", inventoryController.addInventory);
 
 module.exports = router;
