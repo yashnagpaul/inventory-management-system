@@ -47,7 +47,6 @@ class AddWarehouse extends React.Component {
       number &&
       email
     ) {
-      console.log("if message");
       // POST THE NEW WAREHOUSE DETAILS TO OUR DATABASE
       axios.post("http://localhost:8080/api/warehouses", {
         id: id,
@@ -62,6 +61,17 @@ class AddWarehouse extends React.Component {
           email: email,
         },
       });
+
+      this.setState({ nameError: false });
+      this.setState({ addressError: false });
+      this.setState({ cityError: false });
+      this.setState({ countryError: false });
+      this.setState({ contactNameError: false });
+      this.setState({ positionError: false });
+      this.setState({ numberError: false });
+      this.setState({ emailError: false });
+
+      window.alert("Warehouse successfully added!");
 
       //RESET THE FORM
       event.target.reset();
@@ -102,7 +112,7 @@ class AddWarehouse extends React.Component {
                 display: this.state.nameError ? "inline-block" : "none",
               }}
             >
-              <img src={errorIcon} alt="" />
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
@@ -118,7 +128,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.addressError ? "flex" : "none" }}
             >
-              <img src={errorIcon} alt="" />
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
@@ -134,7 +144,7 @@ class AddWarehouse extends React.Component {
               className="add-warehouse__error-validation"
               style={{ display: this.state.cityError ? "flex" : "none" }}
             >
-              <img src={errorIcon} alt="" />
+              <img src={errorIcon} alt="error" />
               This field is required!
             </div>
 
