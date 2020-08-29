@@ -7,9 +7,6 @@ import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
 import DeleteConfirm from './DeleteWarehouse';
 
-
-// Jaguar
-
 class ListInventories extends Component {
   state = {
     Inventory: [],
@@ -64,7 +61,7 @@ sortContactInformation() {
 
   render() {
     const inventoryArray = this.state.Inventory;
-    console.log(this.state.activeWarehouse)
+    
 
     return (
       <>

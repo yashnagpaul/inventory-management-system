@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/App.css";
+import ItemStatus from './components/ItemStatus';
 
 
 import Header from "./components/Header";
@@ -14,7 +15,7 @@ class App extends Component {
         <Header />
         {/* <AddWarehouse />
       <EditWarehouse /> */}
-        <ListWarehouses
+        <ItemStatus
         // warehouses={this.state.warehouses}
         />
       </div>

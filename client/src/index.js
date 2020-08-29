@@ -10,6 +10,7 @@ import AddWarehouse from "./components/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse";
 import WarehouseInventory from "./components/WarehouseInventory";
 import ListInventories from "./components/ListInventories";
+import ItemStatus from './components/ItemStatus';
 
 
 
@@ -18,14 +19,16 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/inventory" />
+    <Redirect from="/" to="/warehouses" />
       <Header />
       <Switch>
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
         <Route path='/warehouses/:id/delete' component={ListWarehouse} />
+        <Route path='/inventory/:id' component={ItemStatus} exact/>
         {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
         <Route path="/warehouses/:id" component={WarehouseInventory} exact />
+
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         {/* // <Route path="/warehouses" component={ListWarehouse} exact /> */}
         <Route path='/inventory' component={ListInventories} exact/>
