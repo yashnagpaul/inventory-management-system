@@ -14,7 +14,7 @@ const InventoryCard = ({
   quantity,
   popUp
 }) => {
-
+  
 
   return (
     <div className="inventory-card__warehouse-card-container">
@@ -23,7 +23,7 @@ const InventoryCard = ({
           <div className="inventory-card__warehouse-name-section">
             <h4 className="inventory-card__warehouse-name-title">ITEM NAME</h4>
 
-            <Link to={`/warehouses/`}>
+            <Link to={`/inventory/${warehouseID}`}>
               <h3 className="inventory-card__warehouse-name">
                 {itemName}
                 <img src={Arrow}></img>
