@@ -77,16 +77,20 @@ sortContactInformation() {
               className="list-inventory__search-input"
               name="searchItem"
               onSubmit={this.handleSearch}
-            ></input>
-            <img
-              className="list-inventory__search-icon"
-              alt="Search"
-              src={Search}
-            />
+            >
+
+              
+            </input>
+
             {/* </form> */}
             <Link to={'/warehouses/:id/add'} className="list-inventory__add-button-link">
             <button className="list-inventory__add-button">
               + Add New Item
+              <img
+              className="list-inventory__search-icon"
+              alt="Search"
+              src={Search}
+            />
             </button>
             </Link>
           </div>

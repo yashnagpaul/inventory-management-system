@@ -1713,6 +1713,7 @@ a:hover {
   width: 100%;
   max-width: 100%;
   margin: 0;
+  margin-right: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -1721,19 +1722,6 @@ a:hover {
     width: 26.78%;
     margin-left: auto;
     position: relative;
-  }
-}
-
-.list-inventory__search-icon {
-  position: absolute;
-  right: 15px;
-  top: 77px;
-}
-
-@media screen and (min-width: 768px) {
-  .list-inventory__search-icon {
-    right: 27%;
-    top: 33px;
   }
 }
 
@@ -1746,8 +1734,7 @@ a:hover {
   .list-inventory__add-button-link {
     margin: 0;
     height: 38px;
-    width: 23.86%;
-    margin-left: 16px;
+    width: 128px;
   }
 }
 
@@ -1765,10 +1752,24 @@ a:hover {
   font-size: 13px;
   padding: 0;
   height: 38px;
+  position: relative;
 }
 
 .list-inventory__add-button:hover {
   background-color: #13182c;
+}
+
+.list-inventory__search-icon {
+  position: absolute;
+  right: 15px;
+  top: -63px;
+}
+
+@media screen and (min-width: 768px) {
+  .list-inventory__search-icon {
+    right: 157px;
+    top: 7px;
+  }
 }
 
 .list-inventory__content-container {
@@ -1866,18 +1867,23 @@ a:hover {
   margin: 0;
 }
 
+.inventory-card__warehouse-top > div > h4 {
+  margin-bottom: 4px;
+}
+
 @media screen and (min-width: 768px) {
   .inventory-card__warehouse-top {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     width: 85%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    margin-bottom: 0;
   }
 }
 
-.inventory-card__warehouse-name-section {
+.inventory-card__inventory-item-section {
   width: 50%;
   margin: 0;
   margin-bottom: 16px;
@@ -1893,8 +1899,12 @@ a:hover {
           justify-content: flex-start;
 }
 
+.inventory-card__inventory-item-section > a {
+  margin: 0;
+}
+
 @media screen and (min-width: 768px) {
-  .inventory-card__warehouse-name-section {
+  .inventory-card__inventory-item-section {
     width: 20%;
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
@@ -1935,18 +1945,21 @@ a:hover {
           align-items: center;
 }
 
-.inventory-card__contact-name-section {
+.inventory-card__category-section {
   width: 50%;
   margin: 0;
   margin-bottom: 16px;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 @media screen and (min-width: 768px) {
-  .inventory-card__contact-name-section {
+  .inventory-card__category-section {
     width: 20%;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 }
 
@@ -1964,14 +1977,35 @@ a:hover {
   margin: 0;
 }
 
-.inventory-card__address-section {
+.inventory-card__status-section {
   width: 50%;
   margin: 0;
   margin-bottom: 16px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.inventory-card__status-section > h4 + h4 {
+  background-color: rgba(21, 132, 99, 0.07);
+  color: #158463;
+  width: 61px;
+  height: 24px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
-  .inventory-card__address-section {
+  .inventory-card__status-section {
     width: 20%;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -1980,28 +2014,69 @@ a:hover {
   }
 }
 
-.inventory-card__address-title {
+.inventory-card__status-section-out {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.inventory-card__status-section-out > h4 + h4 {
+  background: rgba(201, 69, 21, 0.07);
+  color: #C94515;
+  width: 92px;
+  height: 26 px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .inventory-card__status-section-out {
+    width: 20%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding-right: 30px;
+  }
+}
+
+.inventory-card__status-title {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .inventory-card__address-title {
+  .inventory-card__status-title {
     display: none;
   }
 }
 
-.inventory-card__address {
+.inventory-card__status {
   margin: 0;
 }
 
-.inventory-card__contact-section {
+.inventory-card__qty-section {
   width: 50%;
   margin: 0;
   margin-bottom: 16px;
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
 }
 
 @media screen and (min-width: 768px) {
-  .inventory-card__contact-section {
+  .inventory-card__qty-section {
     width: 20%;
     -webkit-box-ordinal-group: 11;
         -ms-flex-order: 10;
@@ -2023,14 +2098,30 @@ a:hover {
   margin: 0;
 }
 
-.inventory-card__warehouse-bsection {
+.inventory-card__dummy-section {
   width: 50%;
-  margin: 0;
-  margin-bottom: 16px;
+  -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+          order: 5;
 }
 
 @media screen and (min-width: 768px) {
-  .inventory-card__warehouse-bsection {
+  .inventory-card__dummy-section {
+    display: none;
+  }
+}
+
+.inventory-card__warehouse-section-column {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+  -webkit-box-ordinal-group: 7;
+      -ms-flex-order: 6;
+          order: 6;
+}
+
+@media screen and (min-width: 768px) {
+  .inventory-card__warehouse-section-column {
     width: 20%;
     -webkit-box-ordinal-group: 11;
         -ms-flex-order: 10;
@@ -2075,10 +2166,6 @@ a:hover {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
-    padding-top: 15px;
   }
 }
 

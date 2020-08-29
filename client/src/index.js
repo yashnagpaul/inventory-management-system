@@ -17,7 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/warehouses/" />
+    <Redirect from="/" to="/inventory" />
       <Header />
       <Switch>
 
