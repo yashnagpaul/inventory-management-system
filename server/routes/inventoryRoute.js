@@ -7,6 +7,7 @@ router.get("/inventory", inventoryController.listInventory);
 //  router.post('/inventory/:id', inventoryController.getInventory);
 // router.patch("/inventory/:id", inventoryController.editInventory);
 //  router.delete('/inventory/:id', inventoryController.deleteInventory);
+router.delete(`/inventory/:id`, inventoryController.deleteInventory);
 
 // ADDED BY YASH
 router.patch("/inventory/", inventoryController.editInventory);

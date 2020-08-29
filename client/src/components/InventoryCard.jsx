@@ -69,12 +69,12 @@ const InventoryCard = ({
           </div>
         </div>
         <div className="inventory-card__warehouse-bottom">
-            <Link to={`/inventory/${warehouseID}/delete`}><a 
+            <Link to={`/inventory/${id}/delete`}><a 
               className="inventory-card__click"
               onClick={popUp}>
                 <img className="inventory-card__warehouse-delete" src={Trash}/>
             </a></Link>
-          <Link to={`/warehouses/:id/edit`}>
+          <Link to={`/inventory/:id/edit`}>
             <img
               className="inventory-card__warehouse-edit"
               src={Edit}
