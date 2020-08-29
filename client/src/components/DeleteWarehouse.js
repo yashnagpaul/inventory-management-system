@@ -14,7 +14,9 @@ function DeleteWarehouse(props) {
         <div className='delete__page--mobile-only'>
             {foundWarehouse && <div className='delete__card'>
                 <div className='delete__card-within'>
-                <Link to={`/warehouses`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
+                <Link to={`/warehouses`}  onClick={props.popUpHandler}>
+                        <img src={closeBtn} className='delete__exit--btn' alt="delete"/>
+                </Link>
                     <div className='delete__confirmation'>
                         <h1 className='delete__header'>{`Delete ${foundWarehouse.name} warehouse?`}</h1>
                         <p className='delete__details'>Please confirm that you'd like to delete the {foundWarehouse.name} from the list of warehouses.
