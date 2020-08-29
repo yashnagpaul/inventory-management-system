@@ -7,6 +7,17 @@ class EditInventoryItem extends React.Component {
     this.form = React.createRef();
     this.saveHandler = this.saveHandler.bind(this);
   }
+
+  state = {
+    itemDetails: {
+      name: "loading",
+      description: "loading",
+      category: "loading",
+      status: "loading",
+      warehouse: "loading",
+    },
+  };
+
   saveHandler(event) {
     event.preventDefault();
     const itemToEdit = {
@@ -20,6 +31,24 @@ class EditInventoryItem extends React.Component {
 
     console.log(itemToEdit);
     //axios request
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:8080/api/inventory").then((response) => {
+      response.data
+        .filter((item) => item.id !== this.match.url)
+        .then((result) => {
+          this.setState(
+            (itemDetails = {
+              description: result.description,
+              name: result.itemName,
+              category: result.category,
+              status: result.status,
+              warehouse: result.warehouseName,
+            })
+          );
+        });
+    });
   }
 
   render() {
@@ -38,7 +67,7 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="name"
               className="add-warehouse__name"
-              placeholder="Warehouse Name"
+              value={this.state.itemDetails.name}
             />
 
             <label htmlFor="description">Description</label>
@@ -46,7 +75,7 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="description"
               className="add-warehouse__description"
-              placeholder="Please enter a brief item description..."
+              value={this.state.itemDetails.description}
             />
 
             <label htmlFor="category">Category</label>
@@ -54,18 +83,11 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="category"
               className="add-warehouse__category"
-              placeholder="Please select"
             >
-              <option value="electronics">Electronics</option>
+              <option value={this.state.itemDetails.category}>
+                {this.state.itemDetails.category}
+              </option>
             </select>
-
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              name="country"
-              className="add-warehouse__country"
-              placeholder="Country"
-            />
           </div>
 
           {/* CONTACT DETAILS */}
@@ -96,7 +118,7 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="warehouse"
               className="add-warehouse__number"
-              placeholder="Number"
+              value={this.state.itemDetails.warehouse}
             />
           </div>
         </div>
