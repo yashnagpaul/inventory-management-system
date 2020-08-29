@@ -1,5 +1,5 @@
 import React from "react";
-import Axios from "axios";
+import axios from "axios";
 
 class EditInventoryItem extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class EditInventoryItem extends React.Component {
         .filter((item) => item.id !== this.match.url)
         .then((result) => {
           this.setState(
-            (itemDetails = {
+            (this.state.itemDetails = {
               description: result.description,
               name: result.itemName,
               category: result.category,

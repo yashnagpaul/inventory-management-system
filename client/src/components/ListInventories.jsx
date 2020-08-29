@@ -129,6 +129,8 @@ sortContactInformation() {
                   category={inventory.category}
                   status={inventory.status}
                   quantity={inventory.quantity}
+                  id={inventory.id}
+                  description={inventory.description}
                   popUp = {this.popUpHandler}
                 />
               ))}

@@ -2113,7 +2113,6 @@ a:hover {
 @media screen and (min-width: 1280px) {
   .item__card {
     height: 274px;
-    width: 74.5%;
   }
 }
 
@@ -2122,11 +2121,20 @@ a:hover {
 }
 
 .item__edit--btn {
-  position: relative;
+  position: absolute;
   background-color: blue;
   width: 36px;
   height: 36px;
+  top: 30px;
+  right: 10px;
   border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .item__edit--btn {
+    top: -20px;
+    right: 0px;
+  }
 }
 
 .item__edit--btn > img {
@@ -2164,6 +2172,7 @@ a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    padding: 3%;
   }
 }
 
@@ -2186,10 +2195,17 @@ a:hover {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .item__edit--link {
+    position: relative;
+  }
+}
+
 .item__header-back {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .item__item {
@@ -2200,6 +2216,7 @@ a:hover {
   line-height: 36px;
   color: #13182C;
   margin-left: 5%;
+  width: 350px;
 }
 
 .item__description {
@@ -2229,7 +2246,7 @@ a:hover {
 
 @media screen and (min-width: 768px) {
   .item__warehouse-header, .item__category-header {
-    margin-top: 15%;
+    margin-top: 25px;
   }
 }
 
@@ -2264,6 +2281,21 @@ a:hover {
   width: 61px;
   height: 24px;
   background: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.item__status-detail-outstock {
+  color: red;
+  width: 61px;
+  height: 24px;
+  background: rgba(201, 69, 21, 0.07);
   border-radius: 20px;
   text-align: center;
   font-size: 11px;

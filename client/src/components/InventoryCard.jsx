@@ -6,15 +6,18 @@ import Edit from "../assets/Icons/edit-24px.svg";
 import DeleteConfirm from "./DeleteWarehouse";
 
 const InventoryCard = ({
+  id,
   warehouseID,
   warehouseName,
   itemName,
   category,
   status,
   quantity,
-  popUp
+  popUp,
+  description
 }) => {
   
+  console.log(warehouseID)
 
   return (
     <div className="inventory-card__warehouse-card-container">
@@ -23,7 +26,17 @@ const InventoryCard = ({
           <div className="inventory-card__warehouse-name-section">
             <h4 className="inventory-card__warehouse-name-title">ITEM NAME</h4>
 
-            <Link to={`/inventory/${warehouseID}`}>
+            <Link to={{pathname:`/inventory/${warehouseID}/inventory-status/${id}`, 
+            aboutProps: {
+              itemName: itemName,
+              description: description,
+              category: category,
+              status: status,
+              quantity: quantity,
+              warehouseID: warehouseID,
+              warehouseName: warehouseName,
+              id: id
+            }}}>
               <h3 className="inventory-card__warehouse-name">
                 {itemName}
                 <img src={Arrow}></img>
@@ -56,7 +69,7 @@ const InventoryCard = ({
           </div>
         </div>
         <div className="inventory-card__warehouse-bottom">
-            <Link to={`/warehouses/delete`}><a 
+            <Link to={`/inventory/${warehouseID}/delete`}><a 
               className="inventory-card__click"
               onClick={popUp}>
                 <img className="inventory-card__warehouse-delete" src={Trash}/>

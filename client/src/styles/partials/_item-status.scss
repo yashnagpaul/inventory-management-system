@@ -14,18 +14,23 @@
         }
         @include desktop{
             height: 274px;
-            width: 74.5%;
         }
     }
     &__back {
         margin-top: 30%;
     }
     &__edit--btn{
-        position: relative;
+        position: absolute;
         background-color:blue;
         width: 36px;
         height: 36px;
+        top: 30px;
+        right: 10px;
         border-radius: 20px;
+        @include tablet {
+            top: -20px;
+            right: 0px;
+        }
         &>img {
             position: absolute;
             top: 5px;
@@ -48,6 +53,7 @@
         padding: 5%;
         @include tablet {
             display: flex;
+            padding: 3%;
         }
     }
     &__section-one{
@@ -65,8 +71,14 @@
             padding: 0 10%;
         }
     }
+    &__edit--link {
+        @include tablet {
+            position: relative;
+        }
+    }
     &__header-back{
         display: flex;
+        width: 100%;
     }
     &__item{
         font-family: instock-regular;
@@ -76,6 +88,7 @@
         line-height: 36px;
         color: #13182C;
         margin-left: 5%;
+        width: 350px;
     }
     &__description {
         display: flex;
@@ -104,7 +117,7 @@
     &__warehouse-header, 
     &__category-header {
         @include tablet {
-            margin-top: 15%;
+            margin-top: 25px;
         }
         @include desktop {
             margin-top: 5%;
@@ -142,5 +155,17 @@
         font-weight: 600;
         box-sizing: border-box;
     }
-
+    &__status-detail-outstock{
+        color: red;
+        width: 61px;
+        height: 24px;
+        background: rgba(201, 69, 21, 0.07);
+        border-radius: 20px;
+        text-align: center;
+        font-size: 11px;
+        line-height: 16px;
+        font-style: normal;
+        font-weight: 600;
+        box-sizing: border-box;
+    }
 }
