@@ -71,12 +71,15 @@
             width: 26.78%;
             margin-left: auto;
             position: relative;
+            
+            // margin-right: 16px;
         }
 
         &-input {
             width: 100%;
             max-width: 100%;
             margin: 0;
+            margin-right: 16px;
 
             // @include tablet {
             //     height: 38px;
@@ -91,16 +94,7 @@
             }
         }
 
-        &-icon {
-            position: absolute;
-            right: 15px;
-            top: 77px;
 
-            @include tablet {
-                right: 27%;
-                top: 33px;
-            }
-        }
     }
 
     &__add-button-link {
@@ -110,8 +104,8 @@
         @include tablet {
             margin: 0;
             height: 38px;
-            width: 23.86%;
-            margin-left: 16px;
+            width: 128px;
+            // margin-left: 16px;
         }
     }
 
@@ -122,6 +116,7 @@
         font-size: 13px;
         padding: 0;
         height: 38px;
+        position: relative;
 
         // margin-top: 16px;
         // margin-bottom: 24px;
@@ -132,9 +127,19 @@
         //     width: 23.86%;
         //     margin-left:16px;
         // }
+        
     }
 
+    &__search-icon {
+        position: absolute;
+        right: 15px;
+        top: -63px;
 
+        @include tablet {
+            right: 157px;
+            top: 7px;
+        }
+    }
 
     &__content-container {
         width: 100%;
@@ -171,6 +176,7 @@
             &:nth-child(6) {
                 width: 15%;
                 justify-content: flex-end;
+
             }
 
             &>img {
