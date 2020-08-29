@@ -16,13 +16,17 @@ const InventoryCard = ({
   popUp,
   description
 }) => {
+  // console.log('status', {status}.status)
+
+  const statusType = {status}.status == "In Stock"? '': '-out';
+
 
   return (
     <div className="inventory-card__warehouse-card-container">
       <div className="inventory-card__warehouse-card">
         <div className="inventory-card__warehouse-top">
-          <div className="inventory-card__warehouse-name-section">
-            <h4 className="inventory-card__warehouse-name-title">ITEM NAME</h4>
+          <div className="inventory-card__inventory-item-section">
+            <h4 className="inventory-card__warehouse-name-title">INVENTORY ITEM</h4>
 
             <Link to={{pathname:`/inventory/${warehouseID}/inventory-status/${id}`, 
             aboutProps: {
@@ -41,15 +45,15 @@ const InventoryCard = ({
               </h3>
             </Link>
           </div>
-          <div className="inventory-card__contact-name-section">
+          <div className="inventory-card__category-section">
             <h4 className="inventory-card__contact-name-title">CATEGORY</h4>
             <p className="inventory-card__contact-name">{category}</p>
           </div>
-          <div className="inventory-card__address-section">
-            <h4 className="inventory-card__address-title">STATUS</h4>
-            <p className="inventory-card__address">{status}</p>
+          <div className={`inventory-card__status-section${statusType}`}>
+            <h4 className="inventory-card__status-title">STATUS</h4>
+            <h4 className="inventory-card__status">{status}</h4>
           </div>
-          <div className="inventory-card__contact-section">
+          <div className="inventory-card__qty-section">
             <h4 className="inventory-card__contact-title">
               QTY
             </h4>
@@ -57,7 +61,10 @@ const InventoryCard = ({
               {quantity}
             </p>
           </div>
-          <div className="inventory-card__warehouse-bsection">
+          
+          <div className="inventory-card__dummy-section"></div>
+
+          <div className="inventory-card__warehouse-section-column">
             <h4 className="inventory-card__warehouse-btitle">
               WAREHOUSE
             </h4>
