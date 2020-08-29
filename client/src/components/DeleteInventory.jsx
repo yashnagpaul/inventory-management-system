@@ -3,8 +3,9 @@ import closeBtn from '../assets/Icons/close-24px.svg'
 import {Link} from 'react-router-dom';
 
 function DeleteInventory(props) {
+    console.log(props);
     const urlId = props.url.params.id;
-    const inventory = props.inventory;
+    const inventory = props.warehouses;
     const foundInventory = inventory.find(inventory => urlId === inventory.id);
     const handleDelete = () => {
         props.deleteHandler(props.url.params.id);
@@ -16,9 +17,9 @@ function DeleteInventory(props) {
                 <div className='delete__card-within'>
                 <Link to={`/inventory`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
                     <div className='delete__confirmation'>
-                        <h1 className='delete__header'>{`Delete ${foundInventory.name} warehouse?`}</h1>
-                        <p className='delete__details'>Please confirm that you'd like to delete the {foundInventory.name} from the list of warehouses.
-                            You won't be able to undo this action.
+                        <h1 className='delete__header'>{`Delete ${foundInventory.itemName} inventory?`}</h1>
+                        <p className='delete__details'>
+                            Please confirm that you'd like to delete {foundInventory.itemName} from the inventory list. You won't be able to undo this action.
                         </p>
                     </div>
                     <div className='delete__btns'>

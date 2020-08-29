@@ -5,7 +5,7 @@ import InventoryCard from "./InventoryCard";
 import axios from "axios";
 import Search from "../assets/Icons/search-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
-import DeleteConfirm from './DeleteWarehouse';
+import DeleteInventory from './DeleteInventory';
 
 class ListInventories extends Component {
   state = {
@@ -30,8 +30,13 @@ class ListInventories extends Component {
   }
 
   deleteHandler = (id) => {
-    axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      
+    axios.delete(`http://localhost:8080/api/inventory/${id}`).then((res =>{
+      axios.get("http://localhost:8080/api/inventory").then((response) => {
+        this.setState({
+          Inventory: response.data,
+          showPopUp: false,
+        });
+      });
     })).catch(err => console.log(err))
   }
 
@@ -141,7 +146,7 @@ sortContactInformation() {
           </div>
         </div>
       </div>
-      {(this.state.showPopUp === true) ? (<DeleteConfirm popUpHandler={this.popUpHandler} warehouses={inventoryArray} url={this.props.match}/>) : console.log('no popup')}
+      {(this.state.showPopUp === true) ? (<DeleteInventory popUpHandler={this.popUpHandler} warehouses={inventoryArray} url={this.props.match} deleteHandler={this.deleteHandler}/>) : console.log('no popup')}
       </>
     );
   }
