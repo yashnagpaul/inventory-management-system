@@ -23,7 +23,7 @@ const WareHouseCard = ({
           <div className="list-warehouse__warehouse-name-section">
             <h4 className="list-warehouse__warehouse-name-title">WAREHOUSE</h4>
 
-            <Link to={`/warehouses/${id}`}>
+            <Link to={`/warehouses/${id}/inventory`}>
               <h3 className="list-warehouse__warehouse-name">
                 {name}
                 <img src={Arrow}></img>

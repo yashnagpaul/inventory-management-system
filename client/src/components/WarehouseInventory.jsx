@@ -50,6 +50,18 @@ class WarehouseInventory extends Component {
     });
   };
 
+  deleteHandler = (id) => {
+    axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
+      axios.get("http://localhost:8080/api/warehouses").then((response) => {
+        console.log("Warehouse List", response.data);
+        this.setState({
+          warehouses: response.data,
+          showPopUp: false,
+        });
+      });
+    })).catch(err => console.log(err))
+  }
+
   handleSearch() {
     console.log("handle search");
   }

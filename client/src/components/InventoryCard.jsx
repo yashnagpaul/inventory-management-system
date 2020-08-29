@@ -16,8 +16,6 @@ const InventoryCard = ({
   popUp,
   description
 }) => {
-  
-  console.log(warehouseID)
 
   return (
     <div className="inventory-card__warehouse-card-container">

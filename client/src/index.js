@@ -26,6 +26,7 @@ ReactDOM.render(
         <Route path='/inventory/:id' component={ItemStatus} exact/>
         <Route path='/inventory/:id/delete' component={ListInventories} />
         <Route path='/inventory/:id/edit' component={EditInventoryItem} />
+        <Route path='/warehouses/:id/inventory' component={WarehouseInventory} />
         {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
         <Route path="/inventory/:id/inventory-status/:id/edit" component={EditInventoryItem} exact />
         <Route path="/inventory/:id/inventory-status/:id" component={ItemStatus} exact />
