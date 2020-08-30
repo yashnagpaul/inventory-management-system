@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class EditWarehouse extends React.Component {
   constructor(props) {
@@ -20,6 +21,27 @@ class EditWarehouse extends React.Component {
     },
   };
 
+  componentDidMount() {
+    axios.get("http://localhost:8080/api/warehouses").then((response) => {
+      response.data
+        .filter((warehouse) => warehouse.id !== this.match.url)
+        .then((result) =>
+          this.setState({
+            itemDetails: {
+              name: result.name,
+              address: result.address,
+              city: result.city,
+              country: result.country,
+              contactName: result.contact.name,
+              position: result.contact.position,
+              number: result.contact.number,
+              emaiil: result.contact.email,
+            },
+          })
+        );
+    });
+  }
+
   saveHandler(event) {
     event.preventDefault();
 
@@ -36,8 +58,9 @@ class EditWarehouse extends React.Component {
       email: this.form.current.name.value,
     };
 
-    console.log(itemToEdit);
-    //axios request
+    axios
+      .patch("http://localhost:8080/api/warehouses", itemToEdit)
+      .then(window.alert("Changes have been saved."));
   }
 
   render() {
@@ -52,7 +75,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="name"
               className="add-warehouse__name"
-              placeholder="Warehouse Name"
+              value={this.state.name}
             />
 
             <label for="street-address">Street Address</label>
@@ -60,7 +83,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="street-address"
               className="add-warehouse__street-address"
-              placeholder="Street Address"
+              value={this.state.address}
             />
 
             <label for="city">City</label>
@@ -68,7 +91,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="city"
               className="add-warehouse__city"
-              placeholder="City"
+              value={this.state.city}
             />
 
             <label for="country">Country</label>
@@ -76,7 +99,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="country"
               className="add-warehouse__country"
-              placeholder="Country"
+              value={this.state.country}
             />
           </div>
 
@@ -89,7 +112,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="contact_name"
               className="add-warehouse__contact"
-              placeholder="Contact Name"
+              value={this.state.contactName}
             />
 
             <label for="position">Position</label>
@@ -97,7 +120,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="position"
               className="add-warehouse__position"
-              placeholder="Position"
+              value={this.state.position}
             />
 
             <label for="number">Number</label>
@@ -105,7 +128,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="number"
               className="add-warehouse__number"
-              placeholder="Number"
+              value={this.state.number}
             />
 
             <label for="email">Email</label>
@@ -113,7 +136,7 @@ class EditWarehouse extends React.Component {
               type="text"
               name="email"
               className="add-warehouse__email"
-              placeholder="Email"
+              value={this.state.email}
             />
           </div>
         </div>
