@@ -35,6 +35,7 @@ class WarehouseInventory extends Component {
   }
 
   getInventoryById(id) {
+    console.log(id) // warehouse id
     axios
       .get(`http://localhost:8080/api/warehouses/${id}/inventory`)
       .then((response) => {
@@ -51,13 +52,13 @@ class WarehouseInventory extends Component {
     });
   };
 
-  deleteHandler = (id) => {
+  deleteHandler = (id, warehouseID) => {
+    console.log(id, warehouseID)
     axios.delete(`http://localhost:8080/api/warehouses/${id}/inventory`).then((res =>{
-      axios.get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`).then((response) => {
-        console.log("Warehouse List", response.data);
+      axios.get(`http://localhost:8080/api/warehouses/${warehouseID}/inventory`).then((response) => {
+        console.log(response.data);
         this.setState({
-          warehouses: response.data,
-          showPopUp: false,
+          inventoryList: response.data,
         });
       });
     })).catch(err => console.log(err))
@@ -89,6 +90,7 @@ class WarehouseInventory extends Component {
 
   render() {
     const inventoryArray = this.state.inventoryList;
+    
 
     const contact_name =
       this.state.warehouseDetail && this.state.warehouseDetail.contact

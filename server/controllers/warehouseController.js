@@ -1,5 +1,6 @@
 const warehouse = require("../models/warehouseModel");
 
+
 const fs = require("fs");
 
 function listWarehouses(_req, res) {
@@ -24,8 +25,18 @@ function deleteWarehouse(req, res) {
 }
 
 function getWarehouseInventorybyId(req, res) {
-  res.json(warehouse.getWarehouseInventorybyId(req.params.id));
+  res.json(warehouse.getWarehouseInventorybyId(req.params.id)); // params = warehouse ID and then the function returns back an array of stuff under that warehouse
 }
+
+function deleteWarehouseInventorybyId(req, res) {
+  const inventoryID = req.params.id;
+  const inventoryData = JSON.parse(fs.readFileSync('./db/inventories.json'))
+  const inventoryIndex = inventoryData.findIndex(inventory => inventoryID === inventory.id)
+  const itemRemoved = inventoryData.splice(inventoryIndex, 1);
+  fs.writeFileSync('./db/inventories.json', JSON.stringify(inventoryData))
+  res.json(itemRemoved);
+}
+
 
 
 // POST REQUEST: CREATE NEW WAREHOUSE (ADDED BY YASH)
@@ -39,4 +50,5 @@ module.exports = {
   getWarehouseById,
   deleteWarehouse,
   getWarehouseInventorybyId,
+  deleteWarehouseInventorybyId
 }

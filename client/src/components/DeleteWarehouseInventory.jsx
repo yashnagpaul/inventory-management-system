@@ -6,9 +6,10 @@ function DeleteWarehouseInventory(props) {
     const urlId = props.url.params.id;
     const warehousesInventory = props.warehouses;
     const foundWarehouseInventory = warehousesInventory.find(warehouseInventory => urlId === warehouseInventory.id);
-    console.log(urlId)
+
+    const warehouseID = props.warehouses[0].warehouseID
     const handleDelete = () => {
-        props.deleteHandler(props.url.params.id);
+        props.deleteHandler(urlId, warehouseID);
     }
 
     return (
