@@ -13,6 +13,7 @@ import ListInventories from "./components/ListInventories";
 import ItemStatus from './components/ItemStatus';
 import EditInventoryItem from './components/EditInventoryItem';
 
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
@@ -22,14 +23,16 @@ ReactDOM.render(
       <Switch>
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
-        <Route path='/warehouses/:id/delete' component={ListWarehouse} />
-        <Route path='/inventory/:id' component={ItemStatus} exact/>
-        <Route path='/inventory/:id/delete' component={ListInventories} />
-        <Route path='/inventory/:id/edit' component={EditInventoryItem} />
+        <Route path='/warehouses/:id/delete' component={ListWarehouse} exact/>
         <Route path='/warehouses/:id/inventory' component={WarehouseInventory} />
-        {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
+        <Route path='/warehouses/:name/inventory/:id/delete' component={WarehouseInventory} exact/>
+        <Route path='/inventory/:id' component={ItemStatus} exact/>
+        <Route path='/inventory/:id/delete' component={ListInventories} exact/>
+        <Route path='/inventory/:id/edit' component={EditInventoryItem} exact/>
         <Route path="/inventory/:id/inventory-status/:id/edit" component={EditInventoryItem} exact />
         <Route path="/inventory/:id/inventory-status/:id" component={ItemStatus} exact />
+        {/* <Route path='/inventory' component={DeleteConfirm} exact/> */}
+
         {/* <Route path='/warehouse/delete-confirmation' component={DeleteConfirm} exact/> */}
         {/* // <Route path="/warehouses" component={ListWarehouse} exact /> */}
         <Route path='/inventory' component={ListInventories} exact/>

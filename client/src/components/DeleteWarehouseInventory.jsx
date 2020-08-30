@@ -3,10 +3,10 @@ import closeBtn from '../assets/Icons/close-24px.svg'
 import {Link} from 'react-router-dom';
 
 function DeleteWarehouseInventory(props) {
-    console.log(props);
     const urlId = props.url.params.id;
     const warehousesInventory = props.warehouses;
     const foundWarehouseInventory = warehousesInventory.find(warehouseInventory => urlId === warehouseInventory.id);
+    console.log(urlId)
     const handleDelete = () => {
         props.deleteHandler(props.url.params.id);
     }
@@ -15,7 +15,7 @@ function DeleteWarehouseInventory(props) {
         <div className='delete__page--mobile-only'>
             {foundWarehouseInventory && <div className='delete__card'>
                 <div className='delete__card-within'>
-                <Link to={`/inventory`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
+                <Link to={`/warehouses/${foundWarehouseInventory.id}/inventory`}><a href='#' onClick={props.popUpHandler}><img src={closeBtn} className='delete__exit--btn'/></a></Link>
                     <div className='delete__confirmation'>
                         <h1 className='delete__header'>{`Delete ${foundWarehouseInventory.itemName} inventory?`}</h1>
                         <p className='delete__details'>
@@ -23,8 +23,8 @@ function DeleteWarehouseInventory(props) {
                         </p>
                     </div>
                     <div className='delete__btns'>
-                        <Link to={`/inventory`}><button className='delete__cancel--btn' onClick={props.popUpHandler}>Cancel</button></Link>
-                        <Link to={`/inventory`}><button className='delete__delete--btn' onClick={handleDelete}>Delete</button></Link>
+                        <Link to={`/warehouses/${foundWarehouseInventory.id}/inventory`}><button className='delete__cancel--btn' onClick={props.popUpHandler}>Cancel</button></Link>
+                        <Link to={`/warehouses/${foundWarehouseInventory.id}/inventory`}><button className='delete__delete--btn' onClick={handleDelete}>Delete</button></Link>
                     </div>
                 </div>
             </div>}

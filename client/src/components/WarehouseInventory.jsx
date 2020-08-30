@@ -6,7 +6,7 @@ import axios from "axios";
 import LeftIcon from "../assets/Icons/arrow_back-24px.svg";
 import Sort from "../assets/Icons/sort-24px.svg";
 import Edit from "../assets/Icons/edit-25px.svg";
-import DeleteConfirm from "./DeleteWarehouse";
+import DeleteWarehouseInventory from "./DeleteWarehouseInventory";
 
 class WarehouseInventory extends Component {
   state = {
@@ -17,6 +17,7 @@ class WarehouseInventory extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.match.params.id)
     axios
       .get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`)
       .then((response) => {
@@ -51,8 +52,8 @@ class WarehouseInventory extends Component {
   };
 
   deleteHandler = (id) => {
-    axios.delete(`http://localhost:8080/api/warehouses/${id}`).then((res =>{
-      axios.get("http://localhost:8080/api/warehouses").then((response) => {
+    axios.delete(`http://localhost:8080/api/warehouses/${id}/inventory`).then((res =>{
+      axios.get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`).then((response) => {
         console.log("Warehouse List", response.data);
         this.setState({
           warehouses: response.data,
@@ -228,16 +229,19 @@ class WarehouseInventory extends Component {
                     status={inventory.status}
                     quantity={inventory.quantity}
                     popUp={this.popUpHandler}
+                    id={inventory.id}
                   />
                 ))}
             </div>
           </div>
         </div>
-        {this.state.showPopUp === true ? (
-          <DeleteConfirm popUpHandler={this.popUpHandler} />
-        ) : (
-          console.log("no popup")
-        )}
+        {this.state.showPopUp === true ? 
+        <DeleteWarehouseInventory 
+        popUpHandler={this.popUpHandler} 
+        warehouses={inventoryArray} 
+        url={this.props.match} 
+        deleteHandler={this.deleteHandler} /> : 
+        console.log("no popup")}
       </>
     );
   }
