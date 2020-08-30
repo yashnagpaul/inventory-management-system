@@ -14,31 +14,36 @@ const InventoryCard = ({
   status,
   quantity,
   popUp,
-  description
+  description,
 }) => {
   // console.log('status', {status}.status)
 
-  const statusType = {status}.status == "In Stock"? '': '-out';
-
+  const statusType = { status }.status == "In Stock" ? "" : "-out";
 
   return (
     <div className="inventory-card__warehouse-card-container">
       <div className="inventory-card__warehouse-card">
         <div className="inventory-card__warehouse-top">
           <div className="inventory-card__inventory-item-section">
-            <h4 className="inventory-card__warehouse-name-title">INVENTORY ITEM</h4>
+            <h4 className="inventory-card__warehouse-name-title">
+              INVENTORY ITEM
+            </h4>
 
-            <Link to={{pathname:`/inventory/${warehouseID}/inventory-status/${id}`, 
-            aboutProps: {
-              itemName: itemName,
-              description: description,
-              category: category,
-              status: status,
-              quantity: quantity,
-              warehouseID: warehouseID,
-              warehouseName: warehouseName,
-              id: id
-            }}}>
+            <Link
+              to={{
+                pathname: `/inventory/${warehouseID}/inventory-status/${id}`,
+                aboutProps: {
+                  itemName: itemName,
+                  description: description,
+                  category: category,
+                  status: status,
+                  quantity: quantity,
+                  warehouseID: warehouseID,
+                  warehouseName: warehouseName,
+                  id: id,
+                },
+              }}
+            >
               <h3 className="inventory-card__warehouse-name">
                 {itemName}
                 <img src={Arrow}></img>
@@ -54,32 +59,24 @@ const InventoryCard = ({
             <h4 className="inventory-card__status">{status}</h4>
           </div>
           <div className="inventory-card__qty-section">
-            <h4 className="inventory-card__contact-title">
-              QTY
-            </h4>
-            <p className="inventory-card__contact">
-              {quantity}
-            </p>
+            <h4 className="inventory-card__contact-title">QTY</h4>
+            <p className="inventory-card__contact">{quantity}</p>
           </div>
-          
+
           <div className="inventory-card__dummy-section"></div>
 
           <div className="inventory-card__warehouse-section-column">
-            <h4 className="inventory-card__warehouse-btitle">
-              WAREHOUSE
-            </h4>
-            <p className="inventory-card__warehouse-bname">
-              {warehouseName}
-            </p>
+            <h4 className="inventory-card__warehouse-btitle">WAREHOUSE</h4>
+            <p className="inventory-card__warehouse-bname">{warehouseName}</p>
           </div>
         </div>
         <div className="inventory-card__warehouse-bottom">
-            <Link to={`/inventory/${id}/delete`}><a 
-              className="inventory-card__click"
-              onClick={popUp}>
-                <img className="inventory-card__warehouse-delete" src={Trash}/>
-            </a></Link>
-          <Link to={`/inventory/:id/edit`}>
+          <Link to={`/inventory/${id}/delete`}>
+            <a className="inventory-card__click" onClick={popUp}>
+              <img className="inventory-card__warehouse-delete" src={Trash} />
+            </a>
+          </Link>
+          <Link to={`/inventory/${id}/edit`}>
             <img
               className="inventory-card__warehouse-edit"
               src={Edit}
