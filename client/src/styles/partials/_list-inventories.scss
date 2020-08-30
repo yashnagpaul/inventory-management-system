@@ -10,6 +10,7 @@
         top: 135px;
         background-color: white;
         left: 7%;
+        margin-bottom: 150px;
 
         @include tablet {
             top: 90px;
@@ -27,6 +28,7 @@
 
     &__header-section {
         border-bottom: 1px solid $cloud;
+        margin: 0;
 
         @include tablet {
             border-bottom: none;
@@ -140,6 +142,10 @@
             top: 7px;
         }
     }
+
+&__content-section{
+    margin: 0;
+}
 
     &__content-container {
         width: 100%;

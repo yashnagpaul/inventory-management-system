@@ -21,6 +21,7 @@ class EditWarehouse extends React.Component {
     },
   };
 
+<<<<<<< HEAD
   // componentDidMount() {
   //   axios.get("http://localhost:8080/api/warehouses").then((response) => {
   //     response.data
@@ -41,6 +42,28 @@ class EditWarehouse extends React.Component {
   //       );
   //   });
   // }
+=======
+  componentDidMount() {
+    axios.get("http://localhost:8080/api/warehouses").then((response) => {
+      response.data
+        .filter((warehouse) => warehouse.id !== this.match.url)
+        .then((result) =>
+          this.setState({
+            itemDetails: {
+              name: result.name,
+              address: result.address,
+              city: result.city,
+              country: result.country,
+              contactName: result.contact.name,
+              position: result.contact.position,
+              number: result.contact.number,
+              emaiil: result.contact.email,
+            },
+          })
+        );
+    });
+  }
+>>>>>>> master
 
   saveHandler(event) {
     event.preventDefault();
