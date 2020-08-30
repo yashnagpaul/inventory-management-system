@@ -68,6 +68,8 @@ body {
           box-sizing: border-box;
   font-family: "instock-regular";
   background: #F7F8F9;
+  height: 100%;
+  position: relative;
 }
 
 *,
@@ -453,6 +455,7 @@ a:hover {
   .list-warehouse__search {
     height: 38px;
     width: 26.78%;
+    margin: 0;
     margin-left: auto;
     position: relative;
   }
@@ -473,19 +476,6 @@ a:hover {
   }
 }
 
-.list-warehouse__search-icon {
-  position: absolute;
-  right: 15px;
-  top: 77px;
-}
-
-@media screen and (min-width: 768px) {
-  .list-warehouse__search-icon {
-    right: 27%;
-    top: 33px;
-  }
-}
-
 .list-warehouse__add-button-link {
   width: 100%;
   margin: 10px 0;
@@ -495,7 +485,7 @@ a:hover {
   .list-warehouse__add-button-link {
     margin: 0;
     height: 38px;
-    width: 23.86%;
+    width: 168px;
     margin-left: 16px;
   }
 }
@@ -514,10 +504,25 @@ a:hover {
   font-size: 13px;
   padding: 0;
   height: 38px;
+  margin: 0;
+  position: relative;
 }
 
 .list-warehouse__add-button:hover {
   background-color: #13182c;
+}
+
+.list-warehouse__search-icon {
+  position: absolute;
+  right: 15px;
+  top: 77px;
+}
+
+@media screen and (min-width: 768px) {
+  .list-warehouse__search-icon {
+    right: 197px;
+    top: 8px;
+  }
 }
 
 .list-warehouse__content-container {
@@ -802,7 +807,7 @@ a:hover {
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
-    padding-top: 15px;
+    padding-top: 10px;
   }
 }
 
@@ -1418,6 +1423,10 @@ a:hover {
   margin: 0;
 }
 
+.itemcard-warehouse__warehouse-top > div > h4 {
+  margin-bottom: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .itemcard-warehouse__warehouse-top {
     -ms-flex-wrap: nowrap;
@@ -1426,6 +1435,9 @@ a:hover {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .itemcard-warehouse__warehouse-top > div > h4 {
+    margin-bottom: 0;
   }
 }
 
@@ -1487,32 +1499,93 @@ a:hover {
           align-items: center;
 }
 
-.itemcard-warehouse__contact-name-section {
+.itemcard-warehouse__status-section {
   width: 50%;
   margin: 0;
   margin-bottom: 16px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.itemcard-warehouse__status-section > h4 + h4 {
+  background-color: rgba(21, 132, 99, 0.07);
+  color: #158463;
+  width: 61px;
+  height: 24px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
-  .itemcard-warehouse__contact-name-section {
+  .itemcard-warehouse__status-section {
     width: 25%;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    padding-right: 30px;
   }
 }
 
-.itemcard-warehouse__contact-name-title {
+.itemcard-warehouse__status-section-out {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 16px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.itemcard-warehouse__status-section-out > h4 + h4 {
+  background: rgba(201, 69, 21, 0.07);
+  color: #C94515;
+  width: 92px;
+  height: 26 px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .itemcard-warehouse__status-section-out {
+    width: 25%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding-right: 30px;
+  }
+}
+
+.itemcard-warehouse__status-title {
   margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .itemcard-warehouse__contact-name-title {
+  .itemcard-warehouse__status-title {
+    margin: 0;
     display: none;
   }
 }
 
-.itemcard-warehouse__contact-name {
+.itemcard-warehouse__status-name {
   margin: 0;
 }
 
@@ -1601,7 +1674,7 @@ a:hover {
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
-    padding-top: 15px;
+    padding-top: 5px;
   }
 }
 
@@ -1826,6 +1899,17 @@ a:hover {
 .list-inventory__content-header-container > h4 > img {
   height: 15px;
   cursor: pointer;
+}
+
+.list-inventory__footer {
+  position: absolute;
+  width: 100%;
+  bottom: -110px;
+  background: #F7F8F9;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .list-inventory__click {

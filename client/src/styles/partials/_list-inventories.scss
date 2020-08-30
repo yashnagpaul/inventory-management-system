@@ -18,7 +18,7 @@
             left: 4.17%;
         }
 
-        @include desktop{
+        @include desktop {
             width: 79.69%;
             left: 10.16%;
         }
@@ -73,7 +73,7 @@
             width: 26.78%;
             margin-left: auto;
             position: relative;
-            
+
             // margin-right: 16px;
         }
 
@@ -129,7 +129,7 @@
         //     width: 23.86%;
         //     margin-left:16px;
         // }
-        
+
     }
 
     &__search-icon {
@@ -143,9 +143,9 @@
         }
     }
 
-&__content-section{
-    margin: 0;
-}
+    &__content-section {
+        margin: 0;
+    }
 
     &__content-container {
         width: 100%;
@@ -194,11 +194,23 @@
 
     }
 
-
+&__footer{
+    position: absolute;
+    width: 100%;
+    bottom: -110px;
+    // top: 0;
+    // right: 0;
+    background: #F7F8F9;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    line-height:18px;
+}
 
     &__click {
         margin: 0px;
     }
+
     &__warehouse-delete {
         margin: 0;
     }

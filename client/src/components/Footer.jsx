@@ -3,7 +3,7 @@ import React from "react";
 function Bottom() {
   return (
     <div className="footer">
-      <p>humbug</p>
+      <p>&#169;InStock Inc. All Rights Reserved.</p>
     </div>
   );
 }
