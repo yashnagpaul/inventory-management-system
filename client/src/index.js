@@ -12,6 +12,7 @@ import WarehouseInventory from "./components/WarehouseInventory";
 import ListInventories from "./components/ListInventories";
 import ItemStatus from './components/ItemStatus';
 import EditInventoryItem from './components/EditInventoryItem';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.render(
 
         <Route path='/warehouses' component={ListWarehouse} exact/>
         <Route path='/warehouses/:id/delete' component={ListWarehouse} />
+        <Route path='/warehouses/:id' component={WarehouseInventory} />
         <Route path='/inventory/:id' component={ItemStatus} exact/>
         <Route path='/inventory/:id/delete' component={ListInventories} />
         <Route path='/inventory/:id/edit' component={EditInventoryItem} />
@@ -43,6 +45,7 @@ ReactDOM.render(
         <Route path='/warehouses/:id/add' component={AddWarehouse} />
         <Route path='/warehouses/:id/edit' component={EditWarehouse} />
       </Switch>
+    {/* <Footer /> */}
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
