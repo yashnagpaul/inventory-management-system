@@ -36,7 +36,6 @@ function getWarehouseInventorybyId(id){
   const data = fs.readFileSync(inventoryFile);
   const inventoryList = JSON.parse(data);
   const warehouseInventory = inventoryList.filter(warehouse => warehouse.warehouseID === id);
-  return warehouseInventory;
+  return warehouseInventory; 
 }
-
 module.exports = { list, warehouse_create_post, getWarehouseById, getWarehouseInventorybyId };

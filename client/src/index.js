@@ -19,6 +19,7 @@ import ItemStatus from "./components/ItemStatus";
 import EditInventoryItem from "./components/EditInventoryItem";
 import Footer from "./components/Footer";
 
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}

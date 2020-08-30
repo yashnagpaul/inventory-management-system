@@ -6,7 +6,7 @@ import Edit from "../assets/Icons/edit-24px.svg";
 import DeleteConfirm from './DeleteWarehouse';
 
 const WarehouseItemCard = ({ warehouseID, warehouseName, itemName, 
-  description, category, status, quantity,  popUp}) => {
+  description, category, status, quantity,  popUp, id}) => {
 
     const statusType = {status}.status == "In Stock"? '': '-out';
 
@@ -43,19 +43,14 @@ const WarehouseItemCard = ({ warehouseID, warehouseName, itemName,
         </div>
         <div className="itemcard-warehouse__warehouse-bottom">
 
-          {/* <Link 
-          to={{
-          pathname:`/warehouse/${id}/delete`, 
-          deleteProps:{
-            name: name
-          }
-          }}> */}
-            <a 
-              className="itemcard-warehouse__click"
-              onClick={popUp}>
-                <img className="itemcard-warehouse__warehouse-delete" src={Trash}/>
-            </a>
-          {/* </Link> */}
+          <Link
+            to={`/warehouses/${id}/inventory/${id}/delete`}
+            className="itemcard-warehouse__click"
+            onClick={popUp}
+          >
+            <img className="itemcard-warehouse__warehouse-delete" src={Trash} />
+          </Link>
+
           <Link to={`/warehouses/:id/edit`}>
           <img
             className="itemcard-warehouse__warehouse-edit"
