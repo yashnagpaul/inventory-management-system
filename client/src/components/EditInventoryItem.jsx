@@ -22,6 +22,7 @@ class EditInventoryItem extends React.Component {
     event.preventDefault();
     const itemToEdit = {
       id: this.props.match.url,
+
       name: this.form.current.name.value,
       description: this.form.current.name.value,
       category: this.form.current.name.value,
@@ -29,27 +30,28 @@ class EditInventoryItem extends React.Component {
       warehouse: this.form.current.name.value,
     };
 
-    console.log(itemToEdit);
-    //axios request
+    axios
+      .patch("http://localhost:8080/api/inventory", itemToEdit)
+      .then(window.alert("Changes have been saved."));
   }
 
-  componentDidMount() {
-    axios.get("http://localhost:8080/api/inventory").then((response) => {
-      response.data
-        .filter((item) => item.id !== this.match.url)
-        .then((result) => {
-          this.setState(
-            (this.state.itemDetails = {
-              description: result.description,
-              name: result.itemName,
-              category: result.category,
-              status: result.status,
-              warehouse: result.warehouseName,
-            })
-          );
-        });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get("http://localhost:8080/api/inventory").then((response) => {
+  //     response.data
+  //       .filter((item) => item.id !== this.match.url)
+  //       .then((result) => {
+  //         this.setState(
+  //           (this.state.itemDetails = {
+  //             description: result.description,
+  //             name: result.itemName,
+  //             category: result.category,
+  //             status: result.status,
+  //             warehouse: result.warehouseName,
+  //           })
+  //         );
+  //       });
+  //   });
+  // }
 
   render() {
     return (
