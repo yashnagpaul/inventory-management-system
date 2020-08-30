@@ -69,6 +69,7 @@
         @include tablet {
             height: 38px;
             width: 26.78%;
+            margin: 0;
             margin-left: auto;
             position: relative;
         }
@@ -91,16 +92,7 @@
             }
         }
 
-        &-icon {
-            position: absolute;
-            right: 15px;
-            top: 77px;
 
-            @include tablet {
-                right: 27%;
-                top: 33px;
-            }
-        }
     }
 
     &__add-button-link {
@@ -110,7 +102,7 @@
         @include tablet {
             margin: 0;
             height: 38px;
-            width: 23.86%;
+            width: 168px;
             margin-left: 16px;
         }
     }
@@ -122,18 +114,21 @@
         font-size: 13px;
         padding: 0;
         height: 38px;
+        margin: 0;
+        position: relative;
 
-        // margin-top: 16px;
-        // margin-bottom: 24px;
-
-        // @include tablet {
-        //     margin: 0;
-        //     height: 38px;
-        //     width: 23.86%;
-        //     margin-left:16px;
-        // }
     }
 
+    &__search-icon {
+        position: absolute;
+        right: 15px;
+        top: 77px;
+
+        @include tablet {
+            right: 197px;
+            top: 8px;
+        }
+    }
 
 
     &__content-container {
@@ -181,8 +176,6 @@
 
 
     }
-
-
 
     &__click {
         margin: 0px;

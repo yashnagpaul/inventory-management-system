@@ -8,6 +8,9 @@ import DeleteConfirm from './DeleteWarehouse';
 const WarehouseItemCard = ({ warehouseID, warehouseName, itemName, 
   description, category, status, quantity,  popUp}) => {
 
+    const statusType = {status}.status == "In Stock"? '': '-out';
+
+
   return (
     <div className="itemcard-warehouse__warehouse-card-container">
       <div className="itemcard-warehouse__warehouse-card">
@@ -21,9 +24,9 @@ const WarehouseItemCard = ({ warehouseID, warehouseName, itemName,
             </h3></Link>
 
           </div>
-          <div className="itemcard-warehouse__contact-name-section">
-            <h4 className="itemcard-warehouse__contact-name-title">STATUS</h4>
-            <p className="itemcard-warehouse__contact-name">{status}</p>
+          <div className={`itemcard-warehouse__status-section${statusType}`}>
+            <h4 className="itemcard-warehouse__status-title">STATUS</h4>
+            <h4 className="itemcard-warehouse__status-name">{status}</h4>
           </div>
           <div className="itemcard-warehouse__address-section">
             <h4 className="itemcard-warehouse__address-title">CATEGORY</h4>

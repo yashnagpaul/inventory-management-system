@@ -23,7 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-      <Redirect from="/" to="/inventory" />
+    <Redirect from="/" to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0" />
       <Header />
       <Switch>
         <Route path="/warehouses" component={ListWarehouse} exact />
