@@ -21,7 +21,7 @@ class EditInventoryItem extends React.Component {
   saveHandler(event) {
     event.preventDefault();
     const itemToEdit = {
-      id: this.props.match.url,
+      id: this.props.match.params.id,
 
       name: this.form.current.name.value,
       description: this.form.current.name.value,
@@ -35,25 +35,28 @@ class EditInventoryItem extends React.Component {
       .then(window.alert("Changes have been saved."));
   }
 
-  // componentDidMount() {
-  //   axios.get("http://localhost:8080/api/inventory").then((response) => {
-  //     response.data
-  //       .filter((item) => item.id !== this.match.url)
-  //       .then((result) => {
-  //         this.setState(
-  //           (this.state.itemDetails = {
-  //             description: result.description,
-  //             name: result.itemName,
-  //             category: result.category,
-  //             status: result.status,
-  //             warehouse: result.warehouseName,
-  //           })
-  //         );
-  //       });
-  //   });
-  // }
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/api/inventory")
+      .then((response) =>
+        response.data.filter((item) => item.id === this.props.match.params.id)
+      )
+      .then((result) => {
+        console.log(result);
+        this.setState(
+          (this.state.itemDetails = {
+            description: result[0].description,
+            name: result[0].itemName,
+            category: result[0].category,
+            status: result[0].status,
+            warehouse: result[0].warehouseName,
+          })
+        );
+      });
+  }
 
   render() {
+    console.log(this.props.match.params.id);
     return (
       <form
         onSubmit={this.saveHandler}
