@@ -22,6 +22,7 @@ class EditInventoryItem extends React.Component {
     event.preventDefault();
     const itemToEdit = {
       id: this.props.match.url,
+
       name: this.form.current.name.value,
       description: this.form.current.name.value,
       category: this.form.current.name.value,
@@ -29,8 +30,9 @@ class EditInventoryItem extends React.Component {
       warehouse: this.form.current.name.value,
     };
 
-    console.log(itemToEdit);
-    //axios request
+    axios
+      .patch("http://localhost:8080/api/inventory", itemToEdit)
+      .then(window.alert("Changes have been saved."));
   }
 
   componentDidMount() {
