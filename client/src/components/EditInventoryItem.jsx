@@ -14,8 +14,37 @@ class EditInventoryItem extends React.Component {
       description: "loading",
       category: "loading",
       status: "loading",
+      quantity: "loading",
       warehouse: "loading",
     },
+  };
+
+  nameUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ name: value });
+  };
+
+  descriptionUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ description: value });
+  };
+  categoryUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ category: value });
+  };
+  statusUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ status: value });
+  };
+
+  quantityUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ quantity: value });
+  };
+
+  warehouseUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ warehouse: value });
   };
 
   saveHandler(event) {
@@ -27,6 +56,7 @@ class EditInventoryItem extends React.Component {
       description: this.form.current.name.value,
       category: this.form.current.name.value,
       status: this.form.current.name.value,
+      quantity: this.form.current.quantity.value,
       warehouse: this.form.current.name.value,
     };
 
@@ -42,13 +72,13 @@ class EditInventoryItem extends React.Component {
         response.data.filter((item) => item.id === this.props.match.params.id)
       )
       .then((result) => {
-        console.log(result);
         this.setState(
-          (this.state.itemDetails = {
+          (this.state = {
             description: result[0].description,
             name: result[0].itemName,
             category: result[0].category,
             status: result[0].status,
+            quantity: result[0].quantity,
             warehouse: result[0].warehouseName,
           })
         );
@@ -72,7 +102,8 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="name"
               className="add-warehouse__name"
-              value={this.state.itemDetails.name}
+              value={this.state.name}
+              onInput={this.nameUpdated}
             />
 
             <label htmlFor="description">Description</label>
@@ -80,7 +111,8 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="description"
               className="add-warehouse__description"
-              value={this.state.itemDetails.description}
+              value={this.state.description}
+              onInput={this.descriptionUpdated}
             />
 
             <label htmlFor="category">Category</label>
@@ -88,14 +120,18 @@ class EditInventoryItem extends React.Component {
               type="text"
               name="category"
               className="add-warehouse__category"
+              onInput={this.categoryUpdated}
             >
-              <option value={this.state.itemDetails.category}>
-                {this.state.itemDetails.category}
-              </option>
+              <option value={this.state.category}>{this.state.category}</option>
+              <option value="electronics">Electronics</option>
+              <option value="Gear">Gear</option>
+              <option value="Apparel">Apparel</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Health">Health</option>
             </select>
           </div>
 
-          {/* CONTACT DETAILS */}
+          {/* ITEM AVAILABILITY */}
 
           <div className="add-warehouse__contact-details">
             <h3 className="add-warehouse__subheading">Item Availability</h3>
@@ -106,6 +142,7 @@ class EditInventoryItem extends React.Component {
                 name="status"
                 className="add-warehouse__radio"
                 value="In stock"
+                onInput={this.statusUpdated}
               />
               <label htmlFor="status">In stock</label>
 
@@ -118,12 +155,28 @@ class EditInventoryItem extends React.Component {
               <label htmlFor="status">Out of Stock</label>
             </div>
 
+            <div
+              style={{
+                display: this.state.status === "In Stock" ? "flex" : "none",
+                flexDirection: "column",
+              }}
+            >
+              <label for="quantity">Quantity</label>
+              <input
+                name="quantity"
+                type="text"
+                value={this.state.quantity}
+                onInput={this.quantityUpdated}
+              ></input>
+            </div>
+
             <label htmlFor="warehouse">Warehouse</label>
             <input
               type="text"
               name="warehouse"
               className="add-warehouse__number"
-              value={this.state.itemDetails.warehouse}
+              value={this.state.warehouse}
+              onChange={this.warehouseUpdated}
             />
           </div>
         </div>

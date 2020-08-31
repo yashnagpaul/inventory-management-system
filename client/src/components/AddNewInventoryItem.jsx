@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 class AddNewInventoryItem extends React.Component {
   constructor(props) {
@@ -42,9 +44,9 @@ class AddNewInventoryItem extends React.Component {
       axios.post("http://localhost:8080/api/inventory", {
         id: id,
         name: name,
-        description: address,
-        category: city,
-        status: country,
+        description: description,
+        category: category,
+        status: status,
         quantity: quantity,
         warehouse: warehouse,
       });
@@ -109,6 +111,10 @@ class AddNewInventoryItem extends React.Component {
               placeholder="Please select"
             >
               <option value="electronics">Electronics</option>
+              <option value="Gear">Gear</option>
+              <option value="Apparel">Apparel</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Health">Health</option>
             </select>
 
             <div
