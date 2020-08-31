@@ -10,6 +10,7 @@ import DeleteWarehouse from "./DeleteWarehouse";
 class ListWarehouses extends Component {
   state = {
     warehouses: [],
+    originalWarehouses:[],
     activeWarehouse: {},
     showPopUp: false,
   };
@@ -19,6 +20,7 @@ class ListWarehouses extends Component {
       console.log("Warehouse List", response.data);
       this.setState({
         warehouses: response.data,
+        originalWarehouses: response.data,
       });
     });
   }
@@ -44,8 +46,26 @@ class ListWarehouses extends Component {
       .catch((err) => console.log(err));
   };
 
-  handleSearch() {
-    console.log("handle search");
+  handleSearch = (e) => {
+    const searchItem = e.target.value;
+    axios
+      .post(`http://localhost:8080/api/warehouses/search`, {
+        name: `${searchItem}`
+      })
+      .then(response =>
+        {
+          if (response.data.length > 0 && response.data !== undefined) {
+            this.setState({
+              warehouses: response.data
+            })
+            console.log('response.data', response.data)
+          } 
+          else {
+            this.setState({warehouses:this.state.originalWarehouses})
+          }
+        }
+      );
+
   }
 
   addWarehouse() {
@@ -69,9 +89,11 @@ class ListWarehouses extends Component {
   }
 
   render() {
+    
     const warehouseArray = this.state.warehouses;
 
     return (
+
       <>
         <div className="list-warehouse__container">
           <div className="list-warehouse__header-section">
@@ -83,7 +105,7 @@ class ListWarehouses extends Component {
                 placeholder="Search..."
                 className="list-warehouse__search-input"
                 name="searchItem"
-                onSubmit={this.handleSearch}
+                onKeyUp={this.handleSearch}
               ></input>
 
               {/* </form> */}

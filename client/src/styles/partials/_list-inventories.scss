@@ -67,7 +67,8 @@
 
     &__search {
         width: 100%;
-
+        outline: none;
+        border: none;
         @include tablet {
             height: 38px;
             width: 26.78%;
@@ -82,6 +83,8 @@
             max-width: 100%;
             margin: 0;
             margin-right: 16px;
+            outline: none;
+
 
             // @include tablet {
             //     height: 38px;

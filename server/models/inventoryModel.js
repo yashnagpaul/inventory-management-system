@@ -51,4 +51,25 @@ function postInventory(req, res) {
   res.send(inventoryData);
 }
 
-module.exports = { list, patchInventory, postInventory };
+function searchInventory(searchWord) {
+  const inventoryLIst = list();
+  let concatInventory = [];
+
+  const returnInventoryByWarehouseName = inventoryLIst.filter(inventory => inventory.warehouseName === searchWord);
+  const returnInventoryByitemName = inventoryLIst.filter(inventory => inventory.itemName === searchWord);
+  const returnInventoryBycategory = inventoryLIst.filter(inventory => inventory.category === searchWord);
+  const returnInventoryBystatus = inventoryLIst.filter(inventory => inventory.status === searchWord);
+  const returnInventoryByquantity = inventoryLIst.filter(inventory => inventory.quantity === parseInt(searchWord));
+
+
+
+  const totalInventory = concatInventory.concat(returnInventoryByWarehouseName).concat(returnInventoryByitemName)
+    .concat(returnInventoryBycategory).concat(returnInventoryBystatus).concat(returnInventoryByquantity);
+
+  const uniqueInventory = Array.from(new Set(totalInventory.map(a => a.id)))
+    .map(id => { return totalInventory.find(a => a.id === id) })
+
+  return uniqueInventory;
+}
+
+module.exports = { list, patchInventory, postInventory, searchInventory };

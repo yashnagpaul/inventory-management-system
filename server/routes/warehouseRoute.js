@@ -5,6 +5,7 @@ const warehouseController = require("../controllers/warehouseController");
 // Warehouse Routes
 router.get("/warehouses/", warehouseController.listWarehouses);
 router.get('/warehouses/:id', warehouseController.getWarehouseById);
+router.post('/warehouses/search', warehouseController.searchWarehouses);
 //  router.put('/warehouses/:id', warehouseController.editWarehouse);
 router.delete('/warehouses/:id', warehouseController.deleteWarehouse);
 router.get('/warehouses/:id/inventory', warehouseController.getWarehouseInventorybyId);
