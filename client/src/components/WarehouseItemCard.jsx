@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Arrow from "../assets/Icons/chevron_right-24px.svg";
 import Trash from "../assets/Icons/delete_outline-24px.svg";
 import Edit from "../assets/Icons/edit-24px.svg";
-import DeleteConfirm from './DeleteWarehouse';
 
 const WarehouseItemCard = ({ warehouseID, warehouseName, itemName, 
   description, category, status, quantity,  popUp, id}) => {
@@ -18,7 +17,20 @@ const WarehouseItemCard = ({ warehouseID, warehouseName, itemName,
           <div className="itemcard-warehouse__warehouse-name-section">
             <h4 className="itemcard-warehouse__warehouse-name-title">INVENTORY ITEM</h4>
 
-            <Link to={`/warehouses/`}><h3 className="itemcard-warehouse__warehouse-name">
+            <Link to={{
+                pathname: `/warehouses/${warehouseName}/inventory-status/${id}`,
+                aboutProps: {
+                  itemName: itemName,
+                  description: description,
+                  category: category,
+                  status: status,
+                  quantity: quantity,
+                  warehouseID: warehouseID,
+                  warehouseName: warehouseName,
+                  id: id,
+                },
+              }}>
+              <h3 className="itemcard-warehouse__warehouse-name">
               {itemName}
               <img src={Arrow}></img>
             </h3></Link>
