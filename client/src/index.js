@@ -58,7 +58,7 @@ ReactDOM.render(
         <Route path='/inventory/:id/edit' component={} />      
         <Route path='/inventory/:id/add' component={} />
         <Route path='/*' component={NotFound} /> */}
-        <Route path="/warehouses/:id/add" component={AddWarehouse} />
+        <Route path="/warehouses/add" component={AddWarehouse} />
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/inventories/add" component={AddNewInventoryItem} />
       </Switch>

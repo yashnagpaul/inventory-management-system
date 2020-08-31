@@ -2,6 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import errorIcon from "../assets/Icons/error-24px.svg";
+import arrow from "../assets/Icons/arrow_back-24px.svg";
 
 class AddWarehouse extends React.Component {
   constructor(props) {
@@ -94,7 +95,10 @@ class AddWarehouse extends React.Component {
         className="add-warehouse"
         onSubmit={this.submitHandler}
       >
-        <h1 className="add-warehouse__heading">Add New Warehouse</h1>
+        <div>
+          <img src={arrow} alt="arrow" />
+          <h1 className="add-warehouse__heading">Add New Warehouse</h1>
+        </div>
         <div className="add-warehouse__details-availability-container">
           <div className="add-warehouse__warehouse-details">
             <h3 className="add-warehouse__subheading">Warehouse Details</h3>
