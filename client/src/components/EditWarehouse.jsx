@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import arrow from "../assets/Icons/arrow_back-24px.svg";
-import { link, Link, Redirect } from "react-router-dom";
+import { link, Link } from "react-router-dom";
 
 class EditWarehouse extends React.Component {
   constructor(props) {
@@ -18,79 +18,105 @@ class EditWarehouse extends React.Component {
       country: "loading",
       contactName: "loading",
       position: "loading",
-      phone: "loading",
+      number: "loading",
       email: "loading",
     },
   };
 
+  nameUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { name: value } });
+  };
 
-componentDidMount(){
-  axios.get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`)
-  .then((response) => {
-    console.log('response.data', response.data)
-    this.setState (
-{
-  itemDetails: { 
-      name: response.data.name, 
-      address: response.data.address,
-      city: response.data.city,
-      country: response.data.country,
-      contactName: response.data.contact.name,
-      position: response.data.contact.position,
-      phone: response.data.contact.phone,
-      email: response.data.contact.email,
-  }
-}
-    );
-  })
-}
+  addressUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { address: value } });
+  };
+  cityUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { city: value } });
+  };
+  countryUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { country: value } });
+  };
 
+  contactNameUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { contactName: value } });
+  };
 
+  positionUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { position: value } });
+  };
+
+  numberUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { number: value } });
+  };
+
+  emailUpdated = (e) => {
+    const { value } = e.target;
+    this.setState({ itemDetails: { email: value } });
+  };
 
   saveHandler(event) {
     event.preventDefault();
 
-console.log('id', this.props.match.params.id);
-console.log('event', event.target.address.value);
-
     const itemToEdit = {
       id: this.props.match.params.id,
-      name: event.target.name.value,
-      address: event.target.address.value,
-      city: event.target.city.value,
-      country: event.target.country.value,
-      contactName: event.target.contact_name.value,
-      position: event.target.position.value,
-      phone: event.target.number.value,
-      email: event.target.email.value,
-      // contactName: this.form.current.contact_name.value,
-      // position: this.form.current.name.value,
-      // phone: this.form.current.name.value,
-      // email: this.form.current.name.value,
+
+      name: this.form.current.name.value,
+      address: this.form.current.address.value,
+      city: this.form.current.city.value,
+      country: this.form.current.country.value,
+      contactName: this.form.current.contact_name.value,
+      position: this.form.current.position.value,
+      number: this.form.current.number.value,
+      email: this.form.current.email.value,
     };
 
     axios
-      .put("http://localhost:8080/api/warehouses", itemToEdit)
-      // .then(window.alert("Changes have been saved."));
-      // .then(this.props.history.push('/warehouses'))
-      .then(() =>  <Redirect to="/" />)
-
-      console.log('itemtoedit', itemToEdit);
+      .put(
+        `http://localhost:8080/api/warehouses/${this.props.match.params.id}`,
+        itemToEdit
+      )
+      .then(window.alert("Changes have been saved."));
   }
 
-
-
-  // saveHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log('e.target', e.target);
-  // }
-  _handleChangeEvent(val) {
-    return val;
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/api/warehouses")
+      .then((response) =>
+        response.data.filter(
+          (warehouse) => warehouse.id === this.props.match.params.id
+        )
+      )
+      .then((result) =>
+        // console.log(result)
+        this.setState({
+          itemDetails: {
+            name: result[0].name,
+            address: result[0].address,
+            city: result[0].city,
+            country: result[0].country,
+            contactName: result[0].contact.name,
+            position: result[0].contact.position,
+            number: result[0].contact.phone,
+            email: result[0].contact.email,
+          },
+        })
+      );
   }
-  
+
   render() {
     return (
-      <form onSubmit={this.saveHandler} className="add-warehouse">
+      <form
+        ref={this.form}
+        onSubmit={this.saveHandler}
+        className="add-warehouse"
+      >
         <div className="add-warehouse__heading-arrow-container">
           <Link to="/warehouses">
             <img className="add-warehouse__arrow" src={arrow} alt="arrow" />
@@ -105,12 +131,8 @@ console.log('event', event.target.address.value);
               type="text"
               name="name"
               className="add-warehouse__name"
-              // onChangeText={name => this.setState({ name: this.state.itemDetails.name })}
-              // value ={this.state.itemDetails.name}
-              
-              // onChange={()=>{this._handleChangeEvent(this.state.itemDetails.name)}} 
-                   defaultValue={this.state.itemDetails.name}
-
+              value={this.state.itemDetails.name}
+              onInput={this.nameUpdated}
             />
 
             <label htmlFor="street-address">Street Address</label>
@@ -119,6 +141,7 @@ console.log('event', event.target.address.value);
               name="address"
               className="add-warehouse__street-address"
               value={this.state.itemDetails.address}
+              onInput={this.addressUpdated}
             />
 
             <label htmlFor="city">City</label>
@@ -127,7 +150,7 @@ console.log('event', event.target.address.value);
               name="city"
               className="add-warehouse__city"
               value={this.state.itemDetails.city}
-              // onInput={this.setState({ itemDetails: { city: "123" } })}
+              onInput={this.cityUpdated}
             />
 
             <label htmlFor="country">Country</label>
@@ -136,6 +159,7 @@ console.log('event', event.target.address.value);
               name="country"
               className="add-warehouse__country"
               value={this.state.itemDetails.country}
+              onInput={this.countryUpdated}
             />
           </div>
 
@@ -149,6 +173,7 @@ console.log('event', event.target.address.value);
               name="contact_name"
               className="add-warehouse__contact"
               value={this.state.itemDetails.contactName}
+              onInput={this.contactNameUpdated}
             />
 
             <label htmlFor="position">Position</label>
@@ -157,6 +182,7 @@ console.log('event', event.target.address.value);
               name="position"
               className="add-warehouse__position"
               value={this.state.itemDetails.position}
+              onInput={this.positionUpdated}
             />
 
             <label htmlFor="number">Number</label>
@@ -164,7 +190,8 @@ console.log('event', event.target.address.value);
               type="text"
               name="number"
               className="add-warehouse__number"
-              value={this.state.itemDetails.phone}
+              value={this.state.itemDetails.number}
+              onInput={this.numberUpdated}
             />
 
             <label htmlFor="email">Email</label>
@@ -173,6 +200,7 @@ console.log('event', event.target.address.value);
               name="email"
               className="add-warehouse__email"
               value={this.state.itemDetails.email}
+              onInput={this.emailUpdated}
             />
           </div>
         </div>
