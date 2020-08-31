@@ -9,6 +9,8 @@ router.get("/inventory", inventoryController.listInventory);
 //  router.delete('/inventory/:id', inventoryController.deleteInventory);
 router.delete(`/inventory/:id`, inventoryController.deleteInventory);
 
+router.post('/inventory/search', inventoryController.searchInventory);
+
 // ADDED BY YASH
 router.patch("/inventory/", inventoryController.editInventory);
 router.post("/inventory", inventoryController.addInventory);

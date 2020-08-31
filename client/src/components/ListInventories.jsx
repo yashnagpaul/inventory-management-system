@@ -10,6 +10,7 @@ import DeleteInventory from "./DeleteInventory";
 class ListInventories extends Component {
   state = {
     Inventory: [],
+    originalInventory: [],
     activeWarehouse: {},
     showPopUp: false,
   };
@@ -19,6 +20,7 @@ class ListInventories extends Component {
       console.log("Inventory List", response.data);
       this.setState({
         Inventory: response.data,
+        originalInventory: response.data,
       });
     });
   }
@@ -43,8 +45,25 @@ class ListInventories extends Component {
       .catch((err) => console.log(err));
   };
 
-  handleSearch() {
-    console.log("handle search");
+  handleSearch =(e) => {
+    const searchItem = e.target.value;
+    axios
+      .post(`http://localhost:8080/api/inventory/search`, {
+        name: `${searchItem}`
+      })
+      .then(response =>
+        {
+          if (response.data.length > 0 && response.data !== undefined) {
+            this.setState({
+              Inventory: response.data
+            })
+            console.log('response.data', response.data)
+          } 
+          else {
+            this.setState({Inventory:this.state.originalInventory})
+          }
+        }
+      );
   }
 
   addWarehouse() {
@@ -82,7 +101,7 @@ class ListInventories extends Component {
                 placeholder="Search..."
                 className="list-inventory__search-input"
                 name="searchItem"
-                onSubmit={this.handleSearch}
+                onKeyUp={this.handleSearch}
               ></input>
 
               {/* </form> */}

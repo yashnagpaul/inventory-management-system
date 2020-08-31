@@ -1756,6 +1756,8 @@ a:hover {
 
 .list-inventory__search {
   width: 100%;
+  outline: none;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -1772,6 +1774,7 @@ a:hover {
   max-width: 100%;
   margin: 0;
   margin-right: 16px;
+  outline: none;
 }
 
 @media screen and (min-width: 768px) {

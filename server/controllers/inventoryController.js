@@ -25,9 +25,14 @@ function deleteInventory(req, res) {
   res.json(clickedInventory)
 }
 
+function searchInventory(req, res) {
+  res.json(inventory.searchInventory(req.body.name));
+}
+
 module.exports = {
   listInventory,
   editInventory,
   addInventory,
   deleteInventory,
+  searchInventory
 };

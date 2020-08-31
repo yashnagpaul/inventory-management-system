@@ -48,15 +48,11 @@ class ListWarehouses extends Component {
 
   handleSearch = (e) => {
     const searchItem = e.target.value;
-    const newArray = [];
     axios
       .post(`http://localhost:8080/api/warehouses/search`, {
         name: `${searchItem}`
       })
       .then(response =>
-        // if (response.status === 200){
-        // this.setState({ warehouses: response.data[0]})
-        // }
         {
           if (response.data.length > 0 && response.data !== undefined) {
             this.setState({
@@ -114,7 +110,7 @@ class ListWarehouses extends Component {
 
               {/* </form> */}
               <Link
-                to={"/warehouses/add"}
+                to={"/warehouse/add"}
                 className="list-warehouse__add-button-link"
               >
                 <button className="list-warehouse__add-button">
