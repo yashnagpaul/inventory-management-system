@@ -88,7 +88,7 @@ class ListWarehouses extends Component {
 
               {/* </form> */}
               <Link
-                to={"/warehouses/:id/add"}
+                to={"/warehouses/add"}
                 className="list-warehouse__add-button-link"
               >
                 <button className="list-warehouse__add-button">
@@ -157,7 +157,6 @@ class ListWarehouses extends Component {
                 ))}
             </div>
           </div>
-
         </div>
         {this.state.showPopUp === true ? (
           <DeleteWarehouse

@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import arrow from "../assets/Icons/arrow_back-24px.svg";
+import { link, Link } from "react-router-dom";
 
 class EditInventoryItem extends React.Component {
   constructor(props) {
@@ -93,7 +95,12 @@ class EditInventoryItem extends React.Component {
         ref={this.form}
         className="add-warehouse"
       >
-        <h1 className="add-warehouse__heading">Edit Inventory Item</h1>
+        <div className="add-warehouse__heading-arrow-container">
+          <Link to="/inventory">
+            <img src={arrow} alt="arrow" />
+          </Link>
+          <h1 className="add-warehouse__heading">Add New Warehouse</h1>
+        </div>
         <div className="add-warehouse__details-availability-container">
           <div className="add-warehouse__warehouse-details">
             <h3 className="add-warehouse__subheading">Item Details</h3>

@@ -201,34 +201,16 @@ a:hover {
   }
 }
 
-.add-warehouse__heading {
+.add-warehouse__heading-arrow-container {
   border-bottom: 1px lightgray solid;
-  text-indent: 40px;
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.add-warehouse__heading::before {
-  content: "";
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 10px;
-  bottom: -1px;
-  background-image: url("../assets/Icons/arrow_back-24px.svg");
-  background-repeat: no-repeat;
-}
-
-@media screen and (min-width: 768px) {
-  .add-warehouse__heading::before {
-    left: 15px;
-    bottom: -5px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .add-warehouse__heading::before {
-    bottom: -13px;
-  }
+.add-warehouse img {
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 .add-warehouse__subheading {
