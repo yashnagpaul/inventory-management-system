@@ -57,7 +57,7 @@ const WareHouseCard = ({
           >
             <img className="list-warehouse__warehouse-delete" src={Trash} />
           </Link>
-          <Link to={`/warehouses/:id/edit`}>
+          <Link to={`/warehouses/${id}/edit`}>
           {/* <Link to={`/warehouses/${id}/edit`}> */}
             <img
               className="list-warehouse__warehouse-edit"

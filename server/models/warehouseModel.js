@@ -63,4 +63,25 @@ function searchWarehouses(searchWord) {
 
 }
 
-module.exports = { list, warehouse_create_post, getWarehouseById, getWarehouseInventorybyId, searchWarehouses };
+function editWarehouse({id, name, address, city, country, contactName, position, phone, email}){
+const warehouseList = list();
+
+const thisWarehouseIndex = warehouseList.findIndex(warehouse => warehouse.id === id);
+warehouseList[thisWarehouseIndex].name = name;
+warehouseList[thisWarehouseIndex].address = address;
+warehouseList[thisWarehouseIndex].city = city;
+warehouseList[thisWarehouseIndex].country = country;
+warehouseList[thisWarehouseIndex].contact.name = contactName;
+warehouseList[thisWarehouseIndex].contact.position = position;
+warehouseList[thisWarehouseIndex].contact.phone = phone;
+warehouseList[thisWarehouseIndex].contact.email = email;
+
+console.log('thisWarehouse', warehouseList);
+
+fs.writeFileSync(warehouseFile, JSON.stringify(warehouseList));
+
+return warehouseList;
+}
+
+module.exports = { list, warehouse_create_post, 
+  getWarehouseById, getWarehouseInventorybyId, searchWarehouses, editWarehouse };
