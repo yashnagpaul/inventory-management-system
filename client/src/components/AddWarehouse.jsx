@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import errorIcon from "../assets/Icons/error-24px.svg";
 import arrow from "../assets/Icons/arrow_back-24px.svg";
+import { link, Link } from "react-router-dom";
 
 class AddWarehouse extends React.Component {
   constructor(props) {
@@ -95,8 +96,10 @@ class AddWarehouse extends React.Component {
         className="add-warehouse"
         onSubmit={this.submitHandler}
       >
-        <div>
-          <img src={arrow} alt="arrow" />
+        <div className="add-warehouse__heading-arrow-container">
+          <Link to="/warehouses">
+            <img className="add-warehouse__arrow" src={arrow} alt="arrow" />
+          </Link>
           <h1 className="add-warehouse__heading">Add New Warehouse</h1>
         </div>
         <div className="add-warehouse__details-availability-container">

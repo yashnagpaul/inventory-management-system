@@ -18,15 +18,17 @@ function patchInventory(req, res) {
   const data = JSON.parse(fs.readFileSync(inventoryFile));
   const itemToEdit = {
     id: req.body.id,
-    name: req.body.name,
+    warehouseID: req.body.warehouseID,
+    itemName: req.body.name,
     description: req.body.description,
     category: req.body.category,
     status: req.body.status,
-    warehouse: req.body.warehouse,
+    warehouseName: req.body.warehouse,
+    quantity: req.body.quantity,
   };
 
   let newListOfItems = data.filter((item) => item.id !== itemToEdit.id);
-  newListOfItems.push(itemToEdit);
+  newListOfItems.unshift(itemToEdit);
   fs.writeFileSync(inventoryFile, JSON.stringify(newListOfItems));
   console.log(data);
   res.send(newListOfItems);
