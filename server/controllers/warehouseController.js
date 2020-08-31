@@ -49,6 +49,11 @@ function searchWarehouses(req, res) {
   res.json(warehouse.searchWarehouses(req.body.name))
 }
 
+function editWarehouse(req, res){
+  console.log('req.body', req.body);
+  res.json(warehouse.editWarehouse(req.body))
+}
+
 module.exports = {
   listWarehouses,
   addWarehouse,
@@ -56,5 +61,6 @@ module.exports = {
   deleteWarehouse,
   getWarehouseInventorybyId,
   deleteWarehouseInventorybyId,
-  searchWarehouses
+  searchWarehouses,
+  editWarehouse
 }
