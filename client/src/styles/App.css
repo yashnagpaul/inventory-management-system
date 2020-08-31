@@ -667,6 +667,18 @@ a:hover {
           align-items: center;
 }
 
+.list-warehouse__warehouse-name > img {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.list-warehouse__warehouse-name > img:hover {
+  -webkit-transform: translate(4px, 0px);
+          transform: translate(4px, 0px);
+}
+
 .list-warehouse__warehouse-name > a {
   color: #2e66e5;
   display: -webkit-box;
@@ -2014,6 +2026,18 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.inventory-card__warehouse-name > img {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.inventory-card__warehouse-name > img:hover {
+  -webkit-transform: translate(4px, 0px);
+          transform: translate(4px, 0px);
 }
 
 .inventory-card__warehouse-name > a {
