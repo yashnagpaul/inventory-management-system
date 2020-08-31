@@ -39,12 +39,13 @@ function postInventory(req, res) {
   const inventoryData = JSON.parse(fs.readFileSync(inventoryFile));
   const itemToPost = {
     id: req.body.id,
-    name: req.body.name,
+    warehouseID: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    itemName: req.body.name,
     description: req.body.description,
     category: req.body.category,
     status: req.body.status,
     quantity: req.body.quantity,
-    warehouse: req.body.warehouse,
+    warehouseName: req.body.warehouse,
   };
   inventoryData.push(itemToPost);
   fs.writeFileSync(inventoryFile, JSON.stringify(inventoryData));
@@ -55,19 +56,34 @@ function searchInventory(searchWord) {
   const inventoryLIst = list();
   let concatInventory = [];
 
-  const returnInventoryByWarehouseName = inventoryLIst.filter(inventory => inventory.warehouseName === searchWord);
-  const returnInventoryByitemName = inventoryLIst.filter(inventory => inventory.itemName === searchWord);
-  const returnInventoryBycategory = inventoryLIst.filter(inventory => inventory.category === searchWord);
-  const returnInventoryBystatus = inventoryLIst.filter(inventory => inventory.status === searchWord);
-  const returnInventoryByquantity = inventoryLIst.filter(inventory => inventory.quantity === parseInt(searchWord));
+  const returnInventoryByWarehouseName = inventoryLIst.filter(
+    (inventory) => inventory.warehouseName === searchWord
+  );
+  const returnInventoryByitemName = inventoryLIst.filter(
+    (inventory) => inventory.itemName === searchWord
+  );
+  const returnInventoryBycategory = inventoryLIst.filter(
+    (inventory) => inventory.category === searchWord
+  );
+  const returnInventoryBystatus = inventoryLIst.filter(
+    (inventory) => inventory.status === searchWord
+  );
+  const returnInventoryByquantity = inventoryLIst.filter(
+    (inventory) => inventory.quantity === parseInt(searchWord)
+  );
 
+  const totalInventory = concatInventory
+    .concat(returnInventoryByWarehouseName)
+    .concat(returnInventoryByitemName)
+    .concat(returnInventoryBycategory)
+    .concat(returnInventoryBystatus)
+    .concat(returnInventoryByquantity);
 
-
-  const totalInventory = concatInventory.concat(returnInventoryByWarehouseName).concat(returnInventoryByitemName)
-    .concat(returnInventoryBycategory).concat(returnInventoryBystatus).concat(returnInventoryByquantity);
-
-  const uniqueInventory = Array.from(new Set(totalInventory.map(a => a.id)))
-    .map(id => { return totalInventory.find(a => a.id === id) })
+  const uniqueInventory = Array.from(
+    new Set(totalInventory.map((a) => a.id))
+  ).map((id) => {
+    return totalInventory.find((a) => a.id === id);
+  });
 
   return uniqueInventory;
 }
