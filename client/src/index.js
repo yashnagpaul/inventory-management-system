@@ -18,13 +18,16 @@ import ListInventories from "./components/ListInventories";
 import ItemStatus from "./components/ItemStatus";
 import EditInventoryItem from "./components/EditInventoryItem";
 import Footer from "./components/Footer";
-
+import AddNewInventoryItem from "./components/AddNewInventoryItem";
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-    <Redirect from="/" to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0" />
+      <Redirect
+        from="/"
+        to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0"
+      />
       <Header />
       <Switch>
         <Route path="/warehouses" component={ListWarehouse} exact />
@@ -57,6 +60,7 @@ ReactDOM.render(
         <Route path='/*' component={NotFound} /> */}
         <Route path="/warehouses/:id/add" component={AddWarehouse} />
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
+        <Route path="/inventories/add" component={AddNewInventoryItem} />
       </Switch>
       <Footer />
     </Router>

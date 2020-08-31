@@ -87,7 +87,7 @@ class ListInventories extends Component {
 
               {/* </form> */}
               <Link
-                to={"/warehouses/:id/add"}
+                to={"/inventories/add"}
                 className="list-inventory__add-button-link"
               >
                 <button className="list-inventory__add-button">
@@ -167,7 +167,7 @@ class ListInventories extends Component {
             </div>
           </div>
           <div className="list-inventory__footer">
-          &#169;InStock Inc. All Rights Reserved.
+            &#169;InStock Inc. All Rights Reserved.
           </div>
         </div>
         {this.state.showPopUp === true ? (
