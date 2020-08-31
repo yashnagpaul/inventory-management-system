@@ -5,21 +5,15 @@ import {Link} from 'react-router-dom';
 
 
 const ItemStatus = (props) =>{
-    const item = props.location.aboutProps.itemName
-    const description = props.location.aboutProps.description
-    const id = props.location.aboutProps.id
-    const warehouseName = props.location.aboutProps.warehouseName
-    const warehouseID = props.location.aboutProps.warehouseID
-    const quantity = props.location.aboutProps.quantity
-    const status = props.location.aboutProps.status
-    const category = props.location.aboutProps.category
+    const {itemName, description, id, warehouseName, warehouseID, quantity, status, category} = props.location.aboutProps
+    console.log(props)
 
         return (
           <div className='item__card'>
             <div className='item__header'>
                 <div className='item__header-back'>
                     <Link to={`/inventory`}><a href='#'><img className='item__back' src={Arrow}/></a></Link>
-                    <h1 className='item__item'>{item}</h1>
+                    <h1 className='item__item'>{itemName}</h1>
                 </div>
                 <Link to={`/inventory/${warehouseID}/inventory-status/${id}/edit`} className='item__edit--link'><a href='#' className='item__edit--btn'><img className='item__edit-icon' src={Edit}/></a></Link>
             </div>

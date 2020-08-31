@@ -31,7 +31,7 @@ const InventoryCard = ({
 
             <Link
               to={{
-                pathname: `/inventory/${warehouseID}/inventory-status/${id}`,
+                pathname: `/inventory/${warehouseName}/inventory-status/${id}`,
                 aboutProps: {
                   itemName: itemName,
                   description: description,

@@ -54,12 +54,17 @@ class EditInventoryItem extends React.Component {
     const itemToEdit = {
       id: this.props.match.params.id,
 
+      warehouseID: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
       name: this.form.current.name.value,
-      description: this.form.current.name.value,
-      category: this.form.current.name.value,
-      status: this.form.current.name.value,
-      quantity: this.form.current.quantity.value,
-      warehouse: this.form.current.name.value,
+      description: this.form.current.description.value,
+      category: this.form.current.category.value,
+      status: this.form.current.status.value,
+      quantity:
+        this.form.current.quantity.value &&
+        this.form.current.status.value === "In Stock"
+          ? this.form.current.quantity.value
+          : 0,
+      warehouse: this.form.current.warehouse.value,
     };
 
     axios
@@ -97,9 +102,9 @@ class EditInventoryItem extends React.Component {
       >
         <div className="add-warehouse__heading-arrow-container">
           <Link to="/inventory">
-            <img src={arrow} alt="arrow" />
+            <img className="add-warehouse__arrow" src={arrow} alt="arrow" />
           </Link>
-          <h1 className="add-warehouse__heading">Add New Warehouse</h1>
+          <h1 className="add-warehouse__heading">Edit Inventory</h1>
         </div>
         <div className="add-warehouse__details-availability-container">
           <div className="add-warehouse__warehouse-details">
@@ -130,7 +135,7 @@ class EditInventoryItem extends React.Component {
               onInput={this.categoryUpdated}
             >
               <option value={this.state.category}>{this.state.category}</option>
-              <option value="electronics">Electronics</option>
+              <option value="Electronics">Electronics</option>
               <option value="Gear">Gear</option>
               <option value="Apparel">Apparel</option>
               <option value="Accessories">Accessories</option>
@@ -148,16 +153,17 @@ class EditInventoryItem extends React.Component {
                 type="radio"
                 name="status"
                 className="add-warehouse__radio"
-                value="In stock"
+                value="In Stock"
                 onInput={this.statusUpdated}
               />
-              <label htmlFor="status">In stock</label>
+              <label htmlFor="status">In Stock</label>
 
               <input
                 type="radio"
                 name="status"
                 className="add-warehouse__radio"
-                value="Out of stock"
+                value="Out of Stock"
+                onInput={this.statusUpdated}
               />
               <label htmlFor="status">Out of Stock</label>
             </div>

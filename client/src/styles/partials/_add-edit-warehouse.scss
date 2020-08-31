@@ -19,29 +19,10 @@
     display: flex;
   }
 
-  img {
+  &__arrow {
+    margin-top: 10px;
     margin-left: 7px;
     margin-right: 7px;
-    // border-bottom: 1px lightgray solid;
-    // text-indent: 40px;
-    // position: relative;
-    // &::before {
-    //   content: "";
-    //   width: 30px;
-    //   height: 30px;
-    //   position: absolute;
-    //   left: 10px;
-    //   bottom: -1px;
-    //   background-image: url("../assets/Icons/arrow_back-24px.svg");
-    //   background-repeat: no-repeat;
-    //   @include tablet {
-    //     left: 15px;
-    //     bottom: -5px;
-    //   }
-    //   @include desktop {
-    //     bottom: -13px;
-    //   }
-    // }
   }
 
   &__subheading {

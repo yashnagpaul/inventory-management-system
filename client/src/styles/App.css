@@ -208,7 +208,8 @@ a:hover {
   display: flex;
 }
 
-.add-warehouse img {
+.add-warehouse__arrow {
+  margin-top: 10px;
   margin-left: 7px;
   margin-right: 7px;
 }
@@ -2477,7 +2478,6 @@ a:hover {
   left: 0;
   bottom: 10px;
   width: 100%;
-  background-color: red;
   color: white;
   text-align: center;
 }
