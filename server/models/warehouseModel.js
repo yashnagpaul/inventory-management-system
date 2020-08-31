@@ -21,7 +21,7 @@ function warehouse_create_post(req, res) {
   const newObject = req.body;
   warehouseList.push(newObject);
   fs.writeFileSync(warehouseFile, JSON.stringify(warehouseList));
-//OPTIONAL RESPONSE
+  //OPTIONAL RESPONSE
   res.send(newObject);
 }
 
@@ -32,18 +32,34 @@ function getWarehouseById(id) {
   return thisWarehouse;
 }
 
-function getWarehouseInventorybyId(id){
+function getWarehouseInventorybyId(id) {
   const data = fs.readFileSync(inventoryFile);
   const inventoryList = JSON.parse(data);
   const warehouseInventory = inventoryList.filter(warehouse => warehouse.warehouseID === id);
-  return warehouseInventory; 
+  return warehouseInventory;
 }
 
-function searchWarehouses(searchWord){
+function searchWarehouses(searchWord) {
   const warehouseList = list();
-  const returnWarehouses = warehouseList.filter(warehouse => warehouse.city === searchWord);
-  console.log('returnWarehouses', returnWarehouses);
-  return returnWarehouses;
+  let concatWarehouses = [];
+  
+  const returnWarehousesByCity = warehouseList.filter(warehouse => warehouse.city === searchWord);
+  const returnWarehousesByName = warehouseList.filter(warehouse => warehouse.name === searchWord);
+  const returnWarehousesByAddress = warehouseList.filter(warehouse => warehouse.address === searchWord);
+  const returnWarehousesByCountry = warehouseList.filter(warehouse => warehouse.country === searchWord);
+  const returnWarehousesByContactName = warehouseList.filter(warehouse => warehouse.contact.name === searchWord);
+  const returnWarehousesByContactPosition = warehouseList.filter(warehouse => warehouse.contact.position === searchWord);
+  const returnWarehousesByContactPhone = warehouseList.filter(warehouse => warehouse.contact.phone === searchWord);
+  const returnWarehousesByContactEmail = warehouseList.filter(warehouse => warehouse.contact.email === searchWord);
+
+  const totalWarehouses = concatWarehouses.concat(returnWarehousesByCity).concat(returnWarehousesByName).concat(returnWarehousesByAddress)
+    .concat(returnWarehousesByCountry).concat(returnWarehousesByContactName).concat(returnWarehousesByContactPosition)
+    .concat(returnWarehousesByContactPhone).concat(returnWarehousesByContactEmail);
+
+  const uniqueWarehouses = Array.from(new Set(totalWarehouses.map(a => a.id)))
+    .map(id => {return totalWarehouses.find(a => a.id === id)})
+
+  return uniqueWarehouses;
 
 }
 

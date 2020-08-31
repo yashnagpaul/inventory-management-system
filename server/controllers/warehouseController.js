@@ -46,7 +46,6 @@ function addWarehouse(req, res) {
 }
 
 function searchWarehouses(req, res) {
-  console.log(req.body.name);
   res.json(warehouse.searchWarehouses(req.body.name))
 }
 

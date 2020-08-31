@@ -47,18 +47,6 @@
         "email": "gwong@instock.com"
     }
 }, {
-    "id": "89898957-04ba-4bd0-9f5c-a7aea7447963",
-    "name": "Santa Monica",
-    "address": "520 Broadway",
-    "city": "Santa Monica",
-    "country": "USA",
-    "contact": {
-        "name": "Sharon Ng",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "sng@instock.com"
-    }
-}, {
     "id": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
     "name": "Seattle",
     "address": "1201 Third Avenue",

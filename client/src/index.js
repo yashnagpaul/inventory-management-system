@@ -24,14 +24,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Router>
-<<<<<<< Updated upstream
-      <Redirect
-        from="/"
-        to="/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0"
-      />
-=======
     <Redirect from="/" to="/warehouses" />
->>>>>>> Stashed changes
       <Header />
       <Switch>
         <Route path="/warehouses" component={ListWarehouse} exact />
@@ -63,14 +56,9 @@ ReactDOM.render(
         <Route path='/inventory/:id/edit' component={} />      
         <Route path='/inventory/:id/add' component={} />
         <Route path='/*' component={NotFound} /> */}
-<<<<<<< Updated upstream
         <Route path="/warehouses/add" component={AddWarehouse} />
         <Route path="/warehouses/:id/edit" component={EditWarehouse} />
         <Route path="/inventories/add" component={AddNewInventoryItem} />
-=======
-        <Route path="/warehouses/:id/add" component={AddWarehouse} />
-        
->>>>>>> Stashed changes
       </Switch>
       <Footer />
     </Router>
