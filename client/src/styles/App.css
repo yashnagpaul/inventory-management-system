@@ -341,6 +341,7 @@ a:hover {
 
 .add-warehouse__error-validation {
   font-size: 12px;
+  margin-top: -1.5px;
   color: orangered;
 }
 

@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import arrow from "../assets/Icons/arrow_back-24px.svg";
-import { link, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import errorIcon from "../assets/Icons/error-24px.svg";
 
 class AddNewInventoryItem extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class AddNewInventoryItem extends React.Component {
       this.setState({ descriptionError: false });
       this.setState({ categoryError: false });
       this.setState({ statusError: false });
-      this.setState({ quantityNameError: false });
+      this.setState({ quantityError: false });
       this.setState({ warehouseError: false });
 
       window.alert("Inventory successfully added!");
@@ -76,7 +77,11 @@ class AddNewInventoryItem extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler} className="add-warehouse">
+      <form
+        ref={this.form}
+        onSubmit={this.submitHandler}
+        className="add-warehouse"
+      >
         <div className="add-warehouse__heading-arrow-container">
           <Link to="/inventory">
             <img className="add-warehouse__arrow" src={arrow} alt="arrow" />
@@ -91,12 +96,15 @@ class AddNewInventoryItem extends React.Component {
               type="text"
               name="name"
               className="add-warehouse__name"
-              placeholder="Warehouse Name"
+              placeholder="Item Name"
             />
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.nameError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
 
             <label htmlFor="description">Description</label>
             <textarea
@@ -108,7 +116,10 @@ class AddNewInventoryItem extends React.Component {
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.descriptionError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
 
             <label htmlFor="category">Category</label>
             <select
@@ -117,7 +128,7 @@ class AddNewInventoryItem extends React.Component {
               className="add-warehouse__category"
               placeholder="Please select"
             >
-              <option value="electronics">Electronics</option>
+              <option value="Electronics">Electronics</option>
               <option value="Gear">Gear</option>
               <option value="Apparel">Apparel</option>
               <option value="Accessories">Accessories</option>
@@ -127,7 +138,10 @@ class AddNewInventoryItem extends React.Component {
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.categoryError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
           </div>
 
           {/* ITEM AVAILABILITY */}
@@ -140,11 +154,11 @@ class AddNewInventoryItem extends React.Component {
                 type="radio"
                 name="status"
                 className="add-inventory__radio"
-                value="In stock"
+                value="In Stock"
               />
 
-              <label class="radio-label" for="status">
-                In stock
+              <label className="radio-label" htmlFor="status">
+                In Stock
               </label>
 
               <input
@@ -158,31 +172,51 @@ class AddNewInventoryItem extends React.Component {
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.statusError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
 
             <label htmlFor="quantity">Quantity</label>
             <input
               type="text"
               name="quantity"
               className="add-warehouse__position"
-              placeholder="Position"
+              placeholder="Quantity"
             />
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.quantityError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
 
             <label htmlFor="warehouse">Warehouse</label>
-            <input
+
+            <select
               type="text"
               name="warehouse"
-              className="add-warehouse__number"
-              placeholder="Number"
-            />
+              className="add-warehouse__category"
+              placeholder="Please select"
+            >
+              <option value="Manhattan">Manhattan</option>
+              <option value="King West">King West</option>
+              <option value="Granville">Granville</option>
+              <option value="San Fran">San Fran</option>
+              <option value="Santa Monica">Santa Monica</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Boston">Boston</option>
+              <option value="Montreal">Montreal</option>
+            </select>
+
             <div
               className="add-warehouse__error-validation"
               style={{ display: this.state.warehouseError ? "flex" : "none" }}
-            ></div>
+            >
+              <img src={errorIcon} alt="error icon" />
+              This field is required!
+            </div>
           </div>
         </div>
         <div className="add-warehouse__btn-container">
