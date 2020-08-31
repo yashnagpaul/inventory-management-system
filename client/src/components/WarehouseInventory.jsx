@@ -17,7 +17,7 @@ class WarehouseInventory extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id)
+    console.log(this.props.match.params.id);
     axios
       .get(`http://localhost:8080/api/warehouses/${this.props.match.params.id}`)
       .then((response) => {
@@ -35,7 +35,7 @@ class WarehouseInventory extends Component {
   }
 
   getInventoryById(id) {
-    console.log(id) // warehouse id
+    console.log(id); // warehouse id
     axios
       .get(`http://localhost:8080/api/warehouses/${id}/inventory`)
       .then((response) => {
@@ -53,16 +53,21 @@ class WarehouseInventory extends Component {
   };
 
   deleteHandler = (id, warehouseID) => {
-    console.log(id, warehouseID)
-    axios.delete(`http://localhost:8080/api/warehouses/${id}/inventory`).then((res =>{
-      axios.get(`http://localhost:8080/api/warehouses/${warehouseID}/inventory`).then((response) => {
-        console.log(response.data);
-        this.setState({
-          inventoryList: response.data,
-        });
-      });
-    })).catch(err => console.log(err))
-  }
+    console.log(id, warehouseID);
+    axios
+      .delete(`http://localhost:8080/api/warehouses/${id}/inventory`)
+      .then((res) => {
+        axios
+          .get(`http://localhost:8080/api/warehouses/${warehouseID}/inventory`)
+          .then((response) => {
+            console.log(response.data);
+            this.setState({
+              inventoryList: response.data,
+            });
+          });
+      })
+      .catch((err) => console.log(err));
+  };
 
   handleSearch() {
     console.log("handle search");
@@ -90,7 +95,6 @@ class WarehouseInventory extends Component {
 
   render() {
     const inventoryArray = this.state.inventoryList;
-    
 
     const contact_name =
       this.state.warehouseDetail && this.state.warehouseDetail.contact
@@ -128,13 +132,19 @@ class WarehouseInventory extends Component {
                 <h1 className="items-warehouse__header-name">
                   {this.state.warehouseDetail.name}
                 </h1>
-                <Link to={`/warehouses`} className="items-warehouse__edit-link">
+                <Link
+                  to={`/warehouse/${this.props.match.params.id}/edit`}
+                  className="items-warehouse__edit-link"
+                >
                   <div className="items-warehouse__edit-circle">
                     <img src={Edit} alt="Edit" />
                   </div>
                 </Link>
 
-                <Link to={`/warehouses`} className="items-warehouse__edit-link2">
+                <Link
+                  to={`/warehouse/${this.props.match.params.id}/edit`}
+                  className="items-warehouse__edit-link2"
+                >
                   <div className="items-warehouse__edit-circle2">
                     <img src={Edit} alt="Edit" />
                     <h3>Edit</h3>
@@ -237,13 +247,16 @@ class WarehouseInventory extends Component {
             </div>
           </div>
         </div>
-        {this.state.showPopUp === true ? 
-        <DeleteWarehouseInventory 
-        popUpHandler={this.popUpHandler} 
-        warehouses={inventoryArray} 
-        url={this.props.match} 
-        deleteHandler={this.deleteHandler} /> : 
-        console.log("no popup")}
+        {this.state.showPopUp === true ? (
+          <DeleteWarehouseInventory
+            popUpHandler={this.popUpHandler}
+            warehouses={inventoryArray}
+            url={this.props.match}
+            deleteHandler={this.deleteHandler}
+          />
+        ) : (
+          console.log("no popup")
+        )}
       </>
     );
   }

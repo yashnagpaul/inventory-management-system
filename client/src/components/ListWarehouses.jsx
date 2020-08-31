@@ -88,7 +88,7 @@ class ListWarehouses extends Component {
 
               {/* </form> */}
               <Link
-                to={"/warehouses/add"}
+                to={"/warehouse/add"}
                 className="list-warehouse__add-button-link"
               >
                 <button className="list-warehouse__add-button">

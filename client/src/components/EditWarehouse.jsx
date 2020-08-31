@@ -92,7 +92,7 @@ class EditWarehouse extends React.Component {
               name="city"
               className="add-warehouse__city"
               value={this.state.city}
-              onInput={this.setState({ itemDetails: { city: "123" } })}
+              // onInput={this.setState({ itemDetails: { city: "123" } })}
             />
 
             <label for="country">Country</label>
