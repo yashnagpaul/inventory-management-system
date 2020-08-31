@@ -38,4 +38,13 @@ function getWarehouseInventorybyId(id){
   const warehouseInventory = inventoryList.filter(warehouse => warehouse.warehouseID === id);
   return warehouseInventory; 
 }
-module.exports = { list, warehouse_create_post, getWarehouseById, getWarehouseInventorybyId };
+
+function searchWarehouses(searchWord){
+  const warehouseList = list();
+  const returnWarehouses = warehouseList.filter(warehouse => warehouse.city === searchWord);
+  console.log('returnWarehouses', returnWarehouses);
+  return returnWarehouses;
+
+}
+
+module.exports = { list, warehouse_create_post, getWarehouseById, getWarehouseInventorybyId, searchWarehouses };

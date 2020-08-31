@@ -4,6 +4,7 @@ const warehouse = require("../models/warehouseModel");
 const fs = require("fs");
 
 function listWarehouses(_req, res) {
+  console.log("bobo");
   res.json(warehouse.list());
 }
 
@@ -44,11 +45,17 @@ function addWarehouse(req, res) {
   warehouse.warehouse_create_post(req, res);
 }
 
+function searchWarehouses(req, res) {
+  console.log(req.body.name);
+  res.json(warehouse.searchWarehouses(req.body.name))
+}
+
 module.exports = {
   listWarehouses,
   addWarehouse,
   getWarehouseById,
   deleteWarehouse,
   getWarehouseInventorybyId,
-  deleteWarehouseInventorybyId
+  deleteWarehouseInventorybyId,
+  searchWarehouses
 }
