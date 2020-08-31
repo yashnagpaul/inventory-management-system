@@ -31,6 +31,7 @@ ReactDOM.render(
         <Route path="/warehouses/:id/delete" component={ListWarehouse} exact />
         <Route path="/warehouses/:id" component={WarehouseInventory} exact />
         <Route path="/inventory/:id" component={ItemStatus} exact />
+        <Route path="/warehouses/:name/inventory-status/:id" component={ItemStatus} exact />
         <Route path="/inventory/:id/delete" component={ListInventories} />
         <Route path="/inventory/:id/edit" component={EditInventoryItem} />
         <Route

@@ -12,7 +12,6 @@ class WarehouseInventory extends Component {
   state = {
     warehouseDetail: {},
     inventoryList: [],
-    activeWarehouse: {},
     showPopUp: false,
   };
 
@@ -95,6 +94,7 @@ class WarehouseInventory extends Component {
 
   render() {
     const inventoryArray = this.state.inventoryList;
+    console.log(inventoryArray)
 
     const contact_name =
       this.state.warehouseDetail && this.state.warehouseDetail.contact
