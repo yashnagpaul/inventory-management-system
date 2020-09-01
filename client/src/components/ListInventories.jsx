@@ -17,7 +17,6 @@ class ListInventories extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8080/api/inventory").then((response) => {
-      console.log("Inventory List", response.data);
       this.setState({
         Inventory: response.data,
         originalInventory: response.data,
@@ -45,46 +44,32 @@ class ListInventories extends Component {
       .catch((err) => console.log(err));
   };
 
-  handleSearch =(e) => {
+  handleSearch = (e) => {
     const searchItem = e.target.value;
     axios
       .post(`http://localhost:8080/api/inventory/search`, {
-        name: `${searchItem}`
+        name: `${searchItem}`,
       })
-      .then(response =>
-        {
-          if (response.data.length > 0 && response.data !== undefined) {
-            this.setState({
-              Inventory: response.data
-            })
-            console.log('response.data', response.data)
-          } 
-          else {
-            this.setState({Inventory:this.state.originalInventory})
-          }
+      .then((response) => {
+        if (response.data.length > 0 && response.data !== undefined) {
+          this.setState({
+            Inventory: response.data,
+          });
+        } else {
+          this.setState({ Inventory: this.state.originalInventory });
         }
-      );
-  }
+      });
+  };
 
-  addWarehouse() {
-    console.log("Add Warehouse");
-  }
+  addWarehouse() {}
 
-  sortWarehouse() {
-    console.log("Sort Warehouse");
-  }
+  sortWarehouse() {}
 
-  sortAddress() {
-    console.log("Sort Address");
-  }
+  sortAddress() {}
 
-  sortContactName() {
-    console.log("Sort Contact Name");
-  }
+  sortContactName() {}
 
-  sortContactInformation() {
-    console.log("Sort Contact Information");
-  }
+  sortContactInformation() {}
 
   render() {
     const inventoryArray = this.state.Inventory;

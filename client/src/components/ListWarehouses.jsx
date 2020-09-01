@@ -10,14 +10,13 @@ import DeleteWarehouse from "./DeleteWarehouse";
 class ListWarehouses extends Component {
   state = {
     warehouses: [],
-    originalWarehouses:[],
+    originalWarehouses: [],
     activeWarehouse: {},
     showPopUp: false,
   };
 
   componentDidMount() {
     axios.get("http://localhost:8080/api/warehouses").then((response) => {
-      console.log("Warehouse List", response.data);
       this.setState({
         warehouses: response.data,
         originalWarehouses: response.data,
@@ -36,7 +35,6 @@ class ListWarehouses extends Component {
       .delete(`http://localhost:8080/api/warehouses/${id}`)
       .then((res) => {
         axios.get("http://localhost:8080/api/warehouses").then((response) => {
-          console.log("Warehouse List", response.data);
           this.setState({
             warehouses: response.data,
             showPopUp: false,
@@ -50,50 +48,33 @@ class ListWarehouses extends Component {
     const searchItem = e.target.value;
     axios
       .post(`http://localhost:8080/api/warehouses/search`, {
-        name: `${searchItem}`
+        name: `${searchItem}`,
       })
-      .then(response =>
-        {
-          if (response.data.length > 0 && response.data !== undefined) {
-            this.setState({
-              warehouses: response.data
-            })
-            console.log('response.data', response.data)
-          } 
-          else {
-            this.setState({warehouses:this.state.originalWarehouses})
-          }
+      .then((response) => {
+        if (response.data.length > 0 && response.data !== undefined) {
+          this.setState({
+            warehouses: response.data,
+          });
+        } else {
+          this.setState({ warehouses: this.state.originalWarehouses });
         }
-      );
+      });
+  };
 
-  }
+  addWarehouse() {}
 
-  addWarehouse() {
-    console.log("Add Warehouse");
-  }
+  sortWarehouse() {}
 
-  sortWarehouse() {
-    console.log("Sort Warehouse");
-  }
+  sortAddress() {}
 
-  sortAddress() {
-    console.log("Sort Address");
-  }
+  sortContactName() {}
 
-  sortContactName() {
-    console.log("Sort Contact Name");
-  }
-
-  sortContactInformation() {
-    console.log("Sort Contact Information");
-  }
+  sortContactInformation() {}
 
   render() {
-    
     const warehouseArray = this.state.warehouses;
 
     return (
-
       <>
         <div className="list-warehouse__container">
           <div className="list-warehouse__header-section">
