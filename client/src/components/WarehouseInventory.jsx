@@ -94,7 +94,7 @@ class WarehouseInventory extends Component {
 
   render() {
     const inventoryArray = this.state.inventoryList;
-    console.log(inventoryArray)
+    console.log(inventoryArray);
 
     const contact_name =
       this.state.warehouseDetail && this.state.warehouseDetail.contact
@@ -133,7 +133,7 @@ class WarehouseInventory extends Component {
                   {this.state.warehouseDetail.name}
                 </h1>
                 <Link
-                  to={`/warehouse/${this.props.match.params.id}/edit`}
+                  to={`/warehouses/${this.props.match.params.id}/edit`}
                   className="items-warehouse__edit-link"
                 >
                   <div className="items-warehouse__edit-circle">
@@ -142,7 +142,7 @@ class WarehouseInventory extends Component {
                 </Link>
 
                 <Link
-                  to={`/warehouse/${this.props.match.params.id}/edit`}
+                  to={`/warehouses/${this.props.match.params.id}/edit`}
                   className="items-warehouse__edit-link2"
                 >
                   <div className="items-warehouse__edit-circle2">

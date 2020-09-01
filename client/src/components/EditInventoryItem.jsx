@@ -174,7 +174,7 @@ class EditInventoryItem extends React.Component {
                 flexDirection: "column",
               }}
             >
-              <label for="quantity">Quantity</label>
+              <label htmlFor="quantity">Quantity</label>
               <input
                 name="quantity"
                 type="text"
