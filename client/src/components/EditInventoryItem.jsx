@@ -197,6 +197,7 @@ class EditInventoryItem extends React.Component {
           <button className="add-warehouse__cancel-btn">Cancel</button>
           <button className="add-warehouse__save-add-btn">Save</button>
         </div>
+      
       </form>
     );
   }
